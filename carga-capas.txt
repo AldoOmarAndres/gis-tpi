@@ -1,0 +1,93 @@
+shp2pgsql -c -I -s 26918 Actividades_Agropecuarias.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Actividades_Economicas.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Complejo_de_Energia_Ene.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Curso_de_Agua_Hid.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Curvas_de_Nivel.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Edif_Construcciones_Turisticas.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Edif_Depor_y_Esparcimiento.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Edif_Educacion.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Edif_Religiosos.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Edificio_de_Seguridad_IPS.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Edificio_Publico_IPS.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Edificios_Ferroviarios.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Edificio_de_Salud_IPS.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Ejido.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Espejo_de_Agua_Hid.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Estructuras_portuarias.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Infraestructura_Aeroportuaria_Punto.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Infraestructura_Hidro.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Isla.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Limite_Politico_Administrativo_Lim.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Lineas_de_Conducción_Ene.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Localidades.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Marcas_y_Señales.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Muro_Embalse.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Obra_de_Comunicación.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Obra_Portuaria.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Otras_Edificaciones.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Provincias.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Pais_Lim.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Puente_Red_Vial_Puntos.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Puntos_de_Alturas_Topograficas.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Puntos_del_Terreno.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Red_ferroviaria.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Red_Vial.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Salvado_de_Obstaculo.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Señalizaciones.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Sue_congelado.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Sue_consolidado.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Sue_Costero.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Sue_Hidromorfologico.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Sue_No_Consolidado.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Veg_Arborea.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Veg_Arbustiva.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Veg_Cultivos.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 veg_Hidrofila.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Veg_Suelo_Desnudo.shp | psql -d tpi_db -U user;
+
+shp2pgsql -c -I -s 26918 Vias_Secundarias.shp | psql -d tpi_db -U user;
