@@ -1,3 +1,5 @@
+# Cada línea carga un archivo `.shp` a la base de datos PostgreSQL con la extensión PostGIS.
+# `find | grep -E "*.shp$"` en la carpeta de las capas obtiene los nombres de los archivos `.shp`.
 shp2pgsql -c -I -s 26918 Actividades_Agropecuarias.shp | psql -d tpi_db -U user;
 
 shp2pgsql -c -I -s 26918 Actividades_Economicas.shp | psql -d tpi_db -U user;

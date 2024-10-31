@@ -1,47 +1,55 @@
-# Guía de instalación
-La guía parte del supuesto que ya se tiene instalada la máquina virtual propuesta por la catedra.
+# TPI para Sistemas de Información Geográficos
 
-## Crear BD
-Se tiene que crear una BD para el proyecto, para esto hacer lo siguiente:
-1. Abrir pgAdmin
-2. Crear una nueva base de datos (en este caso se la nombro ´´´tpi_bd´´´ )
-3. Ejecutar el comando: ´´´CREATE EXTENSION postgis´´´
+TPI realizado por el grupo 4 para la cursada 2024 de Sistemas de Información Geográficos, asignatura de Ingeniería en Sistemas de Información de la UTN FRRe.
 
+## Guía de instalación
 
-## Cargar capas a BD
-Descargamos las capas proporcionadas por la catedra, y descomprimimos el archivo, dejandolo en "Downloads" o donde se prefiera
+Esta guía supone que ya se tiene instalada la máquina virtual otorgada por la cátedra.
 
-Para cargar las capas, ejecutamos los comandos que se encuentran en el archivo ´´´carga-capas.txt´´´ en la terminal. 
-(Tenemos que estar posicionados en donde se encuentran las capas descomprimidas)
+### 1. Crear BD
 
+Para crear una base de datos PostgreSQL con la extensión PostGIS:
 
-## Cargar capas a QGIS
-1. Ir a Data Source Manager > PostgreSQL
-2. Crear una nueva conexión de la BD creada
-3. Importar todos los esquemas de public
-4. Hacer click en "Add"
+1. Abrir pgAdmin.
+2. Crear una nueva base de datos de nombre `tpi_bd`.
+3. Ejecutar el comando SQL `CREATE EXTENSION postgis`.
 
+### Cargar capas a la BD
 
-## Configurar Servidor
-Para configurar el servidor de qgis hay que:
-1. Ir a Project > Properties
-2. Services Capabilities
-    . Habilitar Services Capabilities
-    . Los demas campos son opcionales, cargar a preferencia
-3. WMS
-    . Habilitar Advertised extent
-    . Habilitar CRS y agregar: 'EPSG:4326' y 'EPSG:22175'
-    . Activar 2do y 3er checkbox
-4. WMTS
-    . Publicar todas las capas
-    . Publicar los CRS
-5. WFS
-    . Publicar todo
-6. Hacer click en "Aplly" y "OK"
+1. Descargar el archivo comprimido proporcionado por la cátedra con las capas del SIG IGN.
+2. Descomprimir el archivo .zip descargado.
+3. Estando posicionados en la carpeta donde se encuentran los archivos descomprimidos de las capas, ejecutar el script entero de `cargar-capas.sh` para cargar las capas a la base de datos.
 
+### Cargar capas a QGIS
 
-Guardar ahora el archivo como TPI.qgs
+1. En el proyecto QGIS, ir a Data Source Manager > PostgreSQL.
+2. Crear una nueva conexión de la BD creada.
+3. Importar todos los esquemas de `public`.
+4. Hacer click en Add.
 
-Ejecutar el comando: "sudo mv /home/user/TPI.qgs /var/www/html/" -> suponiendo que el archivo está en esa dirección, editar según sea necesario.
+### Configurar servidor de capas
 
-Probar que el servidor está corriendo buscando en el navegador: "http://localhost/cgi-bin/qgis_mapserv.fcgi?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities&map=/var/www/html/TPI.qgs"
+Para configurar el servidor de QGIS hay que:
+
+1. Ir a Project > Properties.
+2. En Services Capabilities:
+   - Habilitar Services Capabilities.
+   - Los demas campos son opcionales, cargar a preferencia.
+3. En WMS:
+   - Habilitar Advertised extent.
+   - Habilitar CRS y agregar: 'EPSG:4326' y 'EPSG:22175'.
+   - Activar 2do y 3er checkbox.
+4. En WMTS:
+   - Publicar todas las capas.
+   - Publicar los CRS.
+5. En WFS:
+   - Publicar todo.
+6. Hacer click en Apply y Ok.
+
+Guardar ahora el archivo como `TPI.qgs` y ejecutar el siguiente comando:
+
+```
+sudo mv /home/user/TPI.qgs /var/www/html/
+```
+
+El servidor debería responder en http://localhost/cgi-bin/qgis_mapserv.fcgi?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities&map=/var/www/html/TPI.qgs
