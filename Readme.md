@@ -11,7 +11,7 @@ Esta guía supone que ya se tiene instalada la máquina virtual otorgada por la 
 Para crear una base de datos PostgreSQL con la extensión PostGIS:
 
 1. Abrir pgAdmin.
-2. Crear una nueva base de datos de nombre `tpi_bd`.
+2. Crear una nueva base de datos de nombre `tpi_db`.
 3. Ejecutar el comando SQL `CREATE EXTENSION postgis`.
 
 ### Cargar capas a la BD
