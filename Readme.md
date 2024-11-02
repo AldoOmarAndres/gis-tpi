@@ -6,7 +6,7 @@ TPI realizado por el grupo 4 para la cursada 2024 de Sistemas de Información Ge
 
 Esta guía supone que ya se tiene instalada la máquina virtual otorgada por la cátedra.
 
-### 1. Crear BD
+### 1. Crear base de datos
 
 Para crear una base de datos PostgreSQL con la extensión PostGIS:
 
@@ -14,20 +14,20 @@ Para crear una base de datos PostgreSQL con la extensión PostGIS:
 2. Crear una nueva base de datos de nombre `tpi_db`.
 3. Ejecutar el comando SQL `CREATE EXTENSION postgis`.
 
-### Cargar capas a la BD
+### 2. Cargar capas a la base de datos
 
 1. Descargar el archivo comprimido proporcionado por la cátedra con las capas del SIG IGN.
 2. Descomprimir el archivo .zip descargado.
 3. Estando posicionados en la carpeta donde se encuentran los archivos descomprimidos de las capas, ejecutar el script entero de `cargar-capas.sh` para cargar las capas a la base de datos.
 
-### Cargar capas a QGIS
+### 3. Cargar capas al proyecto QGIS
 
 1. En el proyecto QGIS, ir a Data Source Manager > PostgreSQL.
 2. Crear una nueva conexión de la BD creada.
 3. Importar todos los esquemas de `public`.
 4. Hacer click en Add.
 
-### Configurar servidor de capas
+### 4. Configurar servidor del proyecto QGIS
 
 Para configurar el servidor de QGIS hay que:
 
@@ -37,14 +37,8 @@ Para configurar el servidor de QGIS hay que:
    - Los demas campos son opcionales, cargar a preferencia.
 3. En WMS:
    - Habilitar Advertised extent.
-   - Habilitar CRS y agregar: 'EPSG:4326' y 'EPSG:22175'.
    - Activar 2do y 3er checkbox.
-4. En WMTS:
-   - Publicar todas las capas.
-   - Publicar los CRS.
-5. En WFS:
-   - Publicar todo.
-6. Hacer click en Apply y Ok.
+4. Hacer click en Apply y Ok.
 
 Guardar ahora el archivo como `TPI.qgs` y ejecutar el siguiente comando:
 
