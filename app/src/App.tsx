@@ -7,8 +7,7 @@ import { useEffect } from "react";
 function App() {
   useEffect(() => {
     // URL del servicio WMS en QGIS Server
-    const URL =
-      "http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?MAP=C:/Users/anbra/Desktop/TPI.qgs";
+    const URL = import.meta.env.VITE_QGIS_SERVER_URL;
 
     // Crear la capa WMS
     const wmsLayer = new TileLayer({
