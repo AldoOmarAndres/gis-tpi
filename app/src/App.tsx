@@ -30,7 +30,7 @@ function App() {
   }))
 
   useEffect(() => {
-    /* if (!mapRef.current) return;
+    if (!mapRef.current) return;
 
       // Crear el mapa
       const mapa = new Map({
@@ -57,13 +57,13 @@ function App() {
         }),
       });
   
-      setMap(mapa); */
+      setMap(mapa);
       console.log(capasVisibles)
       console.log("Solo trues",capasArray.filter(c => c.isVisible))
 
     // Limpiar el mapa cuando el componente se desmonte
-    //return () => map?.setTarget(undefined);
-    //No me queda claro que hace esto, lo tiró el amigo, lo comento x ahora
+    return () => map?.setTarget(undefined);
+    
   }, [capasVisibles]);
 
 
@@ -75,6 +75,7 @@ function App() {
   ); */
 
     // Manejar cambios de visibilidad de capas
+    //FIX: capaz agregar un arreglo de las capas visibles e ir agregando y sacando según el check de las capas
     const toggleCapa = (capaSelected: string) => {
       const capa = capasArray.find((c) => c.nombre === capaSelected);
       //no la pense demasiado
@@ -82,8 +83,7 @@ function App() {
         capa.isVisible = !capa.isVisible;
       }
       console.log(capa)
-      setCapasVisibles(capasArray.filter(c => c.isVisible).length)
-      
+      setCapasVisibles(capasArray.filter(c => c.isVisible).length)  
     };
 
   return (
