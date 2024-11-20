@@ -11,14 +11,14 @@ Esta guía supone que ya se tiene instalada la máquina virtual otorgada por la 
 Para crear una base de datos PostgreSQL con la extensión PostGIS:
 
 1. Abrir pgAdmin.
-2. Crear una nueva base de datos de nombre `tpi_db`.
+2. Crear una nueva base de datos con nombre `tpi_db`.
 3. Ejecutar el comando SQL `CREATE EXTENSION postgis`.
 
 ### 2. Cargar capas a la base de datos
 
 1. Descargar el archivo comprimido proporcionado por la cátedra con las capas del SIG IGN.
 2. Descomprimir el archivo .zip descargado.
-3. Estando posicionados en la carpeta donde se encuentran los archivos descomprimidos de las capas, ejecutar el script entero de `cargar-capas.sh` para cargar las capas a la base de datos.
+3. Con la terminal posicionada en la carpeta donde se encuentran los archivos .shp, ejecutar el script entero de `cargar-capas.sh` para cargar las capas a la base de datos.
 
 ### 3. Cargar capas al proyecto QGIS
 
@@ -33,12 +33,12 @@ Para configurar el servidor de QGIS hay que:
 
 1. Ir a Project > Properties.
 2. En Services Capabilities:
-   - Habilitar Services Capabilities.
-   - Los demas campos son opcionales, cargar a preferencia.
+   - Habilitar "Services Capabilities".
+   - Cargar a preferencia el resto de campos.
 3. En WMS:
-   - Habilitar Advertised extent.
-   - Activar 2do y 3er checkbox.
-4. Hacer click en Apply y Ok.
+   - Habilitar "Advertised extent".
+   - Activar los checkboxs "Use attribute form settings for GetFeatureInfo respose" y "Add geometry to feature response".
+4. Hacer click en "Apply" y luego en "Ok".
 
 Guardar ahora el archivo como `TPI.qgs` y ejecutar el siguiente comando:
 
