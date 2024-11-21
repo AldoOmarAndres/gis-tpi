@@ -50,14 +50,12 @@ El servidor debería responder en http://localhost/cgi-bin/qgis_mapserv.fcgi?SER
 
 ## Guía para exportar estilos de capa de QGIS
 
-Parte del TPI es definir la simbología para cada capa. Esa simbología la guardamos en la carpeta `layer_styles/` de este repositorio para trabajar de manera colaborativa.
-
-Para exportar un estilo de capa de QGIS:
+Parte del TPI consiste en definir la simbología de cada capa. Esta simbología se guarda en la carpeta `layer_styles/` de este repositorio para poder trabajar de manera colaborativa.
 
 1. Hacer un click izquierdo en una capa.
 2. Seleccionar "Properties..." de esa capa.
 3. Ir al menú dropdown "Style" que se encuentra en la esquina inferior izquierda del menú con las propiedades.
-4. Para exportar, seleccionar "Save Style...". Luego seleccionar el botón "..." del input "File", dirigirse a la carpeta `layer_styles/` del repositorio, y guardar el archivo con nombre igual al de la capa cuyo estilo se está guardando.
-5. Para importar, seleccionar "Load Style...". Luego seleccionar el botón "..." del input "File", dirigirse a la carpeta `layer_styles/` del repositorio, y seleccionar el archivo con nombre igual al de la capa cuyo estilo se está guardando.
+4. Para exportar el estilo de capa, seleccionar "Save Style...". Luego seleccionar el botón "..." del input "File", dirigirse a la carpeta `layer_styles/` del repositorio, y guardar el archivo con nombre igual al de la capa cuyo estilo se está guardando.
+5. Para importar un estilo de capa, seleccionar "Load Style...". Luego seleccionar el botón "..." del input "File", dirigirse a la carpeta `layer_styles/` del repositorio, y seleccionar el archivo con nombre igual al de la capa cuyo estilo se está guardando.
 
-Para que no haya problemas al compartir estilos entre los distintos archivos del proyecto en las distintas computadoras, **es importante que los nombres de las capas en QGIS sean los definidos en `cargar-capas.sh`**.
+Para que no haya problemas al compartir estilos entre los distintos proyectos en las distintas computadoras, **es importante que los nombres de las capas en QGIS sean los definidos en `cargar-capas.sh`**.
