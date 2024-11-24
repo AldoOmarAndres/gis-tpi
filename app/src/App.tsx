@@ -39,7 +39,8 @@ function App() {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const [map, setMap] = useState<Map | null>(null);
   const [capasVisibles, setCapasVisibles] = useState<string[]>([]);
-  const [crc, setCrc] = useState<string>("EPSG:22175")
+  const [crc, setCrc] = useState<string>("EPSG:22175");
+
 
   useEffect(() => {
     if (!mapRef.current) return;
@@ -75,7 +76,7 @@ function App() {
 
     // Limpiar el mapa cuando el componente se desmonte
     return () => map?.setTarget(undefined);
-  }, [capasVisibles]);
+  }, [capasVisibles, crc]);
 
   // Manejar cambios de visibilidad de capas
   const toggleCapa = (capaSelected: string) => {
@@ -105,11 +106,33 @@ function App() {
 
   return (
     <div style={{ display: "flex" }}>
+      <div style={{ width: "280px", padding: "10px", background: "gray" }}>
+      <h3>CRC</h3>
+      <div style={{ marginBottom: "20px" }}>
+        <label style={{ marginRight: "10px" }}>
+          <input
+            type="radio"
+            value="EPSG:22175"
+            checked={crc === "EPSG:22175"}
+            onChange={() => setCrc("EPSG:22175")}
+          />
+          EPSG:22175
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="EPSG:4326"
+            checked={crc === "EPSG:4326"}
+            onChange={() => setCrc("EPSG:4326")}
+          />
+          EPSG:4326
+        </label>
+      </div>
+
       {/* Menú de capas 
       // TODO: mejorar visual de listado
           //Se listan con nombres incompletos, los mismos que en array "CAPAS"
       */}
-      <div style={{ width: "280px", padding: "10px", background: "gray" }}>
         <h3>Capas</h3>
         <ul style={{ listStyle: "none", padding: 0 }}>
           {capasArray.map((capa) => (
