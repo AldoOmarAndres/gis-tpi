@@ -1,4 +1,4 @@
-const CAPAS = [
+const LAYER_IDS = [
   "actividades_agropecuarias",
   "actividades_economicas",
   "complejo_de_energia_ene",
@@ -48,4 +48,4 @@ const CAPAS = [
   "vias_secundarias",
 ];
 
-export default CAPAS;
+export default LAYER_IDS;
