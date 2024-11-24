@@ -3,11 +3,7 @@ import "./App.css";
 import { OSM, TileWMS } from "ol/source";
 import { View, Map } from "ol";
 import { useEffect, useRef, useState } from "react";
-import VectorSource from "ol/source/Vector";
-import GeoJSON from "ol/format/GeoJSON.js";
-import VectorLayer from "ol/layer/Vector";
 import { fromLonLat } from "ol/proj";
-import { defaults as defaultControls } from "ol/control";
 import "ol/ol.css";
 import CAPAS from "./capas.ts";
 
@@ -17,30 +13,28 @@ type CapaParams = {
   isVisible: boolean;
 };
 
-const capasArray: CapaParams[] = [];
-CAPAS.map((c) =>
-  capasArray.push({
-    id: c,
-    nombre: c
-      .toLocaleLowerCase()
-      .split("_")
-      .map((nombre) => nombre.charAt(0).toUpperCase() + nombre.slice(1))
-      .join(" "),
-    isVisible: false,
-  })
-);
+const capasArray: CapaParams[] = CAPAS.map((c) => ({
+  id: c,
+  // TODO: sería mejor especificar un nombre legible para cada capa, no derivarlo del identificador
+  nombre: c
+    .toLocaleLowerCase()
+    .split("_")
+    .map((nombre) => nombre.charAt(0).toUpperCase() + nombre.slice(1))
+    .join(" "),
+  isVisible: false,
+}));
 
 const osm = new TileLayer({
   source: new OSM(),
 });
 
 const URL = import.meta.env.VITE_QGIS_SERVER_URL;
+
 function App() {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const [map, setMap] = useState<Map | null>(null);
   const [capasVisibles, setCapasVisibles] = useState<string[]>([]);
   const [crc, setCrc] = useState<string>("EPSG:22175");
-
 
   useEffect(() => {
     if (!mapRef.current) return;
@@ -48,7 +42,8 @@ function App() {
     // Crear el mapa
     const mapa = new Map({
       target: mapRef.current,
-      layers: [osm,
+      layers: [
+        osm,
         new TileLayer({
           source: new TileWMS({
             url: "" + URL,
@@ -63,7 +58,6 @@ function App() {
             serverType: "qgis",
           }),
         }),
-        
       ],
       view: new View({
         center: fromLonLat([-64.0, -34.0]), // Coordenadas iniciales para Arg
@@ -90,7 +84,6 @@ function App() {
 
       console.log("Lo incluye?", capasVisibles.includes(capa.id));
 
-      
       if (!capasVisibles.includes(newCapa.id)) {
         newCapa.isVisible
           ? setCapasVisibles((prev) => [...prev, newCapa.id])
@@ -107,29 +100,29 @@ function App() {
   return (
     <div style={{ display: "flex" }}>
       <div style={{ width: "280px", padding: "10px", background: "gray" }}>
-      <h3>CRC</h3>
-      <div style={{ marginBottom: "20px" }}>
-        <label style={{ marginRight: "10px" }}>
-          <input
-            type="radio"
-            value="EPSG:22175"
-            checked={crc === "EPSG:22175"}
-            onChange={() => setCrc("EPSG:22175")}
-          />
-          EPSG:22175
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="EPSG:4326"
-            checked={crc === "EPSG:4326"}
-            onChange={() => setCrc("EPSG:4326")}
-          />
-          EPSG:4326
-        </label>
-      </div>
+        <h3>CRC</h3>
+        <div style={{ marginBottom: "20px" }}>
+          <label style={{ marginRight: "10px" }}>
+            <input
+              type="radio"
+              value="EPSG:22175"
+              checked={crc === "EPSG:22175"}
+              onChange={() => setCrc("EPSG:22175")}
+            />
+            EPSG:22175
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="EPSG:4326"
+              checked={crc === "EPSG:4326"}
+              onChange={() => setCrc("EPSG:4326")}
+            />
+            EPSG:4326
+          </label>
+        </div>
 
-      {/* Menú de capas 
+        {/* Menú de capas 
       // TODO: mejorar visual de listado
           //Se listan con nombres incompletos, los mismos que en array "CAPAS"
       */}

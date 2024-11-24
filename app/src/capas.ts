@@ -47,4 +47,5 @@ const CAPAS = [
   "veg_suelo_desnudo",
   "vias_secundarias",
 ];
-export default CAPAS
+
+export default CAPAS;
