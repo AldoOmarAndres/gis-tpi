@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { fromLonLat } from "ol/proj";
 import "ol/ol.css";
 import LAYER_IDS from "./capas.ts";
+import CrsSelector from "./components/CrsSelector.tsx";
 
 type Layer = {
   id: string;
@@ -13,10 +14,10 @@ type Layer = {
   isVisible: boolean;
 };
 
-const layers: Layer[] = LAYER_IDS.map((c) => ({
-  id: c,
+const layers: Layer[] = LAYER_IDS.map((layer_id) => ({
+  id: layer_id,
   // TODO: sería mejor especificar un nombre legible para cada capa, no derivarlo del identificador
-  name: c
+  name: layer_id
     .toLocaleLowerCase()
     .split("_")
     .map((name) => name.charAt(0).toUpperCase() + name.slice(1))
@@ -35,10 +36,10 @@ const view = new View({
   zoom: 5,
 });
 
-function App() {
+export default function App() {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const [visibleLayers, setVisibleLayers] = useState<string[]>([]);
-  const [crc, setCrc] = useState<string>("EPSG:22175");
+  const [crs, ] = useState<string>("EPSG:22175");
 
   useEffect(() => {
     if (!mapContainerRef.current) return;
@@ -57,7 +58,7 @@ function App() {
               REQUEST: "GetMap",
               LAYERS: visibleLayers,
               FORMAT: "image/png",
-              CRS: crc,
+              CRS: crs,
             },
           }),
         }),
@@ -67,7 +68,7 @@ function App() {
 
     // Limpiar el mapa cuando el componente se desmonte
     return () => map?.setTarget(undefined);
-  }, [visibleLayers, crc]);
+  }, [visibleLayers, crs]);
 
   // Manejar cambios de visibilidad de capas
   function toggleLayerVisibility(selectedLayer: string) {
@@ -91,27 +92,7 @@ function App() {
   return (
     <div style={{ display: "flex" }}>
       <div style={{ width: "280px", padding: "10px", background: "gray" }}>
-        <h3>CRC</h3>
-        <div style={{ marginBottom: "20px" }}>
-          <label style={{ marginRight: "10px" }}>
-            <input
-              type="radio"
-              value="EPSG:22175"
-              checked={crc === "EPSG:22175"}
-              onChange={() => setCrc("EPSG:22175")}
-            />
-            EPSG:22175
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="EPSG:4326"
-              checked={crc === "EPSG:4326"}
-              onChange={() => setCrc("EPSG:4326")}
-            />
-            EPSG:4326
-          </label>
-        </div>
+        <CrsSelector />
 
         {/* Menú de capas 
         TODO: mejorar visual de listado
@@ -142,5 +123,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
