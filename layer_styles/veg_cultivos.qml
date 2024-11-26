@@ -1,18 +1,18 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis version="3.34.11-Prizren" readOnly="0" labelsEnabled="0" simplifyMaxScale="1" styleCategories="AllStyleCategories" simplifyLocal="1" symbologyReferenceScale="-1" simplifyDrawingTol="1" maxScale="0" minScale="100000000" simplifyDrawingHints="1" simplifyAlgorithm="0" hasScaleBasedVisibilityFlag="0">
+<qgis maxScale="0" hasScaleBasedVisibilityFlag="0" labelsEnabled="0" version="3.40.1-Bratislava" autoRefreshTime="0" simplifyLocal="1" simplifyDrawingHints="1" simplifyDrawingTol="1" styleCategories="AllStyleCategories" minScale="100000000" simplifyAlgorithm="0" autoRefreshMode="Disabled" simplifyMaxScale="1" readOnly="0" symbologyReferenceScale="-1">
   <flags>
     <Identifiable>1</Identifiable>
     <Removable>1</Removable>
     <Searchable>1</Searchable>
     <Private>0</Private>
   </flags>
-  <temporal fixedDuration="0" accumulate="0" mode="0" durationUnit="min" startExpression="" endExpression="" limitMode="0" startField="" endField="" durationField="" enabled="0">
+  <temporal fixedDuration="0" enabled="0" endField="" durationField="" accumulate="0" durationUnit="min" startExpression="" endExpression="" mode="0" limitMode="0" startField="">
     <fixedRange>
       <start></start>
       <end></end>
     </fixedRange>
   </temporal>
-  <elevation showMarkerSymbolInSurfacePlots="0" extrusionEnabled="0" binding="Centroid" type="IndividualFeatures" respectLayerSymbol="1" clamping="Terrain" zoffset="0" zscale="1" extrusion="0" symbology="Line">
+  <elevation type="IndividualFeatures" symbology="Line" zscale="1" respectLayerSymbol="1" extrusion="0" zoffset="0" binding="Centroid" extrusionEnabled="0" showMarkerSymbolInSurfacePlots="0" clamping="Terrain">
     <data-defined-properties>
       <Option type="Map">
         <Option type="QString" name="name" value=""/>
@@ -21,7 +21,7 @@
       </Option>
     </data-defined-properties>
     <profileLineSymbol>
-      <symbol frame_rate="10" alpha="1" clip_to_extent="1" is_animated="0" type="line" name="" force_rhr="0">
+      <symbol type="line" alpha="1" clip_to_extent="1" is_animated="0" name="" force_rhr="0" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option type="QString" name="name" value=""/>
@@ -29,7 +29,7 @@
             <Option type="QString" name="type" value="collection"/>
           </Option>
         </data_defined_properties>
-        <layer class="SimpleLine" locked="0" pass="0" enabled="1" id="{23ee3f81-d8d1-4e26-97de-f747fc96f337}">
+        <layer class="SimpleLine" enabled="1" locked="0" pass="0" id="{23ee3f81-d8d1-4e26-97de-f747fc96f337}">
           <Option type="Map">
             <Option type="QString" name="align_dash_pattern" value="0"/>
             <Option type="QString" name="capstyle" value="square"/>
@@ -41,7 +41,7 @@
             <Option type="QString" name="dash_pattern_offset_unit" value="MM"/>
             <Option type="QString" name="draw_inside_polygon" value="0"/>
             <Option type="QString" name="joinstyle" value="bevel"/>
-            <Option type="QString" name="line_color" value="196,60,57,255"/>
+            <Option type="QString" name="line_color" value="196,60,57,255,rgb:0.7686274509803922,0.23529411764705882,0.22352941176470589,1"/>
             <Option type="QString" name="line_style" value="solid"/>
             <Option type="QString" name="line_width" value="0.6"/>
             <Option type="QString" name="line_width_unit" value="MM"/>
@@ -70,7 +70,7 @@
       </symbol>
     </profileLineSymbol>
     <profileFillSymbol>
-      <symbol frame_rate="10" alpha="1" clip_to_extent="1" is_animated="0" type="fill" name="" force_rhr="0">
+      <symbol type="fill" alpha="1" clip_to_extent="1" is_animated="0" name="" force_rhr="0" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option type="QString" name="name" value=""/>
@@ -78,15 +78,15 @@
             <Option type="QString" name="type" value="collection"/>
           </Option>
         </data_defined_properties>
-        <layer class="SimpleFill" locked="0" pass="0" enabled="1" id="{f97a5a56-75ba-4567-982b-50463cfbd240}">
+        <layer class="SimpleFill" enabled="1" locked="0" pass="0" id="{f97a5a56-75ba-4567-982b-50463cfbd240}">
           <Option type="Map">
             <Option type="QString" name="border_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
-            <Option type="QString" name="color" value="196,60,57,255"/>
+            <Option type="QString" name="color" value="196,60,57,255,rgb:0.7686274509803922,0.23529411764705882,0.22352941176470589,1"/>
             <Option type="QString" name="joinstyle" value="bevel"/>
             <Option type="QString" name="offset" value="0,0"/>
             <Option type="QString" name="offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
             <Option type="QString" name="offset_unit" value="MM"/>
-            <Option type="QString" name="outline_color" value="140,43,41,255"/>
+            <Option type="QString" name="outline_color" value="140,43,41,255,rgb:0.5490196078431373,0.16862745098039217,0.16078431372549021,1"/>
             <Option type="QString" name="outline_style" value="solid"/>
             <Option type="QString" name="outline_width" value="0.2"/>
             <Option type="QString" name="outline_width_unit" value="MM"/>
@@ -103,7 +103,7 @@
       </symbol>
     </profileFillSymbol>
     <profileMarkerSymbol>
-      <symbol frame_rate="10" alpha="1" clip_to_extent="1" is_animated="0" type="marker" name="" force_rhr="0">
+      <symbol type="marker" alpha="1" clip_to_extent="1" is_animated="0" name="" force_rhr="0" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option type="QString" name="name" value=""/>
@@ -111,18 +111,18 @@
             <Option type="QString" name="type" value="collection"/>
           </Option>
         </data_defined_properties>
-        <layer class="SimpleMarker" locked="0" pass="0" enabled="1" id="{6da1800d-d39f-4107-a64d-e2aa75ae6a51}">
+        <layer class="SimpleMarker" enabled="1" locked="0" pass="0" id="{6da1800d-d39f-4107-a64d-e2aa75ae6a51}">
           <Option type="Map">
             <Option type="QString" name="angle" value="0"/>
             <Option type="QString" name="cap_style" value="square"/>
-            <Option type="QString" name="color" value="196,60,57,255"/>
+            <Option type="QString" name="color" value="196,60,57,255,rgb:0.7686274509803922,0.23529411764705882,0.22352941176470589,1"/>
             <Option type="QString" name="horizontal_anchor_point" value="1"/>
             <Option type="QString" name="joinstyle" value="bevel"/>
             <Option type="QString" name="name" value="diamond"/>
             <Option type="QString" name="offset" value="0,0"/>
             <Option type="QString" name="offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
             <Option type="QString" name="offset_unit" value="MM"/>
-            <Option type="QString" name="outline_color" value="140,43,41,255"/>
+            <Option type="QString" name="outline_color" value="140,43,41,255,rgb:0.5490196078431373,0.16862745098039217,0.16078431372549021,1"/>
             <Option type="QString" name="outline_style" value="solid"/>
             <Option type="QString" name="outline_width" value="0.2"/>
             <Option type="QString" name="outline_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
@@ -144,9 +144,9 @@
       </symbol>
     </profileMarkerSymbol>
   </elevation>
-  <renderer-v2 forceraster="0" referencescale="-1" type="singleSymbol" enableorderby="0" symbollevels="0">
+  <renderer-v2 type="singleSymbol" enableorderby="0" forceraster="0" symbollevels="0" referencescale="-1">
     <symbols>
-      <symbol frame_rate="10" alpha="1" clip_to_extent="1" is_animated="0" type="fill" name="0" force_rhr="0">
+      <symbol type="fill" alpha="1" clip_to_extent="1" is_animated="0" name="0" force_rhr="0" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option type="QString" name="name" value=""/>
@@ -154,15 +154,15 @@
             <Option type="QString" name="type" value="collection"/>
           </Option>
         </data_defined_properties>
-        <layer class="SimpleFill" locked="0" pass="0" enabled="1" id="{76eac547-b952-4774-aa9b-119c0f3c3b2a}">
+        <layer class="SimpleFill" enabled="1" locked="0" pass="0" id="{76eac547-b952-4774-aa9b-119c0f3c3b2a}">
           <Option type="Map">
             <Option type="QString" name="border_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
-            <Option type="QString" name="color" value="190,178,151,255"/>
+            <Option type="QString" name="color" value="190,178,151,255,rgb:0.74509803921568629,0.69803921568627447,0.59215686274509804,1"/>
             <Option type="QString" name="joinstyle" value="bevel"/>
             <Option type="QString" name="offset" value="0,0"/>
             <Option type="QString" name="offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
             <Option type="QString" name="offset_unit" value="MM"/>
-            <Option type="QString" name="outline_color" value="35,35,35,255"/>
+            <Option type="QString" name="outline_color" value="35,35,35,255,rgb:0.13725490196078433,0.13725490196078433,0.13725490196078433,1"/>
             <Option type="QString" name="outline_style" value="solid"/>
             <Option type="QString" name="outline_width" value="0.26"/>
             <Option type="QString" name="outline_width_unit" value="MM"/>
@@ -180,6 +180,13 @@
     </symbols>
     <rotation/>
     <sizescale/>
+    <data-defined-properties>
+      <Option type="Map">
+        <Option type="QString" name="name" value=""/>
+        <Option name="properties"/>
+        <Option type="QString" name="type" value="collection"/>
+      </Option>
+    </data-defined-properties>
   </renderer-v2>
   <selection mode="Default">
     <selectionColor invalid="1"/>
@@ -190,13 +197,13 @@
   <blendMode>0</blendMode>
   <featureBlendMode>0</featureBlendMode>
   <layerOpacity>1</layerOpacity>
-  <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
+  <geometryOptions removeDuplicateNodes="0" geometryPrecision="0">
     <activeChecks type="StringList">
       <Option type="QString" value=""/>
     </activeChecks>
     <checkConfiguration/>
   </geometryOptions>
-  <legend showLabelLegend="0" type="default-vector"/>
+  <legend type="default-vector" showLabelLegend="0"/>
   <referencedLayers/>
   <fieldConfiguration>
     <field name="gid" configurationFlags="NoFlag">
@@ -390,33 +397,33 @@
     </field>
   </fieldConfiguration>
   <aliases>
-    <alias name="" field="gid" index="0"/>
-    <alias name="" field="tipo" index="1"/>
-    <alias name="" field="escala" index="2"/>
-    <alias name="" field="signo" index="3"/>
-    <alias name="" field="fuente" index="4"/>
-    <alias name="" field="operador" index="5"/>
-    <alias name="" field="dataset" index="6"/>
-    <alias name="" field="fclass" index="7"/>
-    <alias name="" field="responsabl" index="8"/>
-    <alias name="" field="cargo" index="9"/>
-    <alias name="" field="progreso" index="10"/>
-    <alias name="" field="t_act" index="11"/>
-    <alias name="" field="coord" index="12"/>
-    <alias name="" field="sp" index="13"/>
-    <alias name="" field="datum" index="14"/>
-    <alias name="" field="ac" index="15"/>
-    <alias name="" field="detalle" index="16"/>
-    <alias name="" field="actualizac" index="17"/>
-    <alias name="" field="igds_style" index="18"/>
-    <alias name="" field="igds_type" index="19"/>
-    <alias name="" field="igds_weigh" index="20"/>
-    <alias name="" field="rotation" index="21"/>
-    <alias name="" field="igds_color" index="22"/>
-    <alias name="" field="group" index="23"/>
-    <alias name="" field="igds_level" index="24"/>
-    <alias name="" field="length" index="25"/>
-    <alias name="" field="shape_area" index="26"/>
+    <alias name="" index="0" field="gid"/>
+    <alias name="" index="1" field="tipo"/>
+    <alias name="" index="2" field="escala"/>
+    <alias name="" index="3" field="signo"/>
+    <alias name="" index="4" field="fuente"/>
+    <alias name="" index="5" field="operador"/>
+    <alias name="" index="6" field="dataset"/>
+    <alias name="" index="7" field="fclass"/>
+    <alias name="" index="8" field="responsabl"/>
+    <alias name="" index="9" field="cargo"/>
+    <alias name="" index="10" field="progreso"/>
+    <alias name="" index="11" field="t_act"/>
+    <alias name="" index="12" field="coord"/>
+    <alias name="" index="13" field="sp"/>
+    <alias name="" index="14" field="datum"/>
+    <alias name="" index="15" field="ac"/>
+    <alias name="" index="16" field="detalle"/>
+    <alias name="" index="17" field="actualizac"/>
+    <alias name="" index="18" field="igds_style"/>
+    <alias name="" index="19" field="igds_type"/>
+    <alias name="" index="20" field="igds_weigh"/>
+    <alias name="" index="21" field="rotation"/>
+    <alias name="" index="22" field="igds_color"/>
+    <alias name="" index="23" field="group"/>
+    <alias name="" index="24" field="igds_level"/>
+    <alias name="" index="25" field="length"/>
+    <alias name="" index="26" field="shape_area"/>
   </aliases>
   <splitPolicies>
     <policy policy="Duplicate" field="gid"/>
@@ -447,63 +454,92 @@
     <policy policy="Duplicate" field="length"/>
     <policy policy="Duplicate" field="shape_area"/>
   </splitPolicies>
+  <duplicatePolicies>
+    <policy policy="Duplicate" field="gid"/>
+    <policy policy="Duplicate" field="tipo"/>
+    <policy policy="Duplicate" field="escala"/>
+    <policy policy="Duplicate" field="signo"/>
+    <policy policy="Duplicate" field="fuente"/>
+    <policy policy="Duplicate" field="operador"/>
+    <policy policy="Duplicate" field="dataset"/>
+    <policy policy="Duplicate" field="fclass"/>
+    <policy policy="Duplicate" field="responsabl"/>
+    <policy policy="Duplicate" field="cargo"/>
+    <policy policy="Duplicate" field="progreso"/>
+    <policy policy="Duplicate" field="t_act"/>
+    <policy policy="Duplicate" field="coord"/>
+    <policy policy="Duplicate" field="sp"/>
+    <policy policy="Duplicate" field="datum"/>
+    <policy policy="Duplicate" field="ac"/>
+    <policy policy="Duplicate" field="detalle"/>
+    <policy policy="Duplicate" field="actualizac"/>
+    <policy policy="Duplicate" field="igds_style"/>
+    <policy policy="Duplicate" field="igds_type"/>
+    <policy policy="Duplicate" field="igds_weigh"/>
+    <policy policy="Duplicate" field="rotation"/>
+    <policy policy="Duplicate" field="igds_color"/>
+    <policy policy="Duplicate" field="group"/>
+    <policy policy="Duplicate" field="igds_level"/>
+    <policy policy="Duplicate" field="length"/>
+    <policy policy="Duplicate" field="shape_area"/>
+  </duplicatePolicies>
   <defaults>
-    <default expression="" applyOnUpdate="0" field="gid"/>
-    <default expression="" applyOnUpdate="0" field="tipo"/>
-    <default expression="" applyOnUpdate="0" field="escala"/>
-    <default expression="" applyOnUpdate="0" field="signo"/>
-    <default expression="" applyOnUpdate="0" field="fuente"/>
-    <default expression="" applyOnUpdate="0" field="operador"/>
-    <default expression="" applyOnUpdate="0" field="dataset"/>
-    <default expression="" applyOnUpdate="0" field="fclass"/>
-    <default expression="" applyOnUpdate="0" field="responsabl"/>
-    <default expression="" applyOnUpdate="0" field="cargo"/>
-    <default expression="" applyOnUpdate="0" field="progreso"/>
-    <default expression="" applyOnUpdate="0" field="t_act"/>
-    <default expression="" applyOnUpdate="0" field="coord"/>
-    <default expression="" applyOnUpdate="0" field="sp"/>
-    <default expression="" applyOnUpdate="0" field="datum"/>
-    <default expression="" applyOnUpdate="0" field="ac"/>
-    <default expression="" applyOnUpdate="0" field="detalle"/>
-    <default expression="" applyOnUpdate="0" field="actualizac"/>
-    <default expression="" applyOnUpdate="0" field="igds_style"/>
-    <default expression="" applyOnUpdate="0" field="igds_type"/>
-    <default expression="" applyOnUpdate="0" field="igds_weigh"/>
-    <default expression="" applyOnUpdate="0" field="rotation"/>
-    <default expression="" applyOnUpdate="0" field="igds_color"/>
-    <default expression="" applyOnUpdate="0" field="group"/>
-    <default expression="" applyOnUpdate="0" field="igds_level"/>
-    <default expression="" applyOnUpdate="0" field="length"/>
-    <default expression="" applyOnUpdate="0" field="shape_area"/>
+    <default expression="" field="gid" applyOnUpdate="0"/>
+    <default expression="" field="tipo" applyOnUpdate="0"/>
+    <default expression="" field="escala" applyOnUpdate="0"/>
+    <default expression="" field="signo" applyOnUpdate="0"/>
+    <default expression="" field="fuente" applyOnUpdate="0"/>
+    <default expression="" field="operador" applyOnUpdate="0"/>
+    <default expression="" field="dataset" applyOnUpdate="0"/>
+    <default expression="" field="fclass" applyOnUpdate="0"/>
+    <default expression="" field="responsabl" applyOnUpdate="0"/>
+    <default expression="" field="cargo" applyOnUpdate="0"/>
+    <default expression="" field="progreso" applyOnUpdate="0"/>
+    <default expression="" field="t_act" applyOnUpdate="0"/>
+    <default expression="" field="coord" applyOnUpdate="0"/>
+    <default expression="" field="sp" applyOnUpdate="0"/>
+    <default expression="" field="datum" applyOnUpdate="0"/>
+    <default expression="" field="ac" applyOnUpdate="0"/>
+    <default expression="" field="detalle" applyOnUpdate="0"/>
+    <default expression="" field="actualizac" applyOnUpdate="0"/>
+    <default expression="" field="igds_style" applyOnUpdate="0"/>
+    <default expression="" field="igds_type" applyOnUpdate="0"/>
+    <default expression="" field="igds_weigh" applyOnUpdate="0"/>
+    <default expression="" field="rotation" applyOnUpdate="0"/>
+    <default expression="" field="igds_color" applyOnUpdate="0"/>
+    <default expression="" field="group" applyOnUpdate="0"/>
+    <default expression="" field="igds_level" applyOnUpdate="0"/>
+    <default expression="" field="length" applyOnUpdate="0"/>
+    <default expression="" field="shape_area" applyOnUpdate="0"/>
   </defaults>
   <constraints>
-    <constraint exp_strength="0" notnull_strength="1" field="gid" unique_strength="1" constraints="3"/>
-    <constraint exp_strength="0" notnull_strength="0" field="tipo" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="escala" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="signo" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="fuente" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="operador" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="dataset" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="fclass" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="responsabl" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="cargo" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="progreso" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="t_act" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="coord" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="sp" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="datum" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="ac" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="detalle" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="actualizac" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="igds_style" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="igds_type" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="igds_weigh" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="rotation" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="igds_color" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="group" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="igds_level" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="length" unique_strength="0" constraints="0"/>
-    <constraint exp_strength="0" notnull_strength="0" field="shape_area" unique_strength="0" constraints="0"/>
+    <constraint unique_strength="1" constraints="3" notnull_strength="1" field="gid" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="tipo" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="escala" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="signo" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="fuente" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="operador" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="dataset" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="fclass" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="responsabl" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="cargo" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="progreso" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="t_act" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="coord" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="sp" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="datum" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="ac" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="detalle" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="actualizac" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="igds_style" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="igds_type" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="igds_weigh" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="rotation" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="igds_color" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="group" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="igds_level" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="length" exp_strength="0"/>
+    <constraint unique_strength="0" constraints="0" notnull_strength="0" field="shape_area" exp_strength="0"/>
   </constraints>
   <constraintExpressions>
     <constraint exp="" desc="" field="gid"/>
@@ -535,7 +571,9 @@
     <constraint exp="" desc="" field="shape_area"/>
   </constraintExpressions>
   <expressionfields/>
-  <attributeactions/>
+  <attributeactions>
+    <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
+  </attributeactions>
   <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
     <columns/>
   </attributetableconfig>
