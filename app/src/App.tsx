@@ -7,6 +7,7 @@ import { fromLonLat } from "ol/proj";
 import "ol/ol.css";
 import LAYER_IDS from "./capas.ts";
 import CrsSelector from "./components/CrsSelector.tsx";
+import { useMap } from "./hooks/useMap.tsx";
 
 type Layer = {
   id: string;
@@ -39,7 +40,7 @@ const view = new View({
 export default function App() {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const [visibleLayers, setVisibleLayers] = useState<string[]>([]);
-  const [crs, ] = useState<string>("EPSG:22175");
+  const { crs } = useMap();
 
   useEffect(() => {
     if (!mapContainerRef.current) return;
@@ -65,6 +66,8 @@ export default function App() {
       ],
       view,
     });
+
+    console.log(crs);
 
     // Limpiar el mapa cuando el componente se desmonte
     return () => map?.setTarget(undefined);

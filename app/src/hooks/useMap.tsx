@@ -1,29 +1,11 @@
+import { CRS } from "@/models";
 import { useContext, createContext, useState, useMemo } from "react";
 
-export interface MapFiltros {
-  /** id de la cancha a reservar. */
-  idCancha?: number;
-  /** id del establecimiento a reservar. */
-  idEst?: number;
-  /** Busca disponibilidades que sean de esa disciplina. */
-  disciplina?: string;
-  /** Busca disponibilidades todavía no reservadas en esa fecha. */
-  fecha?: string;
-  /** Busca disponibilidades en esa provincia. */
-  provincia?: string;
-  /** Busca disponibilidades en esa localidad. Requiere un valor en `provincia`. */
-  localidad?: string;
-  /** Busca disponibilidades de canchas habilitadas (o deshabilitadas). */
-  habilitada?: boolean;
-}
-
 interface IMapContext {
-  /** Filtros de búsqueda. */
-  filtros: MapFiltros;
-  /** Sobreescribe todos los filtros. */
-  updateFiltros: React.Dispatch<React.SetStateAction<MapFiltros>>;
-  /** Actualiza un solo filtro. */
-  setFiltro: (filtro: keyof MapFiltros, valor: string | number) => void;
+  /** Sistema de Referencia de Coordenadas actual. */
+  crs: CRS | string;
+  /** Setter de `crs`. */
+  setCRS: (crs: CRS | string) => void;
 }
 
 interface MapProviderProps {
@@ -33,17 +15,12 @@ interface MapProviderProps {
 const MapContext = createContext<IMapContext | undefined>(undefined);
 
 export function MapProvider({ children }: MapProviderProps) {
-  const [filtros, updateFiltros] = useState<MapFiltros>({});
+  const [crs, updateCrs] = useState<CRS | string>(CRS.EPSG_22175);
 
-  const setFiltro = useMemo(
-    () => (filtro: keyof MapFiltros, valor?: string | number) => {
-      updateFiltros((prev) => ({ ...prev, [filtro]: valor }));
-    },
-    []
-  );
+  const setCRS = useMemo(() => (crs: CRS | string) => updateCrs(crs), []);
 
   return (
-    <MapContext.Provider value={{ filtros, updateFiltros, setFiltro }}>
+    <MapContext.Provider value={{ crs, setCRS }}>
       {children}
     </MapContext.Provider>
   );
@@ -52,7 +29,7 @@ export function MapProvider({ children }: MapProviderProps) {
 export function useMap() {
   const context = useContext(MapContext);
   if (context === undefined) {
-    throw new Error("Usar context dentro de un MapProvider");
+    throw new Error("Error al usar un MapContext por fuera de un MapProvider");
   }
   return context;
 }
