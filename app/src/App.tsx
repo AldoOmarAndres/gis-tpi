@@ -30,6 +30,11 @@ const osm = new TileLayer({
   source: new OSM(),
 });
 
+const view = new View({
+  center: fromLonLat([-64.0, -34.0]), // Coordenadas iniciales para Argentina
+  zoom: 5,
+});
+
 function App() {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const [visibleLayers, setVisibleLayers] = useState<string[]>([]);
@@ -57,10 +62,7 @@ function App() {
           }),
         }),
       ],
-      view: new View({
-        center: fromLonLat([-64.0, -34.0]), // Coordenadas iniciales para Argentina
-        zoom: 5,
-      }),
+      view,
     });
 
     // Limpiar el mapa cuando el componente se desmonte
