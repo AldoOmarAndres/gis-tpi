@@ -23,11 +23,11 @@ export default function CrsSelector() {
         <DropdownMenuLabel>SRC Actual</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuRadioGroup value={crs} onValueChange={setCRS}>
+          <DropdownMenuRadioItem defaultChecked value={CRS.EPSG_4326}>
+            EPSG:4326 - WGS 84
+          </DropdownMenuRadioItem>
           <DropdownMenuRadioItem value={CRS.EPSG_22175}>
             EPSG:22175
-          </DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value={CRS.EPSG_4326}>
-            EPSG:4326 - WGS 84
           </DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>

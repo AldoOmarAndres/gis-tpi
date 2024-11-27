@@ -15,7 +15,7 @@ interface MapProviderProps {
 const MapContext = createContext<IMapContext | undefined>(undefined);
 
 export function MapProvider({ children }: MapProviderProps) {
-  const [crs, updateCrs] = useState<CRS | string>(CRS.EPSG_22175);
+  const [crs, updateCrs] = useState<CRS | string>(CRS.EPSG_4326);
 
   const setCRS = useMemo(() => (crs: CRS | string) => updateCrs(crs), []);
 

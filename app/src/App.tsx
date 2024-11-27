@@ -32,11 +32,6 @@ const osm = new TileLayer({
   source: new OSM(),
 });
 
-const view = new View({
-  center: fromLonLat([-64.0, -34.0]), // Coordenadas iniciales para Argentina
-  zoom: 5,
-});
-
 export default function App() {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const [visibleLayers, setVisibleLayers] = useState<string[]>([]);
@@ -44,6 +39,13 @@ export default function App() {
 
   useEffect(() => {
     if (!mapContainerRef.current) return;
+
+    const view = new View({
+      // FIXME: no hay soporte nativo para EPGS:22175. La app se cae si se lo selecciona
+      projection: crs,
+      center: fromLonLat([-64.0, -34.0]), // Coordenadas iniciales para Argentina
+      zoom: 5,
+    });
 
     const map = new Map({
       target: mapContainerRef.current,
@@ -66,8 +68,6 @@ export default function App() {
       ],
       view,
     });
-
-    console.log(crs);
 
     // Limpiar el mapa cuando el componente se desmonte
     return () => map?.setTarget(undefined);
