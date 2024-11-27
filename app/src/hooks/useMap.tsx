@@ -46,6 +46,10 @@ interface IMapContext {
   crs: CRS | string;
   /** Setter de `crs`. */
   setCRS: Dispatch<SetStateAction<CRS | string>>;
+  /** Capa activa actualmente. Es la capa sobre la que se realizan las operaciones. */
+  activeLayer: TileLayer | undefined;
+  /** Setter de `activeLayer`. */
+  setActiveLayer: Dispatch<SetStateAction<TileLayer | undefined>>;
 }
 
 const MapContext = createContext<IMapContext | undefined>(undefined);
@@ -56,9 +60,10 @@ interface MapProviderProps {
 
 export function MapProvider({ children }: MapProviderProps) {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
+  const [map, setMap] = useState<Map>(defaultMap);
   const [crs, setCRS] = useState<CRS | string>(CRS.EPSG_4326);
   const [layers, setLayers] = useState<TileLayer[]>([]);
-  const [map, setMap] = useState<Map>(defaultMap);
+  const [activeLayer, setActiveLayer] = useState<TileLayer>();
 
   useEffect(() => {
     if (!mapContainerRef.current) return;
@@ -114,7 +119,17 @@ export function MapProvider({ children }: MapProviderProps) {
   }, [crs]);
 
   return (
-    <MapContext.Provider value={{ layers, crs, setCRS, mapContainerRef, map }}>
+    <MapContext.Provider
+      value={{
+        layers,
+        crs,
+        setCRS,
+        mapContainerRef,
+        map,
+        activeLayer,
+        setActiveLayer,
+      }}
+    >
       {children}
     </MapContext.Provider>
   );
