@@ -1058,7 +1058,7 @@
   <attributeactions>
     <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
   </attributeactions>
-  <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
+  <attributetableconfig actionWidgetStyle="dropDown" sortExpression="&quot;navegabili&quot;" sortOrder="0">
     <columns>
       <column hidden="0" name="gid" width="-1" type="field"/>
       <column hidden="0" name="nombre" width="-1" type="field"/>
