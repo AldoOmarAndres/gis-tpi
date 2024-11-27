@@ -4,6 +4,7 @@ import { Map, View } from "ol";
 import TileLayer from "ol/layer/Tile";
 import { fromLonLat } from "ol/proj";
 import { OSM, TileWMS } from "ol/source";
+import { defaults as defaultControls } from "ol/control";
 import {
   useContext,
   createContext,
@@ -38,6 +39,32 @@ const osm = new TileLayer({
   source: new OSM(),
 });
 
+const defaultMap = new Map({
+  target: "map",
+  layers: [
+    osm,
+    new TileLayer({
+      source: new TileWMS({
+        url: `${URL}`,
+        serverType: "qgis",
+        params: {
+          SERVICE: "WMS",
+          VERSION: "1.3.0",
+          REQUEST: "GetMap",
+          LAYERS: [],
+          FORMAT: "image/png",
+          CRS: CRS.EPSG_4326,
+        },
+      }),
+    }),
+  ],
+  view: new View({
+    projection: CRS.EPSG_4326,
+    center: fromLonLat([-64.0, -34.0], CRS.EPSG_4326), // Coordenadas iniciales para Argentina
+    zoom: 5,
+  }),
+});
+
 interface IMapContext {
   /** Capas del mapa. */
   layers: Layer[];
@@ -45,12 +72,12 @@ interface IMapContext {
   crs: CRS | string;
   /** Setter de `crs`. */
   setCRS: Dispatch<SetStateAction<CRS | string>>;
-  /** Capas actualmente visibles. */
-  visibleLayers: string[];
   /** Setter de `visibleLayers`. */
   setVisibleLayers: Dispatch<SetStateAction<string[]>>;
   /** Referencia al tag HTML que contiene el mapa renderizado con Open Layers. */
   mapContainerRef: MutableRefObject<HTMLDivElement | null>;
+  /** Mapa. Objeto de tipo `Map` de Open Layers. */
+  map: Map;
 }
 
 const MapContext = createContext<IMapContext | undefined>(undefined);
@@ -63,9 +90,19 @@ export function MapProvider({ children }: MapProviderProps) {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const [crs, setCRS] = useState<CRS | string>(CRS.EPSG_4326);
   const [visibleLayers, setVisibleLayers] = useState<string[]>([]);
+  const [map, setMap] = useState<Map>(defaultMap);
 
   useEffect(() => {
     if (!mapContainerRef.current) return;
+
+    const view = new View({
+      // FIXME: no hay soporte nativo para EPGS:22175. Por ahora la app se cae si se lo selecciona
+      projection: crs,
+      center: fromLonLat([-64.0, -34.0], CRS.EPSG_4326), // Coordenadas iniciales para Argentina
+      zoom: 5,
+    });
+
+    const controls = defaultControls({ zoom: false });
 
     const map = new Map({
       target: "map",
@@ -86,13 +123,11 @@ export function MapProvider({ children }: MapProviderProps) {
           }),
         }),
       ],
-      view: new View({
-        // FIXME: no hay soporte nativo para EPGS:22175. Por ahora la app se cae si se lo selecciona
-        projection: crs,
-        center: fromLonLat([-64.0, -34.0], CRS.EPSG_4326), // Coordenadas iniciales para Argentina
-        zoom: 5,
-      }),
+      view,
+      controls,
     });
+
+    setMap(map);
 
     // Limpiar el mapa cuando el componente se desmonte
     return () => map?.setTarget(undefined);
@@ -104,9 +139,9 @@ export function MapProvider({ children }: MapProviderProps) {
         layers,
         crs,
         setCRS,
-        visibleLayers,
         setVisibleLayers,
         mapContainerRef,
+        map,
       }}
     >
       {children}

@@ -1,13 +1,10 @@
 import "./App.css";
 import { CSSProperties } from "react";
 import "ol/ol.css";
-import { useMap } from "./hooks/useMap.tsx";
-import AppSidebar from "./components/AppSidebar.tsx";
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "./components/ui/sidebar.tsx";
+import { useMap } from "@/hooks/useMap.tsx";
+import AppSidebar from "@/components/AppSidebar.tsx";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar.tsx";
+import AppControls from "@/components/AppControls.tsx";
 
 export default function App() {
   const { mapContainerRef } = useMap();
@@ -23,7 +20,7 @@ export default function App() {
             ref={mapContainerRef}
             style={{ width: "100%", height: "100vh" }}
           ></div>
-          <SidebarTrigger className="absolute ml-2 mt-3" />
+          <AppControls />
         </SidebarInset>
       </SidebarProvider>
     </>
