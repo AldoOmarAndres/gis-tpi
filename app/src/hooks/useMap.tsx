@@ -4,7 +4,7 @@ import { Map, View } from "ol";
 import TileLayer from "ol/layer/Tile";
 import { fromLonLat } from "ol/proj";
 import { OSM, TileWMS } from "ol/source";
-import { defaults as defaultControls } from "ol/control";
+import { defaults as defaultControls, ScaleLine } from "ol/control";
 import {
   useContext,
   createContext,
@@ -102,7 +102,16 @@ export function MapProvider({ children }: MapProviderProps) {
       zoom: 5,
     });
 
-    const controls = defaultControls({ zoom: false });
+    // Control para la escala del mapa
+    const scaleControl = new ScaleLine({
+      units: "metric",
+      bar: true,
+      steps: 4,
+      text: true,
+      minWidth: 140,
+    });
+
+    const controls = defaultControls({ zoom: false }).extend([scaleControl]);
 
     const map = new Map({
       target: mapContainerRef.current,
