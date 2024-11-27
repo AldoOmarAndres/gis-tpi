@@ -15,25 +15,17 @@ import { Checkbox } from "@/components/ui/checkbox";
 export default function AppSidebar({
   ...props
 }: ComponentProps<typeof Sidebar>) {
-  const { layers, setVisibleLayers } = useMap();
+  const { layers } = useMap();
 
-  // Manejar cambios de visibilidad de capas
+  /** Alternar la visibilidad de la capa `selectedLayer`. */
   function toggleLayerVisibility(selectedLayer: string) {
-    const layer = layers.find((c) => c.id === selectedLayer);
+    const layer = layers.find((l) => l.get("id") === selectedLayer);
 
     if (!layer) {
       return;
     }
 
-    layer.isVisible = !layer.isVisible;
-
-    if (layer.isVisible) {
-      // Mostrar la capa
-      setVisibleLayers((prev: string[]) => [...prev, layer.id]);
-    } else {
-      // Ocultar la capa
-      setVisibleLayers((prev) => prev.filter((c) => c !== layer.id));
-    }
+    layer.setVisible(!layer.isVisible());
   }
 
   return (
@@ -53,18 +45,20 @@ export default function AppSidebar({
       <SidebarContent>
         <SidebarMenu className="gap-2">
           {layers.map((layer) => (
-            <SidebarMenuItem key={layer.id}>
+            <SidebarMenuItem key={layer.get("id")}>
               <SidebarMenuButton asChild>
                 <div className="flex space-x-2">
                   <Checkbox
-                    id={layer.id}
-                    onCheckedChange={() => toggleLayerVisibility(layer.id)}
+                    id={layer.get("id")}
+                    onCheckedChange={() =>
+                      toggleLayerVisibility(layer.get("id"))
+                    }
                   />
                   <label
-                    htmlFor={layer.id}
+                    htmlFor={layer.get("id")}
                     className="text-sm font-medium leading-none w-full peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   >
-                    {layer.name}
+                    {layer.get("name")}
                   </label>
                 </div>
               </SidebarMenuButton>
