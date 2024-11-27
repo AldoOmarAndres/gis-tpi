@@ -80,3 +80,4 @@ Para importar:
 1. Seleccionar "Plugins" > "Layer Style Loader" > "Load Layer Styles". Esto despliega un menú.
 2. Hacer click en "Select Parent Folder Path" para, mediante el buscador de archivos, ingresar la carpeta `layer_styles/`.
 3. Presionar el botón "Load Layer Styles" para cargar todos los archivos `*.qml` que existan en `layer_styles/`. Cada archivo es asociado a la capa que tenga el mismo nombre.
+
