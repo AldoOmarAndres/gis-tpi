@@ -146,7 +146,7 @@
   </elevation>
   <renderer-v2 forceraster="0" enableorderby="0" referencescale="-1" symbollevels="0" attr="tipo" type="categorizedSymbol">
     <categories>
-      <category symbol="0" uuid="{ba16bee8-80ff-47e4-b4c8-56693ee6bcca}" render="false" type="string" label="Pajonal, Malezal, Cardal, Cortaderal, Españal, Jarillal, Quiscal, Juncal, Totoral" value="Pajonal, Malezal, Cardal, Cortaderal, Españal, Jarillal, Quiscal, Juncal, Totoral"/>
+      <category symbol="0" uuid="{ba16bee8-80ff-47e4-b4c8-56693ee6bcca}" render="true" type="string" label="Pajonal, Malezal, Cardal, Cortaderal, Españal, Jarillal, Quiscal, Juncal, Totoral" value="Pajonal, Malezal, Cardal, Cortaderal, Españal, Jarillal, Quiscal, Juncal, Totoral"/>
       <category symbol="1" uuid="{2d2fe277-9b27-4cfd-a8bc-b258ea514e7b}" render="false" type="NULL" label="" value="NULL"/>
     </categories>
     <symbols>
