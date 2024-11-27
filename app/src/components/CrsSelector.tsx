@@ -17,9 +17,11 @@ export default function CrsSelector() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">{crs}</Button>
+        <Button variant="outline" className="w-min ml-2">
+          {crs}
+        </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56">
+      <DropdownMenuContent className="">
         <DropdownMenuLabel>SRC Actual</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuRadioGroup value={crs} onValueChange={setCRS}>

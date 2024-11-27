@@ -23,7 +23,7 @@ export default function App() {
             ref={mapContainerRef}
             style={{ width: "100%", height: "100vh" }}
           ></div>
-          <SidebarTrigger className="-ml-1 absolute" />
+          <SidebarTrigger className="absolute ml-2 mt-3" />
         </SidebarInset>
       </SidebarProvider>
     </>

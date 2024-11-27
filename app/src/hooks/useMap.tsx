@@ -8,13 +8,14 @@ import {
   useContext,
   createContext,
   useState,
-  useMemo,
   useEffect,
   useRef,
   MutableRefObject,
+  SetStateAction,
+  Dispatch,
 } from "react";
 
-type Layer = {
+export type Layer = {
   id: string;
   name: string;
   isVisible: boolean;
@@ -37,48 +38,17 @@ const osm = new TileLayer({
   source: new OSM(),
 });
 
-const view = new View({
-  // FIXME: no hay soporte nativo para EPGS:22175. La app se cae si se lo selecciona
-  projection: CRS.EPSG_4326,
-  center: fromLonLat([-64.0, -34.0]), // Coordenadas iniciales para Argentina
-  zoom: 5,
-});
-
-const defaultMap = new Map({
-  target: "map",
-  layers: [
-    osm,
-    new TileLayer({
-      source: new TileWMS({
-        url: `${URL}`,
-        serverType: "qgis",
-        params: {
-          SERVICE: "WMS",
-          VERSION: "1.3.0",
-          REQUEST: "GetMap",
-          LAYERS: [],
-          FORMAT: "image/png",
-          CRS: CRS.EPSG_4326,
-        },
-      }),
-    }),
-  ],
-  view,
-});
-
 interface IMapContext {
   /** Capas del mapa. */
   layers: Layer[];
   /** Sistema de Referencia de Coordenadas actual. */
   crs: CRS | string;
   /** Setter de `crs`. */
-  setCRS: (crs: CRS | string) => void;
-  /** Objeto `Map` de Open Layers. */
-  map: Map;
+  setCRS: Dispatch<SetStateAction<CRS | string>>;
   /** Capas actualmente visibles. */
   visibleLayers: string[];
   /** Setter de `visibleLayers`. */
-  setVisibleLayers: (visibleLayers: string[]) => void;
+  setVisibleLayers: Dispatch<SetStateAction<string[]>>;
   /** Referencia al tag HTML que contiene el mapa renderizado con Open Layers. */
   mapContainerRef: MutableRefObject<HTMLDivElement | null>;
 }
@@ -91,21 +61,11 @@ interface MapProviderProps {
 
 export function MapProvider({ children }: MapProviderProps) {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
-  const [crs, updateCrs] = useState<CRS | string>(CRS.EPSG_4326);
-  const [map, setMap] = useState<Map>(defaultMap);
+  const [crs, setCRS] = useState<CRS | string>(CRS.EPSG_4326);
   const [visibleLayers, setVisibleLayers] = useState<string[]>([]);
-
-  const setCRS = useMemo(() => (crs: CRS | string) => updateCrs(crs), []);
 
   useEffect(() => {
     if (!mapContainerRef.current) return;
-
-    const view = new View({
-      // FIXME: no hay soporte nativo para EPGS:22175. Por ahora la app se cae si se lo selecciona
-      projection: crs,
-      center: fromLonLat([-64.0, -34.0]), // Coordenadas iniciales para Argentina
-      zoom: 5,
-    });
 
     const map = new Map({
       target: "map",
@@ -126,10 +86,13 @@ export function MapProvider({ children }: MapProviderProps) {
           }),
         }),
       ],
-      view,
+      view: new View({
+        // FIXME: no hay soporte nativo para EPGS:22175. Por ahora la app se cae si se lo selecciona
+        projection: crs,
+        center: fromLonLat([-64.0, -34.0], CRS.EPSG_4326), // Coordenadas iniciales para Argentina
+        zoom: 5,
+      }),
     });
-
-    setMap(map);
 
     // Limpiar el mapa cuando el componente se desmonte
     return () => map?.setTarget(undefined);
@@ -141,7 +104,6 @@ export function MapProvider({ children }: MapProviderProps) {
         layers,
         crs,
         setCRS,
-        map,
         visibleLayers,
         setVisibleLayers,
         mapContainerRef,
