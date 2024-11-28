@@ -1,5 +1,5 @@
 import LAYER_IDS from "@/capas";
-import { CRS, OperationType } from "@/models";
+import { CRS } from "@/models";
 import { Map, View } from "ol";
 import TileLayer from "ol/layer/Tile";
 import { fromLonLat } from "ol/proj";
@@ -50,10 +50,6 @@ interface IMapContext {
   activeLayer: TileLayer | undefined;
   /** Setter de `activeLayer`. */
   setActiveLayer: Dispatch<SetStateAction<TileLayer | undefined>>;
-  /** Operación activa actualmente. */
-  activeOperation: OperationType;
-  /** Setter de `activeLayer`. */
-  setActiveOperation: Dispatch<SetStateAction<OperationType>>;
 }
 
 const MapContext = createContext<IMapContext | undefined>(undefined);
@@ -68,8 +64,6 @@ export function MapProvider({ children }: MapProviderProps) {
   const [crs, setCRS] = useState<CRS | string>(CRS.EPSG_4326);
   const [layers, setLayers] = useState<TileLayer[]>([]);
   const [activeLayer, setActiveLayer] = useState<TileLayer>();
-  const [activeOperation, setActiveOperation] =
-    useState<OperationType>("navigate");
 
   useEffect(() => {
     if (!mapContainerRef.current) return;
@@ -143,8 +137,6 @@ export function MapProvider({ children }: MapProviderProps) {
         map,
         activeLayer,
         setActiveLayer,
-        activeOperation,
-        setActiveOperation,
       }}
     >
       {children}

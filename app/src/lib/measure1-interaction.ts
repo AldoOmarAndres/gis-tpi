@@ -2,7 +2,7 @@ import { Map } from "ol";
 import { Coordinate } from "ol/coordinate";
 import BaseEvent from "ol/events/Event";
 import { LineString, Polygon } from "ol/geom";
-import Geometry, { Type } from "ol/geom/Geometry";
+import Geometry from "ol/geom/Geometry";
 import Draw, { DrawEvent } from "ol/interaction/Draw";
 import VectorLayer from "ol/layer/Vector";
 import Overlay, { Positioning } from "ol/Overlay.js";
@@ -11,17 +11,14 @@ import { getArea, getLength } from "ol/sphere";
 import { Fill, Stroke, Style } from "ol/style";
 import CircleStyle from "ol/style/Circle";
 
-function addOverlay(
-  map: Map,
-  offset = [0, -15],
-  positioning: Positioning = "bottom-center",
-  type: "primary" | "secondary" = "primary"
-) {
+function addOverlay(map: Map, isPrimary: boolean) {
   const element = document.createElement("div");
-  const className =
-    type === "primary"
-      ? "bg-slate-50 rounded-md p-2 leading-none opacity-90"
-      : "bg-slate-50 text-sm rounded-md p-2 leading-none opacity-90";
+  const offset = [0, -15];
+  const positioning: Positioning = "bottom-center";
+  const className = isPrimary
+    ? "bg-yellow-300 border-yellow-400 border-2 rounded-md p-2 leading-none opacity-90"
+    : "text-xs bg-yellow-100 border-yellow-200 border-2 rounded-md p-1 leading-none opacity-90";
+
   const overlay = new Overlay({
     element,
     offset,
@@ -36,7 +33,10 @@ function addOverlay(
   return overlay;
 }
 
-export function createMeasureInteraction(map: Map, geomType: Type) {
+export function createMeasureInteraction(
+  map: Map,
+  geomType: "LineString" | "Polygon"
+) {
   const source = new VectorSource();
   const vectorLayer = new VectorLayer({
     source: source,
@@ -82,10 +82,10 @@ export function createMeasureInteraction(map: Map, geomType: Type) {
     partDistanceOverlay = null;
 
     //totalAreaDistanceOverlay is used to display the total distance if geomtery is LineString or it will display the area if geomtry is Polygon
-    totalAreaDistanceOverlay = addOverlay(map);
+    totalAreaDistanceOverlay = addOverlay(map, true);
 
     //lastPartLineOverlay is used to display the distance measurement of last segment of Polygon which is its last two coordinates
-    lastPartLineOverlay = addOverlay(map);
+    lastPartLineOverlay = addOverlay(map, false);
 
     //Binding onGeomChange function with drawing feature
     e.feature.getGeometry()?.on("change", onGeomChange);
@@ -108,7 +108,7 @@ export function createMeasureInteraction(map: Map, geomType: Type) {
 
     // This logic will check if the new coordinates are added to geometry. If yes, then It will create a overlay for the new segment
     if (coordinates.length > coordinatesLength) {
-      partDistanceOverlay = addOverlay(map);
+      partDistanceOverlay = addOverlay(map, false);
       coordinatesLength = coordinates.length;
     } else {
       coordinatesLength = coordinates.length;

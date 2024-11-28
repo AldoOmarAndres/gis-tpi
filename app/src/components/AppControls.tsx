@@ -113,15 +113,16 @@ function AreaRulerIcon() {
 }
 
 function OperationsMenu() {
-  const { activateOperation } = useMapOperations();
+  const { activeOperation, changeOperation } = useMapOperations();
 
   return (
     <ToggleGroup
       type="single"
       defaultValue="navigate"
+      value={activeOperation}
       // Controlar el componente para asegurar que siempre tenga un valor seleccionado
       onValueChange={(value) =>
-        value && activateOperation(value as OperationType)
+        value && changeOperation(value as OperationType)
       }
       className="flex flex-col gap-0 justify-center bg-sidebar rounded-lg"
     >

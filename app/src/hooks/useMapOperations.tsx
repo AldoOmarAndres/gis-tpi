@@ -1,33 +1,41 @@
 import { createMeasureInteraction } from "@/lib/measure1-interaction";
 import { useMap } from "./useMap";
 import { OperationType } from "@/models";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Interaction } from "ol/interaction";
 
 interface UseMapOperations {
-  /** Activa la operación de tipo `OperationType` y desactiva el resto.. */
-  activateOperation: (operation: OperationType) => void;
+  /** Operación actualmente activa que se puede realizar en esta app. */
+  activeOperation: OperationType;
+  /** Activar la operación `operation`. Esto desactiva todas las demás operaciones. */
+  changeOperation: (operation: OperationType) => void;
 }
 
 /** Hook para manipular el zoom del mapa. */
 export default function useMapOperations(): UseMapOperations {
   const { map } = useMap();
-  const [interactions, setInteractions] = useState<Interaction[]>([]);
+  const [activeOperation, setActiveOperation] =
+    useState<OperationType>("navigate");
+  const [interaction, setInteraction] = useState<Interaction>();
 
-  const activateOperation = useMemo(
-    () => (operation: OperationType) => {
-      if (operation === "measure-area") {
-        const draw = createMeasureInteraction(map, "Polygon");
-        setInteractions((is) => [...is, draw]);
-      } else {
-        interactions.forEach((i) => {
-          map.removeInteraction(i);
-        });
-        console.log(map.getInteractions());
-      }
-    },
-    [map, interactions]
-  );
+  function changeOperation(operation: OperationType) {
+    // Eliminar del mapa la interacción previamente activada
+    if (interaction) {
+      map.removeInteraction(interaction);
+    }
 
-  return { activateOperation };
+    // Agregar al mapa la interacción actualmente activada
+    if (operation === "measure-line") {
+      const draw = createMeasureInteraction(map, "LineString");
+      setInteraction(draw);
+    } else if (operation === "measure-area") {
+      const draw = createMeasureInteraction(map, "Polygon");
+      setInteraction(draw);
+    }
+
+    setActiveOperation(operation);
+    console.log(map.getInteractions());
+  }
+
+  return { activeOperation, changeOperation };
 }
