@@ -1,5 +1,5 @@
 import LAYER_IDS from "@/capas";
-import { CRS } from "@/models";
+import { CRS, OperationType } from "@/models";
 import { Map, View } from "ol";
 import TileLayer from "ol/layer/Tile";
 import { fromLonLat } from "ol/proj";
@@ -15,7 +15,6 @@ import {
   SetStateAction,
   Dispatch,
 } from "react";
-import { addMeasureInteraction } from "@/lib/measure1-interaction";
 
 // URL del QGIS Server
 const URL = import.meta.env.VITE_QGIS_SERVER_URL;
@@ -51,6 +50,10 @@ interface IMapContext {
   activeLayer: TileLayer | undefined;
   /** Setter de `activeLayer`. */
   setActiveLayer: Dispatch<SetStateAction<TileLayer | undefined>>;
+  /** Operación activa actualmente. */
+  activeOperation: OperationType;
+  /** Setter de `activeLayer`. */
+  setActiveOperation: Dispatch<SetStateAction<OperationType>>;
 }
 
 const MapContext = createContext<IMapContext | undefined>(undefined);
@@ -65,6 +68,8 @@ export function MapProvider({ children }: MapProviderProps) {
   const [crs, setCRS] = useState<CRS | string>(CRS.EPSG_4326);
   const [layers, setLayers] = useState<TileLayer[]>([]);
   const [activeLayer, setActiveLayer] = useState<TileLayer>();
+  const [activeOperation, setActiveOperation] =
+    useState<OperationType>("navigate");
 
   useEffect(() => {
     if (!mapContainerRef.current) return;
@@ -121,8 +126,6 @@ export function MapProvider({ children }: MapProviderProps) {
       controls,
     });
 
-    addMeasureInteraction(map, "Polygon");
-
     setLayers(layers);
     setMap(map);
 
@@ -140,6 +143,8 @@ export function MapProvider({ children }: MapProviderProps) {
         map,
         activeLayer,
         setActiveLayer,
+        activeOperation,
+        setActiveOperation,
       }}
     >
       {children}

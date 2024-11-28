@@ -3,7 +3,8 @@ import useMapZoom from "@/hooks/useMapZoom";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { MousePointerClick } from "lucide-react";
-import { useState } from "react";
+import { OperationType } from "@/models";
+import useMapOperations from "@/hooks/useMapOperations";
 
 function ZoomControls() {
   const { zoomTo } = useMapZoom();
@@ -111,22 +112,24 @@ function AreaRulerIcon() {
   );
 }
 
-function InteractionsMenu() {
-  const [value, setValue] = useState("navigate");
+function OperationsMenu() {
+  const { activateOperation } = useMapOperations();
 
   return (
     <ToggleGroup
       type="single"
+      defaultValue="navigate"
       // Controlar el componente para asegurar que siempre tenga un valor seleccionado
-      value={value}
-      onValueChange={(value) => value && setValue(value)}
+      onValueChange={(value) =>
+        value && activateOperation(value as OperationType)
+      }
       className="flex flex-col gap-0 justify-center bg-sidebar rounded-lg"
     >
       <ToggleGroupItem
         value="navigate"
         aria-label="Alternar navegación"
         title="Navegación"
-        className="h-8 w-8 hover:bg-slate-200 data-[state=on]:bg-slate-400"
+        className="h-8 w-8 hover:bg-slate-200 data-[state=on]:bg-slate-300"
       >
         <HandIcon />
       </ToggleGroupItem>
@@ -170,7 +173,7 @@ export default function AppControls() {
 
       <ZoomControls />
 
-      <InteractionsMenu />
+      <OperationsMenu />
     </div>
   );
 }

@@ -125,7 +125,7 @@ const segmentStyle = new Style({
 
 const segmentStyles = [segmentStyle];
 
-export function addMeasureInteraction(
+export function createMeasureInteraction(
   map: Map,
   geomType: "LineString" | "Polygon"
 ) {
@@ -259,6 +259,7 @@ export function addMeasureInteraction(
     });
     modify.setActive(true);
     map.addInteraction(draw);
+    return draw;
   }
 
   // typeSelect.onchange = function () {
@@ -266,5 +267,5 @@ export function addMeasureInteraction(
   //   addInteraction();
   // };
 
-  addInteraction();
+  return addInteraction();
 }

@@ -36,7 +36,7 @@ function addOverlay(
   return overlay;
 }
 
-export function addMeasureInteraction(map: Map, geomType: Type) {
+export function createMeasureInteraction(map: Map, geomType: Type) {
   const source = new VectorSource();
   const vectorLayer = new VectorLayer({
     source: source,
@@ -214,4 +214,6 @@ export function addMeasureInteraction(map: Map, geomType: Type) {
       }
     }
   }
+
+  return draw;
 }
