@@ -19,7 +19,10 @@ export default function App() {
             id="map"
             ref={mapContainerRef}
             style={{ width: "100%", height: "100vh" }}
-          ></div>
+          >
+            {/* Popup para los `Overlay`s usados en la medición de distancias */}
+            <div id="popup"></div>
+          </div>
           <AppControls />
         </SidebarInset>
       </SidebarProvider>

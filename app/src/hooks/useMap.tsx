@@ -15,6 +15,7 @@ import {
   SetStateAction,
   Dispatch,
 } from "react";
+import { addMeasureInteraction } from "@/lib/measure1-interaction";
 
 // URL del QGIS Server
 const URL = import.meta.env.VITE_QGIS_SERVER_URL;
@@ -119,6 +120,8 @@ export function MapProvider({ children }: MapProviderProps) {
       view,
       controls,
     });
+
+    addMeasureInteraction(map, "Polygon");
 
     setLayers(layers);
     setMap(map);

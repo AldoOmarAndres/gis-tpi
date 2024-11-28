@@ -57,12 +57,13 @@ export default function AppSidebar({
                 asChild
                 className={
                   layer.get("id") === activeLayerId
-                    ? "underline font-bold bg-stone-300 hover:bg-stone-300 active:bg-stone-300"
+                    ? "underline font-bold bg-slate-300 hover:bg-slate-300 active:bg-slate-300"
                     : "font-medium"
                 }
               >
                 <div className="flex gap-0">
                   <Checkbox
+                    // FIXME: en mobile, abrir y cerrar el sidebar deschequea el checkbox
                     id={layer.get("id")}
                     onCheckedChange={() => toggleVisibility(layer.get("id"))}
                     className="h-5 w-5"
