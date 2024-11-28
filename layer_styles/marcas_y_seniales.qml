@@ -1,186 +1,186 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis autoRefreshTime="0" simplifyDrawingTol="1" hasScaleBasedVisibilityFlag="0" autoRefreshMode="Disabled" simplifyAlgorithm="0" symbologyReferenceScale="-1" simplifyDrawingHints="1" maxScale="0" labelsEnabled="0" simplifyMaxScale="1" styleCategories="AllStyleCategories" minScale="100000000" simplifyLocal="1" version="3.40.0-Bratislava" readOnly="0">
+<qgis hasScaleBasedVisibilityFlag="0" minScale="100000000" autoRefreshTime="0" simplifyMaxScale="1" simplifyLocal="1" labelsEnabled="0" simplifyDrawingHints="1" symbologyReferenceScale="-1" version="3.40.1-Bratislava" autoRefreshMode="Disabled" simplifyDrawingTol="1" maxScale="0" simplifyAlgorithm="0" styleCategories="AllStyleCategories" readOnly="0">
   <flags>
     <Identifiable>1</Identifiable>
     <Removable>1</Removable>
     <Searchable>1</Searchable>
     <Private>0</Private>
   </flags>
-  <temporal enabled="0" durationField="" startExpression="" mode="0" endExpression="" limitMode="0" startField="" endField="" durationUnit="min" fixedDuration="0" accumulate="0">
+  <temporal startExpression="" endExpression="" startField="" durationUnit="min" mode="0" enabled="0" durationField="" fixedDuration="0" endField="" accumulate="0" limitMode="0">
     <fixedRange>
       <start></start>
       <end></end>
     </fixedRange>
   </temporal>
-  <elevation binding="Centroid" showMarkerSymbolInSurfacePlots="0" respectLayerSymbol="1" clamping="Terrain" extrusion="0" zscale="1" symbology="Line" extrusionEnabled="0" zoffset="0" type="IndividualFeatures">
+  <elevation type="IndividualFeatures" binding="Centroid" respectLayerSymbol="1" zoffset="0" zscale="1" extrusion="0" clamping="Terrain" showMarkerSymbolInSurfacePlots="0" symbology="Line" extrusionEnabled="0">
     <data-defined-properties>
       <Option type="Map">
-        <Option name="name" value="" type="QString"/>
+        <Option type="QString" name="name" value=""/>
         <Option name="properties"/>
-        <Option name="type" value="collection" type="QString"/>
+        <Option type="QString" name="type" value="collection"/>
       </Option>
     </data-defined-properties>
     <profileLineSymbol>
-      <symbol clip_to_extent="1" alpha="1" name="" is_animated="0" force_rhr="0" frame_rate="10" type="line">
+      <symbol type="line" clip_to_extent="1" alpha="1" is_animated="0" name="" force_rhr="0" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
-            <Option name="name" value="" type="QString"/>
+            <Option type="QString" name="name" value=""/>
             <Option name="properties"/>
-            <Option name="type" value="collection" type="QString"/>
+            <Option type="QString" name="type" value="collection"/>
           </Option>
         </data_defined_properties>
-        <layer locked="0" pass="0" id="{5bd2686d-67e7-4b0e-aed9-b2589d60bc7a}" class="SimpleLine" enabled="1">
+        <layer id="{5bd2686d-67e7-4b0e-aed9-b2589d60bc7a}" enabled="1" pass="0" locked="0" class="SimpleLine">
           <Option type="Map">
-            <Option name="align_dash_pattern" value="0" type="QString"/>
-            <Option name="capstyle" value="square" type="QString"/>
-            <Option name="customdash" value="5;2" type="QString"/>
-            <Option name="customdash_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
-            <Option name="customdash_unit" value="MM" type="QString"/>
-            <Option name="dash_pattern_offset" value="0" type="QString"/>
-            <Option name="dash_pattern_offset_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
-            <Option name="dash_pattern_offset_unit" value="MM" type="QString"/>
-            <Option name="draw_inside_polygon" value="0" type="QString"/>
-            <Option name="joinstyle" value="bevel" type="QString"/>
-            <Option name="line_color" value="183,72,75,255,rgb:0.71764705882352942,0.28235294117647058,0.29411764705882354,1" type="QString"/>
-            <Option name="line_style" value="solid" type="QString"/>
-            <Option name="line_width" value="0.6" type="QString"/>
-            <Option name="line_width_unit" value="MM" type="QString"/>
-            <Option name="offset" value="0" type="QString"/>
-            <Option name="offset_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
-            <Option name="offset_unit" value="MM" type="QString"/>
-            <Option name="ring_filter" value="0" type="QString"/>
-            <Option name="trim_distance_end" value="0" type="QString"/>
-            <Option name="trim_distance_end_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
-            <Option name="trim_distance_end_unit" value="MM" type="QString"/>
-            <Option name="trim_distance_start" value="0" type="QString"/>
-            <Option name="trim_distance_start_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
-            <Option name="trim_distance_start_unit" value="MM" type="QString"/>
-            <Option name="tweak_dash_pattern_on_corners" value="0" type="QString"/>
-            <Option name="use_custom_dash" value="0" type="QString"/>
-            <Option name="width_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
+            <Option type="QString" name="align_dash_pattern" value="0"/>
+            <Option type="QString" name="capstyle" value="square"/>
+            <Option type="QString" name="customdash" value="5;2"/>
+            <Option type="QString" name="customdash_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+            <Option type="QString" name="customdash_unit" value="MM"/>
+            <Option type="QString" name="dash_pattern_offset" value="0"/>
+            <Option type="QString" name="dash_pattern_offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+            <Option type="QString" name="dash_pattern_offset_unit" value="MM"/>
+            <Option type="QString" name="draw_inside_polygon" value="0"/>
+            <Option type="QString" name="joinstyle" value="bevel"/>
+            <Option type="QString" name="line_color" value="183,72,75,255,rgb:0.71764705882352942,0.28235294117647058,0.29411764705882354,1"/>
+            <Option type="QString" name="line_style" value="solid"/>
+            <Option type="QString" name="line_width" value="0.6"/>
+            <Option type="QString" name="line_width_unit" value="MM"/>
+            <Option type="QString" name="offset" value="0"/>
+            <Option type="QString" name="offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+            <Option type="QString" name="offset_unit" value="MM"/>
+            <Option type="QString" name="ring_filter" value="0"/>
+            <Option type="QString" name="trim_distance_end" value="0"/>
+            <Option type="QString" name="trim_distance_end_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+            <Option type="QString" name="trim_distance_end_unit" value="MM"/>
+            <Option type="QString" name="trim_distance_start" value="0"/>
+            <Option type="QString" name="trim_distance_start_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+            <Option type="QString" name="trim_distance_start_unit" value="MM"/>
+            <Option type="QString" name="tweak_dash_pattern_on_corners" value="0"/>
+            <Option type="QString" name="use_custom_dash" value="0"/>
+            <Option type="QString" name="width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
           </Option>
           <data_defined_properties>
             <Option type="Map">
-              <Option name="name" value="" type="QString"/>
+              <Option type="QString" name="name" value=""/>
               <Option name="properties"/>
-              <Option name="type" value="collection" type="QString"/>
+              <Option type="QString" name="type" value="collection"/>
             </Option>
           </data_defined_properties>
         </layer>
       </symbol>
     </profileLineSymbol>
     <profileFillSymbol>
-      <symbol clip_to_extent="1" alpha="1" name="" is_animated="0" force_rhr="0" frame_rate="10" type="fill">
+      <symbol type="fill" clip_to_extent="1" alpha="1" is_animated="0" name="" force_rhr="0" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
-            <Option name="name" value="" type="QString"/>
+            <Option type="QString" name="name" value=""/>
             <Option name="properties"/>
-            <Option name="type" value="collection" type="QString"/>
+            <Option type="QString" name="type" value="collection"/>
           </Option>
         </data_defined_properties>
-        <layer locked="0" pass="0" id="{2d2191a6-ad13-4848-b541-b328dc799d41}" class="SimpleFill" enabled="1">
+        <layer id="{2d2191a6-ad13-4848-b541-b328dc799d41}" enabled="1" pass="0" locked="0" class="SimpleFill">
           <Option type="Map">
-            <Option name="border_width_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
-            <Option name="color" value="183,72,75,255,rgb:0.71764705882352942,0.28235294117647058,0.29411764705882354,1" type="QString"/>
-            <Option name="joinstyle" value="bevel" type="QString"/>
-            <Option name="offset" value="0,0" type="QString"/>
-            <Option name="offset_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
-            <Option name="offset_unit" value="MM" type="QString"/>
-            <Option name="outline_color" value="131,51,54,255,rgb:0.51372549019607838,0.20000000000000001,0.21176470588235294,1" type="QString"/>
-            <Option name="outline_style" value="solid" type="QString"/>
-            <Option name="outline_width" value="0.2" type="QString"/>
-            <Option name="outline_width_unit" value="MM" type="QString"/>
-            <Option name="style" value="solid" type="QString"/>
+            <Option type="QString" name="border_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+            <Option type="QString" name="color" value="183,72,75,255,rgb:0.71764705882352942,0.28235294117647058,0.29411764705882354,1"/>
+            <Option type="QString" name="joinstyle" value="bevel"/>
+            <Option type="QString" name="offset" value="0,0"/>
+            <Option type="QString" name="offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+            <Option type="QString" name="offset_unit" value="MM"/>
+            <Option type="QString" name="outline_color" value="131,51,54,255,rgb:0.51372549019607838,0.20000000000000001,0.21176470588235294,1"/>
+            <Option type="QString" name="outline_style" value="solid"/>
+            <Option type="QString" name="outline_width" value="0.2"/>
+            <Option type="QString" name="outline_width_unit" value="MM"/>
+            <Option type="QString" name="style" value="solid"/>
           </Option>
           <data_defined_properties>
             <Option type="Map">
-              <Option name="name" value="" type="QString"/>
+              <Option type="QString" name="name" value=""/>
               <Option name="properties"/>
-              <Option name="type" value="collection" type="QString"/>
+              <Option type="QString" name="type" value="collection"/>
             </Option>
           </data_defined_properties>
         </layer>
       </symbol>
     </profileFillSymbol>
     <profileMarkerSymbol>
-      <symbol clip_to_extent="1" alpha="1" name="" is_animated="0" force_rhr="0" frame_rate="10" type="marker">
+      <symbol type="marker" clip_to_extent="1" alpha="1" is_animated="0" name="" force_rhr="0" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
-            <Option name="name" value="" type="QString"/>
+            <Option type="QString" name="name" value=""/>
             <Option name="properties"/>
-            <Option name="type" value="collection" type="QString"/>
+            <Option type="QString" name="type" value="collection"/>
           </Option>
         </data_defined_properties>
-        <layer locked="0" pass="0" id="{577f3abe-44a3-4857-92ac-16489ae52253}" class="SimpleMarker" enabled="1">
+        <layer id="{577f3abe-44a3-4857-92ac-16489ae52253}" enabled="1" pass="0" locked="0" class="SimpleMarker">
           <Option type="Map">
-            <Option name="angle" value="0" type="QString"/>
-            <Option name="cap_style" value="square" type="QString"/>
-            <Option name="color" value="183,72,75,255,rgb:0.71764705882352942,0.28235294117647058,0.29411764705882354,1" type="QString"/>
-            <Option name="horizontal_anchor_point" value="1" type="QString"/>
-            <Option name="joinstyle" value="bevel" type="QString"/>
-            <Option name="name" value="diamond" type="QString"/>
-            <Option name="offset" value="0,0" type="QString"/>
-            <Option name="offset_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
-            <Option name="offset_unit" value="MM" type="QString"/>
-            <Option name="outline_color" value="131,51,54,255,rgb:0.51372549019607838,0.20000000000000001,0.21176470588235294,1" type="QString"/>
-            <Option name="outline_style" value="solid" type="QString"/>
-            <Option name="outline_width" value="0.2" type="QString"/>
-            <Option name="outline_width_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
-            <Option name="outline_width_unit" value="MM" type="QString"/>
-            <Option name="scale_method" value="diameter" type="QString"/>
-            <Option name="size" value="3" type="QString"/>
-            <Option name="size_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
-            <Option name="size_unit" value="MM" type="QString"/>
-            <Option name="vertical_anchor_point" value="1" type="QString"/>
+            <Option type="QString" name="angle" value="0"/>
+            <Option type="QString" name="cap_style" value="square"/>
+            <Option type="QString" name="color" value="183,72,75,255,rgb:0.71764705882352942,0.28235294117647058,0.29411764705882354,1"/>
+            <Option type="QString" name="horizontal_anchor_point" value="1"/>
+            <Option type="QString" name="joinstyle" value="bevel"/>
+            <Option type="QString" name="name" value="diamond"/>
+            <Option type="QString" name="offset" value="0,0"/>
+            <Option type="QString" name="offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+            <Option type="QString" name="offset_unit" value="MM"/>
+            <Option type="QString" name="outline_color" value="131,51,54,255,rgb:0.51372549019607838,0.20000000000000001,0.21176470588235294,1"/>
+            <Option type="QString" name="outline_style" value="solid"/>
+            <Option type="QString" name="outline_width" value="0.2"/>
+            <Option type="QString" name="outline_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+            <Option type="QString" name="outline_width_unit" value="MM"/>
+            <Option type="QString" name="scale_method" value="diameter"/>
+            <Option type="QString" name="size" value="3"/>
+            <Option type="QString" name="size_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+            <Option type="QString" name="size_unit" value="MM"/>
+            <Option type="QString" name="vertical_anchor_point" value="1"/>
           </Option>
           <data_defined_properties>
             <Option type="Map">
-              <Option name="name" value="" type="QString"/>
+              <Option type="QString" name="name" value=""/>
               <Option name="properties"/>
-              <Option name="type" value="collection" type="QString"/>
+              <Option type="QString" name="type" value="collection"/>
             </Option>
           </data_defined_properties>
         </layer>
       </symbol>
     </profileMarkerSymbol>
   </elevation>
-  <renderer-v2 referencescale="-1" enableorderby="0" symbollevels="0" forceraster="0" type="singleSymbol">
+  <renderer-v2 type="singleSymbol" symbollevels="0" enableorderby="0" referencescale="-1" forceraster="0">
     <symbols>
-      <symbol clip_to_extent="1" alpha="1" name="0" is_animated="0" force_rhr="0" frame_rate="10" type="marker">
+      <symbol type="marker" clip_to_extent="1" alpha="1" is_animated="0" name="0" force_rhr="0" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
-            <Option name="name" value="" type="QString"/>
+            <Option type="QString" name="name" value=""/>
             <Option name="properties"/>
-            <Option name="type" value="collection" type="QString"/>
+            <Option type="QString" name="type" value="collection"/>
           </Option>
         </data_defined_properties>
-        <layer locked="0" pass="0" id="{8b902eb8-74dd-4c63-a2aa-f5ea5436e44f}" class="SimpleMarker" enabled="1">
+        <layer id="{8b902eb8-74dd-4c63-a2aa-f5ea5436e44f}" enabled="1" pass="0" locked="0" class="SimpleMarker">
           <Option type="Map">
-            <Option name="angle" value="0" type="QString"/>
-            <Option name="cap_style" value="square" type="QString"/>
-            <Option name="color" value="231,113,72,255,rgb:0.90588235294117647,0.44313725490196076,0.28235294117647058,1" type="QString"/>
-            <Option name="horizontal_anchor_point" value="1" type="QString"/>
-            <Option name="joinstyle" value="bevel" type="QString"/>
-            <Option name="name" value="circle" type="QString"/>
-            <Option name="offset" value="0,0" type="QString"/>
-            <Option name="offset_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
-            <Option name="offset_unit" value="MM" type="QString"/>
-            <Option name="outline_color" value="35,35,35,255,rgb:0.13725490196078433,0.13725490196078433,0.13725490196078433,1" type="QString"/>
-            <Option name="outline_style" value="solid" type="QString"/>
-            <Option name="outline_width" value="0" type="QString"/>
-            <Option name="outline_width_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
-            <Option name="outline_width_unit" value="MM" type="QString"/>
-            <Option name="scale_method" value="diameter" type="QString"/>
-            <Option name="size" value="2" type="QString"/>
-            <Option name="size_map_unit_scale" value="3x:0,0,0,0,0,0" type="QString"/>
-            <Option name="size_unit" value="MM" type="QString"/>
-            <Option name="vertical_anchor_point" value="1" type="QString"/>
+            <Option type="QString" name="angle" value="0"/>
+            <Option type="QString" name="cap_style" value="square"/>
+            <Option type="QString" name="color" value="231,113,72,255,rgb:0.90588235294117647,0.44313725490196076,0.28235294117647058,1"/>
+            <Option type="QString" name="horizontal_anchor_point" value="1"/>
+            <Option type="QString" name="joinstyle" value="bevel"/>
+            <Option type="QString" name="name" value="circle"/>
+            <Option type="QString" name="offset" value="0,0"/>
+            <Option type="QString" name="offset_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+            <Option type="QString" name="offset_unit" value="MM"/>
+            <Option type="QString" name="outline_color" value="35,35,35,255,rgb:0.13725490196078433,0.13725490196078433,0.13725490196078433,1"/>
+            <Option type="QString" name="outline_style" value="solid"/>
+            <Option type="QString" name="outline_width" value="0"/>
+            <Option type="QString" name="outline_width_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+            <Option type="QString" name="outline_width_unit" value="MM"/>
+            <Option type="QString" name="scale_method" value="diameter"/>
+            <Option type="QString" name="size" value="2"/>
+            <Option type="QString" name="size_map_unit_scale" value="3x:0,0,0,0,0,0"/>
+            <Option type="QString" name="size_unit" value="MM"/>
+            <Option type="QString" name="vertical_anchor_point" value="1"/>
           </Option>
           <data_defined_properties>
             <Option type="Map">
-              <Option name="name" value="" type="QString"/>
+              <Option type="QString" name="name" value=""/>
               <Option name="properties"/>
-              <Option name="type" value="collection" type="QString"/>
+              <Option type="QString" name="type" value="collection"/>
             </Option>
           </data_defined_properties>
         </layer>
@@ -190,9 +190,9 @@
     <sizescale/>
     <data-defined-properties>
       <Option type="Map">
-        <Option name="name" value="" type="QString"/>
+        <Option type="QString" name="name" value=""/>
         <Option name="properties"/>
-        <Option name="type" value="collection" type="QString"/>
+        <Option type="QString" name="type" value="collection"/>
       </Option>
     </data-defined-properties>
   </renderer-v2>
@@ -207,301 +207,301 @@
   <layerOpacity>1</layerOpacity>
   <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
     <activeChecks type="StringList">
-      <Option value="" type="QString"/>
+      <Option type="QString" value=""/>
     </activeChecks>
     <checkConfiguration/>
   </geometryOptions>
-  <legend showLabelLegend="0" type="default-vector"/>
+  <legend type="default-vector" showLabelLegend="0"/>
   <referencedLayers/>
   <fieldConfiguration>
-    <field configurationFlags="NoFlag" name="gid">
+    <field name="gid" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="nombre">
+    <field name="nombre" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="tipo">
+    <field name="tipo" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="precisión">
+    <field name="precisión" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="escala">
+    <field name="escala" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="signo">
+    <field name="signo" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="fuente">
+    <field name="fuente" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="operador">
+    <field name="operador" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="dataset">
+    <field name="dataset" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="fclass">
+    <field name="fclass" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="responsabl">
+    <field name="responsabl" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="cargo">
+    <field name="cargo" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="progreso">
+    <field name="progreso" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="t_act">
+    <field name="t_act" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="coord">
+    <field name="coord" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="sp">
+    <field name="sp" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="datum">
+    <field name="datum" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="ac">
+    <field name="ac" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="cota">
+    <field name="cota" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="red">
+    <field name="red" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="monografía">
+    <field name="monografía" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="x_inch">
+    <field name="x_inch" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="y_inch">
+    <field name="y_inch" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="lat_inch">
+    <field name="lat_inch" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="long_inch">
+    <field name="long_inch" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="x_posgar">
+    <field name="x_posgar" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="y_posgar">
+    <field name="y_posgar" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="lat_posgar">
+    <field name="lat_posgar" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="posgar">
+    <field name="posgar" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="fotomonogr">
+    <field name="fotomonogr" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="malla">
+    <field name="malla" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="número">
+    <field name="número" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="en_uso">
+    <field name="en_uso" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="orden">
+    <field name="orden" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="cell_name">
+    <field name="cell_name" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="igds_type">
+    <field name="igds_type" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="igds_weigh">
+    <field name="igds_weigh" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="rotation">
+    <field name="rotation" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="igds_color">
+    <field name="igds_color" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="group">
+    <field name="group" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="igds_level">
+    <field name="igds_level" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
-    <field configurationFlags="NoFlag" name="cotbase">
+    <field name="cotbase" configurationFlags="NoFlag">
       <editWidget type="">
         <config>
           <Option/>
@@ -510,48 +510,48 @@
     </field>
   </fieldConfiguration>
   <aliases>
-    <alias index="0" field="gid" name=""/>
-    <alias index="1" field="nombre" name=""/>
-    <alias index="2" field="tipo" name=""/>
-    <alias index="3" field="precisión" name=""/>
-    <alias index="4" field="escala" name=""/>
-    <alias index="5" field="signo" name=""/>
-    <alias index="6" field="fuente" name=""/>
-    <alias index="7" field="operador" name=""/>
-    <alias index="8" field="dataset" name=""/>
-    <alias index="9" field="fclass" name=""/>
-    <alias index="10" field="responsabl" name=""/>
-    <alias index="11" field="cargo" name=""/>
-    <alias index="12" field="progreso" name=""/>
-    <alias index="13" field="t_act" name=""/>
-    <alias index="14" field="coord" name=""/>
-    <alias index="15" field="sp" name=""/>
-    <alias index="16" field="datum" name=""/>
-    <alias index="17" field="ac" name=""/>
-    <alias index="18" field="cota" name=""/>
-    <alias index="19" field="red" name=""/>
-    <alias index="20" field="monografía" name=""/>
-    <alias index="21" field="x_inch" name=""/>
-    <alias index="22" field="y_inch" name=""/>
-    <alias index="23" field="lat_inch" name=""/>
-    <alias index="24" field="long_inch" name=""/>
-    <alias index="25" field="x_posgar" name=""/>
-    <alias index="26" field="y_posgar" name=""/>
-    <alias index="27" field="lat_posgar" name=""/>
-    <alias index="28" field="posgar" name=""/>
-    <alias index="29" field="fotomonogr" name=""/>
-    <alias index="30" field="malla" name=""/>
-    <alias index="31" field="número" name=""/>
-    <alias index="32" field="en_uso" name=""/>
-    <alias index="33" field="orden" name=""/>
-    <alias index="34" field="cell_name" name=""/>
-    <alias index="35" field="igds_type" name=""/>
-    <alias index="36" field="igds_weigh" name=""/>
-    <alias index="37" field="rotation" name=""/>
-    <alias index="38" field="igds_color" name=""/>
-    <alias index="39" field="group" name=""/>
-    <alias index="40" field="igds_level" name=""/>
-    <alias index="41" field="cotbase" name=""/>
+    <alias name="" index="0" field="gid"/>
+    <alias name="" index="1" field="nombre"/>
+    <alias name="" index="2" field="tipo"/>
+    <alias name="" index="3" field="precisión"/>
+    <alias name="" index="4" field="escala"/>
+    <alias name="" index="5" field="signo"/>
+    <alias name="" index="6" field="fuente"/>
+    <alias name="" index="7" field="operador"/>
+    <alias name="" index="8" field="dataset"/>
+    <alias name="" index="9" field="fclass"/>
+    <alias name="" index="10" field="responsabl"/>
+    <alias name="" index="11" field="cargo"/>
+    <alias name="" index="12" field="progreso"/>
+    <alias name="" index="13" field="t_act"/>
+    <alias name="" index="14" field="coord"/>
+    <alias name="" index="15" field="sp"/>
+    <alias name="" index="16" field="datum"/>
+    <alias name="" index="17" field="ac"/>
+    <alias name="" index="18" field="cota"/>
+    <alias name="" index="19" field="red"/>
+    <alias name="" index="20" field="monografía"/>
+    <alias name="" index="21" field="x_inch"/>
+    <alias name="" index="22" field="y_inch"/>
+    <alias name="" index="23" field="lat_inch"/>
+    <alias name="" index="24" field="long_inch"/>
+    <alias name="" index="25" field="x_posgar"/>
+    <alias name="" index="26" field="y_posgar"/>
+    <alias name="" index="27" field="lat_posgar"/>
+    <alias name="" index="28" field="posgar"/>
+    <alias name="" index="29" field="fotomonogr"/>
+    <alias name="" index="30" field="malla"/>
+    <alias name="" index="31" field="número"/>
+    <alias name="" index="32" field="en_uso"/>
+    <alias name="" index="33" field="orden"/>
+    <alias name="" index="34" field="cell_name"/>
+    <alias name="" index="35" field="igds_type"/>
+    <alias name="" index="36" field="igds_weigh"/>
+    <alias name="" index="37" field="rotation"/>
+    <alias name="" index="38" field="igds_color"/>
+    <alias name="" index="39" field="group"/>
+    <alias name="" index="40" field="igds_level"/>
+    <alias name="" index="41" field="cotbase"/>
   </aliases>
   <splitPolicies>
     <policy policy="Duplicate" field="gid"/>
@@ -642,142 +642,142 @@
     <policy policy="Duplicate" field="cotbase"/>
   </duplicatePolicies>
   <defaults>
-    <default field="gid" applyOnUpdate="0" expression=""/>
-    <default field="nombre" applyOnUpdate="0" expression=""/>
-    <default field="tipo" applyOnUpdate="0" expression=""/>
-    <default field="precisión" applyOnUpdate="0" expression=""/>
-    <default field="escala" applyOnUpdate="0" expression=""/>
-    <default field="signo" applyOnUpdate="0" expression=""/>
-    <default field="fuente" applyOnUpdate="0" expression=""/>
-    <default field="operador" applyOnUpdate="0" expression=""/>
-    <default field="dataset" applyOnUpdate="0" expression=""/>
-    <default field="fclass" applyOnUpdate="0" expression=""/>
-    <default field="responsabl" applyOnUpdate="0" expression=""/>
-    <default field="cargo" applyOnUpdate="0" expression=""/>
-    <default field="progreso" applyOnUpdate="0" expression=""/>
-    <default field="t_act" applyOnUpdate="0" expression=""/>
-    <default field="coord" applyOnUpdate="0" expression=""/>
-    <default field="sp" applyOnUpdate="0" expression=""/>
-    <default field="datum" applyOnUpdate="0" expression=""/>
-    <default field="ac" applyOnUpdate="0" expression=""/>
-    <default field="cota" applyOnUpdate="0" expression=""/>
-    <default field="red" applyOnUpdate="0" expression=""/>
-    <default field="monografía" applyOnUpdate="0" expression=""/>
-    <default field="x_inch" applyOnUpdate="0" expression=""/>
-    <default field="y_inch" applyOnUpdate="0" expression=""/>
-    <default field="lat_inch" applyOnUpdate="0" expression=""/>
-    <default field="long_inch" applyOnUpdate="0" expression=""/>
-    <default field="x_posgar" applyOnUpdate="0" expression=""/>
-    <default field="y_posgar" applyOnUpdate="0" expression=""/>
-    <default field="lat_posgar" applyOnUpdate="0" expression=""/>
-    <default field="posgar" applyOnUpdate="0" expression=""/>
-    <default field="fotomonogr" applyOnUpdate="0" expression=""/>
-    <default field="malla" applyOnUpdate="0" expression=""/>
-    <default field="número" applyOnUpdate="0" expression=""/>
-    <default field="en_uso" applyOnUpdate="0" expression=""/>
-    <default field="orden" applyOnUpdate="0" expression=""/>
-    <default field="cell_name" applyOnUpdate="0" expression=""/>
-    <default field="igds_type" applyOnUpdate="0" expression=""/>
-    <default field="igds_weigh" applyOnUpdate="0" expression=""/>
-    <default field="rotation" applyOnUpdate="0" expression=""/>
-    <default field="igds_color" applyOnUpdate="0" expression=""/>
-    <default field="group" applyOnUpdate="0" expression=""/>
-    <default field="igds_level" applyOnUpdate="0" expression=""/>
-    <default field="cotbase" applyOnUpdate="0" expression=""/>
+    <default applyOnUpdate="0" expression="" field="gid"/>
+    <default applyOnUpdate="0" expression="" field="nombre"/>
+    <default applyOnUpdate="0" expression="" field="tipo"/>
+    <default applyOnUpdate="0" expression="" field="precisión"/>
+    <default applyOnUpdate="0" expression="" field="escala"/>
+    <default applyOnUpdate="0" expression="" field="signo"/>
+    <default applyOnUpdate="0" expression="" field="fuente"/>
+    <default applyOnUpdate="0" expression="" field="operador"/>
+    <default applyOnUpdate="0" expression="" field="dataset"/>
+    <default applyOnUpdate="0" expression="" field="fclass"/>
+    <default applyOnUpdate="0" expression="" field="responsabl"/>
+    <default applyOnUpdate="0" expression="" field="cargo"/>
+    <default applyOnUpdate="0" expression="" field="progreso"/>
+    <default applyOnUpdate="0" expression="" field="t_act"/>
+    <default applyOnUpdate="0" expression="" field="coord"/>
+    <default applyOnUpdate="0" expression="" field="sp"/>
+    <default applyOnUpdate="0" expression="" field="datum"/>
+    <default applyOnUpdate="0" expression="" field="ac"/>
+    <default applyOnUpdate="0" expression="" field="cota"/>
+    <default applyOnUpdate="0" expression="" field="red"/>
+    <default applyOnUpdate="0" expression="" field="monografía"/>
+    <default applyOnUpdate="0" expression="" field="x_inch"/>
+    <default applyOnUpdate="0" expression="" field="y_inch"/>
+    <default applyOnUpdate="0" expression="" field="lat_inch"/>
+    <default applyOnUpdate="0" expression="" field="long_inch"/>
+    <default applyOnUpdate="0" expression="" field="x_posgar"/>
+    <default applyOnUpdate="0" expression="" field="y_posgar"/>
+    <default applyOnUpdate="0" expression="" field="lat_posgar"/>
+    <default applyOnUpdate="0" expression="" field="posgar"/>
+    <default applyOnUpdate="0" expression="" field="fotomonogr"/>
+    <default applyOnUpdate="0" expression="" field="malla"/>
+    <default applyOnUpdate="0" expression="" field="número"/>
+    <default applyOnUpdate="0" expression="" field="en_uso"/>
+    <default applyOnUpdate="0" expression="" field="orden"/>
+    <default applyOnUpdate="0" expression="" field="cell_name"/>
+    <default applyOnUpdate="0" expression="" field="igds_type"/>
+    <default applyOnUpdate="0" expression="" field="igds_weigh"/>
+    <default applyOnUpdate="0" expression="" field="rotation"/>
+    <default applyOnUpdate="0" expression="" field="igds_color"/>
+    <default applyOnUpdate="0" expression="" field="group"/>
+    <default applyOnUpdate="0" expression="" field="igds_level"/>
+    <default applyOnUpdate="0" expression="" field="cotbase"/>
   </defaults>
   <constraints>
-    <constraint unique_strength="1" notnull_strength="1" exp_strength="0" field="gid" constraints="3"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="nombre" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="tipo" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="precisión" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="escala" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="signo" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="fuente" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="operador" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="dataset" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="fclass" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="responsabl" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="cargo" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="progreso" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="t_act" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="coord" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="sp" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="datum" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="ac" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="cota" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="red" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="monografía" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="x_inch" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="y_inch" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="lat_inch" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="long_inch" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="x_posgar" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="y_posgar" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="lat_posgar" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="posgar" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="fotomonogr" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="malla" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="número" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="en_uso" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="orden" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="cell_name" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="igds_type" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="igds_weigh" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="rotation" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="igds_color" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="group" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="igds_level" constraints="0"/>
-    <constraint unique_strength="0" notnull_strength="0" exp_strength="0" field="cotbase" constraints="0"/>
+    <constraint unique_strength="1" notnull_strength="1" constraints="3" field="gid" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="nombre" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="tipo" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="precisión" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="escala" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="signo" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="fuente" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="operador" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="dataset" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="fclass" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="responsabl" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="cargo" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="progreso" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="t_act" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="coord" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="sp" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="datum" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="ac" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="cota" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="red" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="monografía" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="x_inch" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="y_inch" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="lat_inch" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="long_inch" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="x_posgar" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="y_posgar" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="lat_posgar" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="posgar" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="fotomonogr" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="malla" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="número" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="en_uso" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="orden" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="cell_name" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="igds_type" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="igds_weigh" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="rotation" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="igds_color" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="group" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="igds_level" exp_strength="0"/>
+    <constraint unique_strength="0" notnull_strength="0" constraints="0" field="cotbase" exp_strength="0"/>
   </constraints>
   <constraintExpressions>
-    <constraint field="gid" exp="" desc=""/>
-    <constraint field="nombre" exp="" desc=""/>
-    <constraint field="tipo" exp="" desc=""/>
-    <constraint field="precisión" exp="" desc=""/>
-    <constraint field="escala" exp="" desc=""/>
-    <constraint field="signo" exp="" desc=""/>
-    <constraint field="fuente" exp="" desc=""/>
-    <constraint field="operador" exp="" desc=""/>
-    <constraint field="dataset" exp="" desc=""/>
-    <constraint field="fclass" exp="" desc=""/>
-    <constraint field="responsabl" exp="" desc=""/>
-    <constraint field="cargo" exp="" desc=""/>
-    <constraint field="progreso" exp="" desc=""/>
-    <constraint field="t_act" exp="" desc=""/>
-    <constraint field="coord" exp="" desc=""/>
-    <constraint field="sp" exp="" desc=""/>
-    <constraint field="datum" exp="" desc=""/>
-    <constraint field="ac" exp="" desc=""/>
-    <constraint field="cota" exp="" desc=""/>
-    <constraint field="red" exp="" desc=""/>
-    <constraint field="monografía" exp="" desc=""/>
-    <constraint field="x_inch" exp="" desc=""/>
-    <constraint field="y_inch" exp="" desc=""/>
-    <constraint field="lat_inch" exp="" desc=""/>
-    <constraint field="long_inch" exp="" desc=""/>
-    <constraint field="x_posgar" exp="" desc=""/>
-    <constraint field="y_posgar" exp="" desc=""/>
-    <constraint field="lat_posgar" exp="" desc=""/>
-    <constraint field="posgar" exp="" desc=""/>
-    <constraint field="fotomonogr" exp="" desc=""/>
-    <constraint field="malla" exp="" desc=""/>
-    <constraint field="número" exp="" desc=""/>
-    <constraint field="en_uso" exp="" desc=""/>
-    <constraint field="orden" exp="" desc=""/>
-    <constraint field="cell_name" exp="" desc=""/>
-    <constraint field="igds_type" exp="" desc=""/>
-    <constraint field="igds_weigh" exp="" desc=""/>
-    <constraint field="rotation" exp="" desc=""/>
-    <constraint field="igds_color" exp="" desc=""/>
-    <constraint field="group" exp="" desc=""/>
-    <constraint field="igds_level" exp="" desc=""/>
-    <constraint field="cotbase" exp="" desc=""/>
+    <constraint exp="" desc="" field="gid"/>
+    <constraint exp="" desc="" field="nombre"/>
+    <constraint exp="" desc="" field="tipo"/>
+    <constraint exp="" desc="" field="precisión"/>
+    <constraint exp="" desc="" field="escala"/>
+    <constraint exp="" desc="" field="signo"/>
+    <constraint exp="" desc="" field="fuente"/>
+    <constraint exp="" desc="" field="operador"/>
+    <constraint exp="" desc="" field="dataset"/>
+    <constraint exp="" desc="" field="fclass"/>
+    <constraint exp="" desc="" field="responsabl"/>
+    <constraint exp="" desc="" field="cargo"/>
+    <constraint exp="" desc="" field="progreso"/>
+    <constraint exp="" desc="" field="t_act"/>
+    <constraint exp="" desc="" field="coord"/>
+    <constraint exp="" desc="" field="sp"/>
+    <constraint exp="" desc="" field="datum"/>
+    <constraint exp="" desc="" field="ac"/>
+    <constraint exp="" desc="" field="cota"/>
+    <constraint exp="" desc="" field="red"/>
+    <constraint exp="" desc="" field="monografía"/>
+    <constraint exp="" desc="" field="x_inch"/>
+    <constraint exp="" desc="" field="y_inch"/>
+    <constraint exp="" desc="" field="lat_inch"/>
+    <constraint exp="" desc="" field="long_inch"/>
+    <constraint exp="" desc="" field="x_posgar"/>
+    <constraint exp="" desc="" field="y_posgar"/>
+    <constraint exp="" desc="" field="lat_posgar"/>
+    <constraint exp="" desc="" field="posgar"/>
+    <constraint exp="" desc="" field="fotomonogr"/>
+    <constraint exp="" desc="" field="malla"/>
+    <constraint exp="" desc="" field="número"/>
+    <constraint exp="" desc="" field="en_uso"/>
+    <constraint exp="" desc="" field="orden"/>
+    <constraint exp="" desc="" field="cell_name"/>
+    <constraint exp="" desc="" field="igds_type"/>
+    <constraint exp="" desc="" field="igds_weigh"/>
+    <constraint exp="" desc="" field="rotation"/>
+    <constraint exp="" desc="" field="igds_color"/>
+    <constraint exp="" desc="" field="group"/>
+    <constraint exp="" desc="" field="igds_level"/>
+    <constraint exp="" desc="" field="cotbase"/>
   </constraintExpressions>
   <expressionfields/>
   <attributeactions>
     <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
   </attributeactions>
-  <attributetableconfig sortExpression="" actionWidgetStyle="dropDown" sortOrder="0">
+  <attributetableconfig actionWidgetStyle="dropDown" sortOrder="0" sortExpression="">
     <columns/>
   </attributetableconfig>
   <conditionalstyles>
