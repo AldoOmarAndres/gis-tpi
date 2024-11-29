@@ -1,5 +1,4 @@
-import LAYER_IDS from "@/lib/capas";
-import { CRS } from "@/models";
+import { LAYER_IDS, CRS } from "@/lib/capas";
 import { Map, View } from "ol";
 import TileLayer from "ol/layer/Tile";
 import { fromLonLat } from "ol/proj";
@@ -29,8 +28,8 @@ const defaultMap = new Map({
   target: "map",
   layers: [osm],
   view: new View({
-    projection: CRS.EPSG_4326,
-    center: fromLonLat([-64.0, -34.0], CRS.EPSG_4326), // Coordenadas iniciales para Argentina
+    projection: "EPSG:4326",
+    center: fromLonLat([-64.0, -34.0], "EPSG:4326"), // Coordenadas iniciales para Argentina
     zoom: 5,
   }),
 });
@@ -42,10 +41,6 @@ interface IMapContext {
   map: Map;
   /** Capas temáticas del mapa correspondientes al IGN (no incluye la capa base). */
   layers: TileLayer[];
-  /** Sistema de Referencia de Coordenadas actual. */
-  crs: CRS | string;
-  /** Setter de `crs`. */
-  setCRS: Dispatch<SetStateAction<CRS | string>>;
   /** Capa activa actualmente. Es la capa sobre la que se realizan las operaciones. */
   activeLayer: TileLayer | undefined;
   /** Setter de `activeLayer`. */
@@ -61,7 +56,6 @@ interface MapProviderProps {
 export function MapProvider({ children }: MapProviderProps) {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const [map, setMap] = useState<Map>(defaultMap);
-  const [crs, setCRS] = useState<CRS | string>(CRS.EPSG_4326);
   const [layers, setLayers] = useState<TileLayer[]>([]);
   const [activeLayer, setActiveLayer] = useState<TileLayer>();
 
@@ -80,7 +74,7 @@ export function MapProvider({ children }: MapProviderProps) {
             REQUEST: "GetMap",
             LAYERS: layer_id,
             FORMAT: "image/png",
-            CRS: crs,
+            CRS: "EPSG:4326",
           },
         }),
         properties: {
@@ -96,9 +90,8 @@ export function MapProvider({ children }: MapProviderProps) {
     });
 
     const view = new View({
-      // FIXME: no hay soporte nativo para EPGS:22175. Por ahora la app se cae si se lo selecciona
-      projection: crs,
-      center: fromLonLat([-64.0, -34.0], CRS.EPSG_4326), // Coordenadas iniciales para Argentina
+      projection: CRS,
+      center: fromLonLat([-64.0, -34.0], "EPSG:4326"), // Coordenadas iniciales para Argentina
       zoom: 5,
     });
 
@@ -125,14 +118,12 @@ export function MapProvider({ children }: MapProviderProps) {
 
     // Limpiar el mapa cuando el componente se desmonte
     return () => map?.setTarget(undefined);
-  }, [crs]);
+  }, []);
 
   return (
     <MapContext.Provider
       value={{
         layers,
-        crs,
-        setCRS,
         mapContainerRef,
         map,
         activeLayer,

@@ -1,13 +1,20 @@
 import { createMeasureInteraction } from "@/lib/measure-interaction";
 import { useMap } from "./useMap";
-import { OperationType } from "@/models";
 import { useState } from "react";
 import { Interaction } from "ol/interaction";
 
+/** Operaciones que se pueden realizar sobre el mapa. La operación por defecto es 'navigate'. */
+export type OperationType =
+  | "navigate"
+  | "measure-line"
+  | "measure-area"
+  | "query"
+  | string;
+
 interface UseMapOperations {
-  /** Operación actualmente activa que se puede realizar en esta app. */
+  /** Operación actualmente activa que se puede realizar sobre el mapa de la app. */
   activeOperation: OperationType;
-  /** Activar la operación `operation`. Esto desactiva todas las demás operaciones. */
+  /** Activar la operación `operation`. Esto desactiva las demás operaciones. */
   changeOperation: (operation: OperationType) => void;
 }
 

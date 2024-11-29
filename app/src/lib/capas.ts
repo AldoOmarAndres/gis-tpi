@@ -1,4 +1,4 @@
-const LAYER_IDS = [
+export const LAYER_IDS = [
   "actividades_agropecuarias",
   "actividades_economicas",
   "complejo_de_energia_ene",
@@ -48,4 +48,4 @@ const LAYER_IDS = [
   "vias_secundarias",
 ];
 
-export default LAYER_IDS;
+export const CRS = "EPSG:4326";

@@ -7,10 +7,10 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import CrsSelector from "./CrsSelector";
 import { ComponentProps } from "react";
 import { useMap } from "@/hooks/useMap";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from "@/components/ui/button";
 
 export default function AppSidebar({
   ...props
@@ -84,7 +84,13 @@ export default function AppSidebar({
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            <CrsSelector />
+            <Button
+              variant="outline"
+              className="cursor-default pointer-events-none"
+              title="Sistema de Referencia de Coordenadas"
+            >
+              EPSG:4326 - WGS 84
+            </Button>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>

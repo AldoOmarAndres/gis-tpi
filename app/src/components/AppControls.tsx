@@ -3,7 +3,6 @@ import useMapZoom from "@/hooks/useMapZoom";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { MousePointerClick } from "lucide-react";
-import { OperationType } from "@/models";
 import useMapOperations from "@/hooks/useMapOperations";
 
 function ZoomControls() {
@@ -121,9 +120,7 @@ function OperationsMenu() {
       defaultValue="navigate"
       value={activeOperation}
       // Controlar el componente para asegurar que siempre tenga un valor seleccionado
-      onValueChange={(value) =>
-        value && changeOperation(value as OperationType)
-      }
+      onValueChange={(value) => value && changeOperation(value)}
       className="flex flex-col gap-0 justify-center bg-sidebar rounded-lg"
     >
       <ToggleGroupItem
