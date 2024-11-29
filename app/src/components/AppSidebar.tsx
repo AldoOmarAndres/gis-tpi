@@ -36,7 +36,7 @@ export default function AppSidebar({
   }
 
   return (
-    <Sidebar variant="floating" {...props}>
+    <Sidebar {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -61,7 +61,7 @@ export default function AppSidebar({
                     : "font-medium"
                 }
               >
-                <div className="flex gap-0">
+                <div className="flex gap-0 pl-4">
                   <Checkbox
                     // FIXME: en mobile, abrir y cerrar el sidebar deschequea el checkbox
                     id={layer.get("id")}

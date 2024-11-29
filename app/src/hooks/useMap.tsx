@@ -1,4 +1,4 @@
-import LAYER_IDS from "@/capas";
+import LAYER_IDS from "@/lib/capas";
 import { CRS } from "@/models";
 import { Map, View } from "ol";
 import TileLayer from "ol/layer/Tile";
