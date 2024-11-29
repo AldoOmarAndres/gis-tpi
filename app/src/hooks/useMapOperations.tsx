@@ -1,4 +1,4 @@
-import { createMeasureInteraction } from "@/lib/measure1-interaction";
+import { createMeasureInteraction } from "@/lib/measure-interaction";
 import { useMap } from "./useMap";
 import { OperationType } from "@/models";
 import { useState } from "react";
