@@ -2,21 +2,19 @@ import { Map } from "ol";
 import { Coordinate } from "ol/coordinate";
 import BaseEvent from "ol/events/Event";
 import { LineString, Polygon } from "ol/geom";
-import Geometry from "ol/geom/Geometry";
 import Draw, { DrawEvent } from "ol/interaction/Draw";
 import VectorLayer from "ol/layer/Vector";
 import Overlay, { Positioning } from "ol/Overlay.js";
 import VectorSource from "ol/source/Vector";
 import { getArea, getLength } from "ol/sphere";
-import { Fill, Stroke, Style } from "ol/style";
-import CircleStyle from "ol/style/Circle";
 
+/** Crear un overlay (popup con texto) y agregarlo al mapa. */
 function addOverlay(map: Map, isPrimary: boolean) {
   const element = document.createElement("div");
   const offset = [0, -15];
   const positioning: Positioning = "bottom-center";
   const className = isPrimary
-    ? "bg-yellow-300 border-yellow-400 border-2 rounded-md p-2 leading-none opacity-90"
+    ? "text-sm bg-yellow-300 border-yellow-400 border-2 rounded-md p-1 leading-none opacity-90 z-10"
     : "text-xs bg-yellow-100 border-yellow-200 border-2 rounded-md p-1 leading-none opacity-90";
 
   const overlay = new Overlay({
@@ -33,185 +31,165 @@ function addOverlay(map: Map, isPrimary: boolean) {
   return overlay;
 }
 
-export function createMeasureInteraction(
+/** Medir la distancia de una línea e insertarla en un overlay del mapa. */
+function measureDistance(
   map: Map,
-  geomType: "LineString" | "Polygon"
+  line: LineString,
+  overlay: Overlay,
+  overlayPosition: Coordinate
 ) {
-  const source = new VectorSource();
-  const vectorLayer = new VectorLayer({
-    source: source,
-    style: new Style({
-      fill: new Fill({
-        color: "rgba(255, 255, 255, 0.2)",
-      }),
-      stroke: new Stroke({
-        color: "rgba(0, 0, 0, 0.5)",
-        lineDash: [10, 10],
-        width: 2,
-      }),
-      image: new CircleStyle({
-        radius: 5,
-        stroke: new Stroke({
-          color: "rgba(0, 0, 0, 0.7)",
-        }),
-        fill: new Fill({
-          color: "rgba(255, 255, 255, 0.2)",
-        }),
-      }),
-    }),
+  const distance = getLength(line, {
+    projection: map.getView().getProjection(),
   });
 
-  map.addLayer(vectorLayer);
+  if (distance === 0) {
+    overlay.setPosition([0, 0]);
+    return;
+  }
 
-  const draw = new Draw({ source: source, type: geomType });
+  overlay.setPosition(overlayPosition);
+  const element = overlay.getElement();
+
+  if (!element) {
+    return;
+  }
+
+  if (distance >= 1000) {
+    element.innerHTML = (distance / 1000).toFixed(2) + " km";
+  } else {
+    element.innerHTML = distance.toFixed(2) + " m";
+  }
+}
+
+/** Medir el área del polígono e insertarla en un overlay del mapa. */
+function measureArea(
+  map: Map,
+  polygon: Polygon,
+  overlay: Overlay,
+  overlayPosition: Coordinate
+) {
+  const area = getArea(polygon, { projection: map.getView().getProjection() });
+
+  if (area === 0) {
+    overlay.setPosition([0, 0]);
+    return;
+  }
+
+  overlay.setPosition(overlayPosition);
+  const element = overlay.getElement();
+
+  if (!element) {
+    return;
+  }
+
+  if (area >= 10000) {
+    element.innerHTML = (area / 1_000_000).toFixed(2) + " km<sup>2<sup>";
+  } else {
+    element.innerHTML = area.toFixed(2) + " m<sup>2<sup>";
+  }
+}
+
+export function createMeasureInteraction(
+  map: Map,
+  geometryType: "LineString" | "Polygon"
+) {
+  const source = new VectorSource();
+  const vectorLayer = new VectorLayer({ source });
+
+  const draw = new Draw({ source, type: geometryType });
   draw.on("drawstart", onDrawStart);
 
+  map.addLayer(vectorLayer);
   map.addInteraction(draw);
 
   let coordinatesLength: number;
   let partDistanceOverlay: Overlay | null;
-  let totalAreaDistanceOverlay: Overlay;
+  let totalDistanceOrAreaOverlay: Overlay;
   let lastPartLineOverlay: Overlay;
 
   /** Esta función es llamada cuando se comienza a dibujar. */
   function onDrawStart(e: DrawEvent) {
-    //It will store the coordinates length of geometry
+    // Guarda la cantidad de coordenadas de la geometría
     coordinatesLength = 0;
 
-    //partDistanceOverlay is used to display the label of distance measurements on each segment of Line and Polygon geomtry
+    // Es el overlay para mostrar las distancias de cada segmento del polígono
     partDistanceOverlay = null;
 
-    //totalAreaDistanceOverlay is used to display the total distance if geomtery is LineString or it will display the area if geomtry is Polygon
-    totalAreaDistanceOverlay = addOverlay(map, true);
+    // Es el overlay para mostrar el área del polígono
+    totalDistanceOrAreaOverlay = addOverlay(map, true);
 
-    //lastPartLineOverlay is used to display the distance measurement of last segment of Polygon which is its last two coordinates
+    // Es el overlay para mostrar la distancia del último segmento del polígono
     lastPartLineOverlay = addOverlay(map, false);
 
-    //Binding onGeomChange function with drawing feature
-    e.feature.getGeometry()?.on("change", onGeomChange);
+    e.feature.getGeometry()?.on("change", onGeometryChange);
   }
 
-  // /** Esta función es llamada cuando se termina de dibujar. */
-  // function onDrawEnd(e: DrawEvent) {
-  //   // Agregar geometría dibujada a la capa vectorial
-  //   vectorLayer.getSource()?.addFeature(e.feature);
-  // }
-
   /** Esta función es llamada cuando cambia la geometría. Ej: cuando aumenta la longitud, area, etc. */
-  function onGeomChange(e: BaseEvent) {
-    const geometry: Geometry = e.target;
-    const geomType = e.target.getType();
-    let coordinates = e.target.getCoordinates();
-    if (geomType == "Polygon") {
-      coordinates = e.target.getCoordinates()[0];
-    }
+  function onGeometryChange(e: BaseEvent) {
+    const geometry: LineString | Polygon = e.target;
+    const isLineStringGeometry = geometry instanceof LineString;
+    const coordinates = isLineStringGeometry
+      ? e.target.getCoordinates()
+      : e.target.getCoordinates()[0];
 
-    // This logic will check if the new coordinates are added to geometry. If yes, then It will create a overlay for the new segment
+    // Si se agregó una nueva coordenada a la geometría, crear un overlay para el nuevo segmento
     if (coordinates.length > coordinatesLength) {
       partDistanceOverlay = addOverlay(map, false);
-      coordinatesLength = coordinates.length;
-    } else {
-      coordinatesLength = coordinates.length;
     }
 
+    coordinatesLength = coordinates.length;
     let partLine = new LineString([
       coordinates[coordinatesLength - 2],
       coordinates[coordinatesLength - 1],
     ]);
-
-    if (geomType == "Polygon") {
+    if (!isLineStringGeometry) {
       partLine = new LineString([
         coordinates[coordinatesLength - 3],
         coordinates[coordinatesLength - 2],
       ]);
     }
 
-    // this calculates the length of a segment and position the overlay at the midpoint of it
-    calDistance(partDistanceOverlay!, partLine.getFlatMidpoint(), partLine);
+    // Calcular la longitud del último segmento y colocar el overlay en su punto medio
+    measureDistance(
+      map,
+      partLine,
+      // `partDistanceOverlay` nunca es `null` porque siempre se le escribe un overlay en la primera llamada a esta función
+      partDistanceOverlay!,
+      partLine.getFlatMidpoint()
+    );
 
-    // if geometry is LineString and coordinates_length is greater than 2, then calculate the total length of the line and set the position of the overlay at last coordninates
-    if (
-      geometry instanceof LineString &&
-      coordinatesLength > 2 &&
-      e.target.getLength() >
-        new LineString([coordinates[0], coordinates[1]]).getLength()
-    ) {
-      calDistance(
-        totalAreaDistanceOverlay,
-        coordinates[coordinatesLength - 1],
-        geometry
+    // Si hay más de dos coordenadas en la línea, calcular y mostrar su longitud total
+    if (isLineStringGeometry && coordinatesLength > 2) {
+      measureDistance(
+        map,
+        geometry,
+        totalDistanceOrAreaOverlay,
+        coordinates[coordinatesLength - 1]
       );
     }
 
-    // If geometry is Polygon, then it will create the overlay for area measurement and last segment of it which is its first and last coordinates.
-    if (geometry instanceof Polygon && coordinatesLength > 3) {
-      calArea(
-        totalAreaDistanceOverlay,
-        e.target.getFlatInteriorPoint(),
-        geometry
+    // Si hay al menos 2 lados en el polígono...
+    if (!isLineStringGeometry && coordinatesLength > 3) {
+      // Calcular el área y mostrarla en el centro del polígono
+      measureArea(
+        map,
+        geometry,
+        totalDistanceOrAreaOverlay,
+        e.target.getFlatInteriorPoint()
       );
+
       partLine = new LineString([
         coordinates[coordinatesLength - 2],
         coordinates[coordinatesLength - 1],
       ]);
-      calDistance(lastPartLineOverlay, partLine.getFlatMidpoint(), partLine);
-    }
-  }
 
-  // Calculates the length of a segment and position the overlay at the midpoint of it.
-  function calDistance(
-    overlay: Overlay,
-    overlayPosition: Coordinate,
-    line: LineString
-  ) {
-    const distance = getLength(line, {
-      projection: map.getView().getProjection(),
-    });
-
-    if (distance === 0) {
-      overlay.setPosition([0, 0]);
-    } else {
-      overlay.setPosition(overlayPosition);
-      const element = overlay.getElement();
-
-      if (!element) {
-        return;
-      }
-
-      if (distance >= 1000) {
-        element.innerHTML = (distance / 1000).toFixed(2) + " km";
-      } else {
-        element.innerHTML = distance.toFixed(2) + " m";
-      }
-    }
-  }
-
-  // Calculates the area of Polygon and position the overlay at the center of polygon
-  function calArea(
-    overlay: Overlay,
-    overlayPosition: Coordinate,
-    polygon: Polygon
-  ) {
-    const area = getArea(polygon, {
-      projection: map.getView().getProjection(),
-    });
-
-    if (area === 0) {
-      overlay.setPosition([0, 0]);
-    } else {
-      overlay.setPosition(overlayPosition);
-      const element = overlay.getElement();
-
-      if (!element) {
-        return;
-      }
-
-      if (area >= 10000) {
-        element.innerHTML =
-          Math.round((area / 1000000) * 100) / 100 + " km<sup>2<sup>";
-      } else {
-        element.innerHTML = Math.round(area * 100) / 100 + " m<sup>2<sup>";
-      }
+      // Calcular y mostrar la distancia del último segmento (que une la última coordenada del polígono con la primera)
+      measureDistance(
+        map,
+        partLine,
+        lastPartLineOverlay,
+        partLine.getFlatMidpoint()
+      );
     }
   }
 

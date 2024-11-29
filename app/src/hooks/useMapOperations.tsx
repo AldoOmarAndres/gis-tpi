@@ -34,7 +34,6 @@ export default function useMapOperations(): UseMapOperations {
     }
 
     setActiveOperation(operation);
-    console.log(map.getInteractions());
   }
 
   return { activeOperation, changeOperation };
