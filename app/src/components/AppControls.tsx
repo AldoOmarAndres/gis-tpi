@@ -3,7 +3,7 @@ import useMapZoom from "@/hooks/useMapZoom";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { MousePointerClick, Trash2Icon } from "lucide-react";
-import useMapOperations from "@/hooks/useMapOperations";
+import useMapOperations, { Operation } from "@/hooks/useMapOperations";
 import { useMap } from "@/hooks/useMap";
 
 function ZoomControls() {
@@ -137,7 +137,6 @@ function OperationsMenu() {
     activeOperation === "measure-area" ||
     measureLineSource?.getFeatures().length !== 0 ||
     measureAreaSource?.getFeatures().length !== 0;
-
   return (
     <div className="flex gap-1">
       <ToggleGroup
@@ -145,7 +144,7 @@ function OperationsMenu() {
         defaultValue="navigate"
         value={activeOperation}
         // Controlar el componente para asegurar que siempre tenga un valor seleccionado
-        onValueChange={(value) => value && changeOperation(value)}
+        onValueChange={(value) => value && changeOperation(value as Operation)}
         className="flex flex-col gap-0 justify-center bg-sidebar rounded-lg"
       >
         <ToggleGroupItem
