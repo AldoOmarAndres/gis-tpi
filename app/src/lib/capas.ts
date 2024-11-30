@@ -1,4 +1,4 @@
-const LAYER_IDS = [
+export const LAYER_IDS = [
   "actividades_agropecuarias",
   "actividades_economicas",
   "complejo_de_energia_ene",
@@ -21,7 +21,7 @@ const LAYER_IDS = [
   "limite_politico_administrativo_lim",
   "lineas_de_conduccion_ene",
   "localidades",
-  "marcas_y_senales",
+  "marcas_y_seniales",
   "muro_embalse",
   "obra_de_comunicacion",
   "obra_portuaria",
@@ -34,7 +34,7 @@ const LAYER_IDS = [
   "red_ferroviaria",
   "red_vial",
   "salvado_de_obstaculo",
-  "senalizaciones",
+  "senializaciones",
   "sue_congelado",
   "sue_consolidado",
   "sue_costero",
@@ -48,4 +48,4 @@ const LAYER_IDS = [
   "vias_secundarias",
 ];
 
-export default LAYER_IDS;
+export const CRS = "EPSG:4326";

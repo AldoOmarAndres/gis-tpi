@@ -7,6 +7,8 @@ import VectorLayer from "ol/layer/Vector";
 import Overlay, { Positioning } from "ol/Overlay.js";
 import VectorSource from "ol/source/Vector";
 import { getArea, getLength } from "ol/sphere";
+import { useMap } from "./useMap";
+import { useMemo } from "react";
 
 /** Crear un overlay (popup con texto) y agregarlo al mapa. */
 function addOverlay(map: Map, isPrimary: boolean) {
@@ -89,18 +91,18 @@ function measureArea(
   }
 }
 
-export function createMeasureInteraction(
+function createMeasureInteraction(
   map: Map,
   geometryType: "LineString" | "Polygon"
 ) {
   const source = new VectorSource();
-  const vectorLayer = new VectorLayer({ source });
+  const layer = new VectorLayer({ source });
 
   const draw = new Draw({ source, type: geometryType });
   draw.on("drawstart", onDrawStart);
 
-  map.addLayer(vectorLayer);
-  map.addInteraction(draw);
+  map.removeLayer(layer); // Evitar error de capa duplicada si se llama dos veces esta función
+  map.addLayer(layer);
 
   let coordinatesLength: number;
   let partDistanceOverlay: Overlay | null;
@@ -193,5 +195,25 @@ export function createMeasureInteraction(
     }
   }
 
-  return draw;
+  return { draw, layer };
+}
+
+export function useMeasureLineInteraction() {
+  const { map } = useMap();
+  const { draw, layer } = useMemo(
+    () => createMeasureInteraction(map, "LineString"),
+    [map]
+  );
+
+  return { measureLine: draw, measureLineLayer: layer };
+}
+
+export function useMeasureAreaInteraction() {
+  const { map } = useMap();
+  const { draw, layer } = useMemo(
+    () => createMeasureInteraction(map, "Polygon"),
+    [map]
+  );
+
+  return { measureArea: draw, measureAreaLayer: layer };
 }

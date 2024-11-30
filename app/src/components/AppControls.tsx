@@ -2,20 +2,20 @@ import { Button } from "@/components/ui/button";
 import useMapZoom from "@/hooks/useMapZoom";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { MousePointerClick } from "lucide-react";
-import { OperationType } from "@/models";
+import { MousePointerClick, Trash2Icon } from "lucide-react";
 import useMapOperations from "@/hooks/useMapOperations";
+import { useMap } from "@/hooks/useMap";
 
 function ZoomControls() {
   const { zoomTo } = useMapZoom();
 
   return (
-    <div className="flex flex-col justify-center bg-sidebar rounded-lg">
+    <div className="flex flex-col justify-center bg-sidebar rounded-lg w-min">
       <Button
         data-sidebar="trigger"
         variant="ghost"
         size="icon"
-        className="h-8 w-full text-xl hover:bg-slate-200"
+        className="h-8 text-xl hover:bg-slate-200"
         onClick={() => zoomTo(+1)}
         title="Zoom in"
       >
@@ -39,7 +39,7 @@ function ZoomControls() {
         data-sidebar="trigger"
         variant="ghost"
         size="icon"
-        className="h-8 w-full text-xl hover:bg-slate-200"
+        className="h-8 text-xl hover:bg-slate-200"
         onClick={() => zoomTo(-1)}
         title="Zoom out"
       >
@@ -113,61 +113,96 @@ function AreaRulerIcon() {
 }
 
 function OperationsMenu() {
-  const { activeOperation, changeOperation } = useMapOperations();
+  // TODO: agregar un botón "tacho de basura" para eliminar los dibujos de measure-line y measure-area
+  const {
+    activeOperation,
+    changeOperation,
+    measureLineLayer,
+    measureAreaLayer,
+  } = useMapOperations();
+  const { map } = useMap();
+
+  const measureLineSource = measureLineLayer.getSource();
+  const measureAreaSource = measureAreaLayer.getSource();
+
+  /** Elimina los dibujos asociados a la medición de distancias y áreas. */
+  function clearDrawings() {
+    map.getOverlays().clear();
+    measureLineSource?.clear();
+    measureAreaSource?.clear();
+  }
+
+  const shouldDisplayDeleteButton =
+    activeOperation === "measure-line" ||
+    activeOperation === "measure-area" ||
+    measureLineSource?.getFeatures().length !== 0 ||
+    measureAreaSource?.getFeatures().length !== 0;
 
   return (
-    <ToggleGroup
-      type="single"
-      defaultValue="navigate"
-      value={activeOperation}
-      // Controlar el componente para asegurar que siempre tenga un valor seleccionado
-      onValueChange={(value) =>
-        value && changeOperation(value as OperationType)
-      }
-      className="flex flex-col gap-0 justify-center bg-sidebar rounded-lg"
-    >
-      <ToggleGroupItem
-        value="navigate"
-        aria-label="Alternar navegación"
-        title="Navegación"
-        className="h-8 w-8 hover:bg-slate-200 data-[state=on]:bg-slate-300"
+    <div className="flex gap-1">
+      <ToggleGroup
+        type="single"
+        defaultValue="navigate"
+        value={activeOperation}
+        // Controlar el componente para asegurar que siempre tenga un valor seleccionado
+        onValueChange={(value) => value && changeOperation(value)}
+        className="flex flex-col gap-0 justify-center bg-sidebar rounded-lg"
       >
-        <HandIcon />
-      </ToggleGroupItem>
-      <ToggleGroupItem
-        value="measure-line"
-        aria-label="Alternar medición de distancias"
-        title="Medición de distancias"
-        className="h-8 w-8 hover:bg-slate-200 data-[state=on]:bg-slate-300"
-      >
-        <LineRulerIcon />
-      </ToggleGroupItem>
-      <ToggleGroupItem
-        value="measure-area"
-        aria-label="Alternar medición de áreas"
-        title="Medición de áreas"
-        className="h-8 w-8 hover:bg-slate-200 data-[state=on]:bg-slate-300"
-      >
-        <AreaRulerIcon />
-      </ToggleGroupItem>
-      <ToggleGroupItem
-        value="query"
-        aria-label="Alternar consulta gráfica"
-        title="Consulta gráfica"
-        className="h-8 w-8 hover:bg-slate-200 data-[state=on]:bg-slate-300"
-      >
-        <MousePointerClick />
-      </ToggleGroupItem>
-    </ToggleGroup>
+        <ToggleGroupItem
+          value="navigate"
+          aria-label="Alternar navegación"
+          title="Navegación"
+          className="h-8 w-8 hover:bg-slate-200 data-[state=on]:bg-slate-300 data-[state=on]:border-slate-500 data-[state=on]:border-2"
+        >
+          <HandIcon />
+        </ToggleGroupItem>
+        <ToggleGroupItem
+          value="measure-line"
+          aria-label="Alternar medición de distancias"
+          title="Medición de distancias"
+          className="h-8 w-8 hover:bg-slate-200 data-[state=on]:bg-slate-300 data-[state=on]:border-slate-500 data-[state=on]:border-2"
+        >
+          <LineRulerIcon />
+        </ToggleGroupItem>
+        <ToggleGroupItem
+          value="measure-area"
+          aria-label="Alternar medición de áreas"
+          title="Medición de áreas"
+          className="h-8 w-8 hover:bg-slate-200 data-[state=on]:bg-slate-300 data-[state=on]:border-slate-500 data-[state=on]:border-2"
+        >
+          <AreaRulerIcon />
+        </ToggleGroupItem>
+        <ToggleGroupItem
+          value="query"
+          aria-label="Alternar consulta gráfica"
+          title="Consulta gráfica"
+          className="h-8 w-8 hover:bg-slate-200 data-[state=on]:bg-slate-300 data-[state=on]:border-slate-500 data-[state=on]:border-2"
+        >
+          <MousePointerClick />
+        </ToggleGroupItem>
+      </ToggleGroup>
+      {shouldDisplayDeleteButton && (
+        <Button
+          aria-label="Eliminar mediciones"
+          title="Eliminar mediciones"
+          className="h-8 w-8 relative top-12 border-red-400 bg-red-200 hover:bg-red-300 border-2"
+          onClick={() => clearDrawings()}
+          size="icon"
+          variant="outline"
+        >
+          <Trash2Icon />
+        </Button>
+      )}
+    </div>
   );
 }
 
 export default function AppControls() {
   return (
-    <div className="absolute m-2 flex flex-col justify-center gap-2">
-      <div className="bg-sidebar rounded-lg">
+    <div className="absolute m-2 flex flex-col justify-start gap-2">
+      <div className="bg-sidebar rounded-lg w-min">
         <SidebarTrigger
-          className="h-8 w-full hover:bg-slate-200"
+          className="h-8 w-9 hover:bg-slate-200"
           title="Alternar sidebar"
         />
       </div>

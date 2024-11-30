@@ -7,10 +7,10 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import CrsSelector from "./CrsSelector";
 import { ComponentProps } from "react";
 import { useMap } from "@/hooks/useMap";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from "@/components/ui/button";
 
 export default function AppSidebar({
   ...props
@@ -36,7 +36,7 @@ export default function AppSidebar({
   }
 
   return (
-    <Sidebar variant="floating" {...props}>
+    <Sidebar {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -61,7 +61,7 @@ export default function AppSidebar({
                     : "font-medium"
                 }
               >
-                <div className="flex gap-0">
+                <div className="flex gap-0 pl-4">
                   <Checkbox
                     // FIXME: en mobile, abrir y cerrar el sidebar deschequea el checkbox
                     id={layer.get("id")}
@@ -84,7 +84,13 @@ export default function AppSidebar({
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            <CrsSelector />
+            <Button
+              variant="outline"
+              className="cursor-default pointer-events-none"
+              title="Sistema de Referencia de Coordenadas"
+            >
+              EPSG:4326 - WGS 84
+            </Button>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>
