@@ -2,6 +2,12 @@
 
 TPI realizado por el grupo 4 para la cursada 2024 de Sistemas de Información Geográficos, asignatura de Ingeniería en Sistemas de Información de la UTN FRRe.
 
+Estructura de carpetas:
+
+- `app/`: código React + Vite para la aplicación web que consume el servidor WMS generado con QGIS.
+- `backend/`: código Node.js para el servidor HTTP conectado a la base de datos PostgreSQL para insertar y consultar features.
+- `layer_styles/`: archivos `*.qml` exportados de QGIS que guardan la simbología de las capas del IGN.
+
 ## Guía de instalación
 
 Esta guía supone que ya se tiene instalada la máquina virtual otorgada por la cátedra.
