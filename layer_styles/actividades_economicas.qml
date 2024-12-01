@@ -64,12 +64,14 @@
               <Option type="QString" value="" name="name"/>
               <Option name="properties"/>
               <Option type="QString" value="collection" name="type"/>
+
             </Option>
           </data_defined_properties>
         </layer>
       </symbol>
     </profileLineSymbol>
     <profileFillSymbol>
+
       <symbol type="fill" frame_rate="10" is_animated="0" name="" clip_to_extent="1" alpha="1" force_rhr="0">
         <data_defined_properties>
           <Option type="Map">
@@ -97,6 +99,7 @@
               <Option type="QString" value="" name="name"/>
               <Option name="properties"/>
               <Option type="QString" value="collection" name="type"/>
+
             </Option>
           </data_defined_properties>
         </layer>
@@ -138,6 +141,7 @@
               <Option type="QString" value="" name="name"/>
               <Option name="properties"/>
               <Option type="QString" value="collection" name="type"/>
+
             </Option>
           </data_defined_properties>
         </layer>
@@ -180,6 +184,7 @@
               <Option type="QString" value="" name="name"/>
               <Option name="properties"/>
               <Option type="QString" value="collection" name="type"/>
+
             </Option>
           </data_defined_properties>
         </layer>
@@ -192,6 +197,7 @@
         <Option type="QString" value="" name="name"/>
         <Option name="properties"/>
         <Option type="QString" value="collection" name="type"/>
+
       </Option>
     </data-defined-properties>
   </renderer-v2>

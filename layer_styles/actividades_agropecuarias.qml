@@ -12,6 +12,7 @@
       <end></end>
     </fixedRange>
   </temporal>
+
   <elevation zoffset="0" extrusionEnabled="0" type="IndividualFeatures" symbology="Line" zscale="1" extrusion="0" respectLayerSymbol="1" clamping="Terrain" showMarkerSymbolInSurfacePlots="0" binding="Centroid">
     <data-defined-properties>
       <Option type="Map">
@@ -70,6 +71,7 @@
       </symbol>
     </profileLineSymbol>
     <profileFillSymbol>
+
       <symbol type="fill" frame_rate="10" is_animated="0" name="" clip_to_extent="1" alpha="1" force_rhr="0">
         <data_defined_properties>
           <Option type="Map">
@@ -103,6 +105,7 @@
       </symbol>
     </profileFillSymbol>
     <profileMarkerSymbol>
+
       <symbol type="marker" frame_rate="10" is_animated="0" name="" clip_to_extent="1" alpha="1" force_rhr="0">
         <data_defined_properties>
           <Option type="Map">
