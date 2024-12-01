@@ -3,6 +3,7 @@ import { always } from "ol/events/condition";
 import { DragBox } from "ol/interaction";
 import { useMap } from "./useMap";
 import { useEffect } from "react";
+import { useToast } from "./use-toast";
 
 // URL de la API REST (servidor web conectado a la base de datos)
 const URL = import.meta.env.VITE_API_SERVER_URL;
@@ -21,40 +22,50 @@ function fetchFeatures(
 const dragBox = new DragBox({ condition: always });
 
 export function useQueryInteraction() {
-  const { activeLayer } = useMap();
+  const { activeLayerId } = useMap();
+  const { toast } = useToast();
 
   /** Consulta gráfica de todo lo intersectado por el punto clickeado. */
-  function queryPoint(evt: MapBrowserEvent<MouseEvent>) {
-    console.log("click", evt.coordinate);
+  function queryFeaturesByPoint(
+    evt: MapBrowserEvent<MouseEvent>,
+    layerId: string
+  ) {
     const coordinate = evt.coordinate;
 
     // La coordenada del punto clickeado tiene la forma `[lon, lat]`
-    const wkt = "POINT(" + coordinate[0] + " " + coordinate[1] + ")";
+    const wkt = `POINT(${coordinate[0]} ${coordinate[1]})`;
 
-    fetchFeatures(activeLayer?.get("id"), wkt, (data) => console.log(data));
+    fetchFeatures(layerId, wkt, (data) => console.log(data));
   }
 
   useEffect(() => {
     /** Consulta gráfica de todo lo intersectado por el rectángulo dibujado. */
-    function queryRectangle() {
-      console.log("boxend", dragBox.getGeometry().getCoordinates());
+    function queryFeaturesByRectangle() {
+      if (!activeLayerId) {
+        toast({
+          variant: "destructive",
+          title: "¡Uy! No hay una capa activada.",
+          description:
+            "Se necesita una capa activa para poder consultar sus elementos.",
+        });
+        return;
+      }
+
       const coordinates = dragBox.getGeometry().getCoordinates();
 
       // El rectángulo es un arreglo de pares de coordenadas. Una coordenada tiene la forma `[lon, lat]`
       let wkt = "POLYGON((";
       for (let i = 0; i < coordinates[0].length - 1; i++) {
-        wkt += coordinates[0][i][0] + " " + coordinates[0][i][1] + ",";
+        wkt += `${coordinates[0][i][0]} ${coordinates[0][i][1]},`;
       }
-      wkt += coordinates[0][0][0] + " " + coordinates[0][0][1] + "))";
+      wkt += `${coordinates[0][0][0]} ${coordinates[0][0][1]}))`;
 
-      console.log(wkt);
-      fetchFeatures(activeLayer?.get("id"), wkt, (data) => console.log(data));
+      fetchFeatures(activeLayerId, wkt, (data) => console.log(data));
     }
 
-    dragBox.on("boxend", queryRectangle);
+    dragBox.on("boxend", queryFeaturesByRectangle);
+    return () => dragBox.un("boxend", queryFeaturesByRectangle);
+  }, [activeLayerId, toast]);
 
-    return () => dragBox.un("boxend", queryRectangle);
-  }, [activeLayer]);
-
-  return dragBox;
+  return { dragBox, queryFeaturesByPoint };
 }

@@ -41,10 +41,10 @@ interface IMapContext {
   map: Map;
   /** Capas temáticas del mapa correspondientes al IGN (no incluye la capa base). */
   layers: TileLayer[];
-  /** Capa activa actualmente. Es la capa sobre la que se realizan las operaciones. */
-  activeLayer: TileLayer | undefined;
-  /** Setter de `activeLayer`. */
-  setActiveLayer: Dispatch<SetStateAction<TileLayer | undefined>>;
+  /** ID de la capa activa actualmente, sobre la que se realizan las operaciones. */
+  activeLayerId: string | undefined;
+  /** Setter de `activeLayerId`. */
+  setActiveLayerId: Dispatch<SetStateAction<string | undefined>>;
 }
 
 const MapContext = createContext<IMapContext | undefined>(undefined);
@@ -57,7 +57,7 @@ export function MapProvider({ children }: MapProviderProps) {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const [map, setMap] = useState<Map>(defaultMap);
   const [layers, setLayers] = useState<TileLayer[]>([]);
-  const [activeLayer, setActiveLayer] = useState<TileLayer>();
+  const [activeLayerId, setActiveLayerId] = useState<string>();
 
   useEffect(() => {
     if (!mapContainerRef.current) return;
@@ -126,8 +126,8 @@ export function MapProvider({ children }: MapProviderProps) {
         layers,
         mapContainerRef,
         map,
-        activeLayer,
-        setActiveLayer,
+        activeLayerId,
+        setActiveLayerId,
       }}
     >
       {children}

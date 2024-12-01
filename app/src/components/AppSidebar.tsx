@@ -15,24 +15,17 @@ import { Button } from "@/components/ui/button";
 export default function AppSidebar({
   ...props
 }: ComponentProps<typeof Sidebar>) {
-  const { layers, activeLayer, setActiveLayer } = useMap();
-  const activeLayerId = activeLayer?.get("id");
+  const { layers, activeLayerId, setActiveLayerId } = useMap();
 
-  /** Alternar la visibilidad de la capa con ID `layer_id`. */
-  function toggleVisibility(layer_id: string) {
-    const layer = layers.find((l) => l.get("id") === layer_id);
+  /** Alternar la visibilidad de la capa con ID `layerId`. */
+  function toggleVisibility(layerId: string) {
+    const layer = layers.find((l) => l.get("id") === layerId);
 
     if (!layer) {
       return;
     }
 
     layer.setVisible(!layer.isVisible());
-  }
-
-  /** Activa la capa con ID `layer_id`. Será la capa activa hasta que se active otra. */
-  function activateLayer(layer_id: string) {
-    const layer = layers.find((l) => l.get("id") === layer_id);
-    setActiveLayer(layer);
   }
 
   return (
@@ -69,7 +62,7 @@ export default function AppSidebar({
                     className="h-5 w-5"
                   />
                   <p
-                    onClick={() => activateLayer(layer.get("id"))}
+                    onClick={() => setActiveLayerId(layer.get("id"))}
                     className="w-full m-0 p-2"
                   >
                     {layer.get("name")}

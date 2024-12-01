@@ -1,5 +1,5 @@
 import { useMap } from "./useMap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Interaction } from "ol/interaction";
 import VectorLayer from "ol/layer/Vector";
 import {
@@ -7,6 +7,8 @@ import {
   useMeasureLineInteraction,
 } from "./useMeasureInteraction";
 import { useQueryInteraction } from "./useQueryInteraction";
+import { MapBrowserEvent } from "ol";
+import { useToast } from "./use-toast";
 
 /** Operaciones que se pueden realizar sobre el mapa. La operación por defecto es 'navigate'. */
 export type Operation = "navigate" | "measure-line" | "measure-area" | "query";
@@ -24,16 +26,42 @@ interface UseMapOperations {
 
 /** Hook para manipular el zoom del mapa. */
 export default function useMapOperations(): UseMapOperations {
-  const { map } = useMap();
+  const { map, activeLayerId } = useMap();
   const [activeOperation, setActiveOperation] = useState<Operation>("navigate");
   const [interaction, setInteraction] = useState<Interaction>();
   const { measureLine, measureLineLayer } = useMeasureLineInteraction();
   const { measureArea, measureAreaLayer } = useMeasureAreaInteraction();
-  const dragBox = useQueryInteraction();
+  const { dragBox, queryFeaturesByPoint } = useQueryInteraction();
+  const { toast } = useToast();
+
+  useEffect(() => {
+    /** Handler para el evento de un click durante la operación `query`. */
+    function handleQueryClick(e: MapBrowserEvent<MouseEvent>) {
+      if (activeOperation !== "query") {
+        // No está activada la consulta de elementos
+        return;
+      }
+
+      if (!activeLayerId) {
+        toast({
+          variant: "destructive",
+          title: "¡Uy! No hay una capa activada.",
+          description:
+            "Se necesita una capa activa para poder consultar sus elementos.",
+        });
+        return;
+      }
+
+      return queryFeaturesByPoint(e, activeLayerId);
+    }
+
+    map.on("click", handleQueryClick);
+    return () => map.un("click", handleQueryClick);
+  }, [activeLayerId, queryFeaturesByPoint, toast, activeOperation, map]);
 
   function changeOperation(operation: Operation) {
-    // Eliminar del mapa la interacción previamente activada
-    if (interaction) {
+    if (activeOperation !== operation && interaction) {
+      // Eliminar del mapa la interacción previamente activada
       map.removeInteraction(interaction);
     }
 
@@ -48,8 +76,6 @@ export default function useMapOperations(): UseMapOperations {
       map.addInteraction(dragBox);
       setInteraction(dragBox);
     }
-
-    console.log(map.getAllLayers().length);
 
     setActiveOperation(operation);
   }

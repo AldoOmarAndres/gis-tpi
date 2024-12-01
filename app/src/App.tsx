@@ -5,6 +5,7 @@ import { useMap } from "@/hooks/useMap.tsx";
 import AppSidebar from "@/components/AppSidebar.tsx";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar.tsx";
 import AppControls from "@/components/AppControls.tsx";
+import { Toaster } from "./components/ui/toaster";
 
 export default function App() {
   const { mapContainerRef } = useMap();
@@ -13,6 +14,7 @@ export default function App() {
     <>
       <SidebarProvider style={{ "--sidebar-width": "19rem" } as CSSProperties}>
         <AppSidebar />
+
         <SidebarInset>
           {/* Contenedor del mapa */}
           <div
@@ -22,6 +24,8 @@ export default function App() {
           ></div>
           <AppControls />
         </SidebarInset>
+
+        <Toaster />
       </SidebarProvider>
     </>
   );

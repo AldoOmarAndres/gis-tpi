@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { exit } from "process";
 import cors from "cors";
 import postgres from "postgres";
+import { LAYER_IDS } from "./capas";
 
 dotenv.config({ path: [".env.local", ".env"] });
 
@@ -12,7 +13,7 @@ const port = process.env.PORT || 3000;
 const dbConnectionUrl = process.env.DATABASE_URL;
 
 if (!dbConnectionUrl) {
-  console.log("Missing `DATABASE_URL` environment variable. Exiting...");
+  console.info("Missing `DATABASE_URL` environment variable. Exiting...");
   exit();
 }
 
@@ -25,10 +26,14 @@ app.use(cors());
 app.get("/query", async (req: Request, res: Response) => {
   // Capa vectorial en la que consultar features
   const layer = `${req.query.layer}`;
+  if (!LAYER_IDS.includes(layer)) {
+    res.status(400).send({ msg: `unknown layer '${layer}' is not valid` });
+    return;
+  }
   // Objeto que intersecta con las features, representado en formato WKT (Well Known Text)
   const wkt = `${req.query.wkt}`;
   if (!wkt) {
-    res.send();
+    res.status(400).send({ msg: "'wkt' query parameter is required" });
     return;
   }
 
@@ -55,5 +60,5 @@ app.get("/query", async (req: Request, res: Response) => {
 });
 
 app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
+  console.info(`[server]: Server is running at http://localhost:${port}`);
 });
