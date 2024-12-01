@@ -8,15 +8,18 @@ import {
   SidebarMenuItem,
   SidebarSeparator,
 } from "@/components/ui/sidebar";
-import { ComponentProps } from "react";
+import { ComponentProps, useState } from "react";
 import { useMap } from "@/hooks/useMap";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
+import { LegendList } from "./LegendList";
 
 export default function AppSidebar({
   ...props
 }: ComponentProps<typeof Sidebar>) {
   const { layers, activeLayerId, setActiveLayerId } = useMap();
+  const [activeTab, setActiveTab] = useState<'layers' | 'legends'>('layers');
+
 
   /** Alternar la visibilidad de la capa con ID `layerId`. */
   function toggleVisibility(layerId: string) {
@@ -29,6 +32,8 @@ export default function AppSidebar({
     layer.setVisible(!layer.isVisible());
   }
 
+
+
   return (
     <Sidebar {...props}>
       <SidebarHeader>
@@ -37,40 +42,71 @@ export default function AppSidebar({
             <p className="font-semibold">🌎 SIG - Grupo 4 - UTN FRRe - 2024</p>
           </SidebarMenuItem>
         </SidebarMenu>
+        {/* Tabs */}
+        <div className="flex border-b">
+          <button
+            className={`w-1/2 py-2 ${
+              activeTab === 'layers' ? 'font-bold border-b-2 border-blue-500' : 'font-medium'
+            }`}
+            onClick={() => setActiveTab('layers')}
+          >
+            Capas
+          </button>
+          <button
+            className={`w-1/2 py-2 ${
+              activeTab === 'legends' ? 'font-bold border-b-2 border-blue-500' : 'font-medium'
+            }`}
+            onClick={() => setActiveTab('legends')}
+            
+          >
+            Leyendas
+          </button>
+        </div>
       </SidebarHeader>
 
       <SidebarSeparator />
 
       <SidebarContent>
-        <SidebarMenu className="gap-0">
-          {layers.map((layer) => (
-            <SidebarMenuItem key={layer.get("id")}>
-              <SidebarMenuButton
-                asChild
-                className={
-                  layer.get("id") === activeLayerId
-                    ? "underline font-bold bg-slate-300 hover:bg-slate-300 active:bg-slate-300"
-                    : "font-medium"
-                }
-              >
-                <div className="flex gap-0 pl-4">
-                  <Checkbox
-                    // FIXME: en mobile, abrir y cerrar el sidebar deschequea el checkbox
-                    id={layer.get("id")}
-                    onCheckedChange={() => toggleVisibility(layer.get("id"))}
-                    className="h-5 w-5"
-                  />
-                  <p
-                    onClick={() => setActiveLayerId(layer.get("id"))}
-                    className="w-full m-0 p-2"
-                  >
-                    {layer.get("name")}
-                  </p>
-                </div>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          ))}
-        </SidebarMenu>
+        {/* Tab de Capas */}
+        {activeTab === 'layers' && (
+          <SidebarMenu className="gap-0">
+            {layers.map((layer) => (
+              <SidebarMenuItem key={layer.get("id")}>
+                <SidebarMenuButton
+                  asChild
+                  className={
+                    layer.get("id") === activeLayerId
+                      ? "underline font-bold bg-slate-300 hover:bg-slate-300 active:bg-slate-300"
+                      : "font-medium"
+                  }
+                >
+                  <div className="flex gap-0 pl-4">
+                    <Checkbox
+                      id={layer.get("id")}
+                      onCheckedChange={() => toggleVisibility(layer.get("id"))}
+                      className="h-5 w-5"
+                    />
+                    <p
+                      onClick={() => setActiveLayerId(layer.get("id"))}
+                      className="w-full m-0 p-2"
+                    >
+                      {layer.get("name")}
+                    </p>
+                  </div>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            ))}
+          </SidebarMenu>
+        )}
+
+        {/* Tab de Leyendas */}
+        {activeTab === 'legends' && (
+          <div className="p-4">
+            
+              <LegendList />
+            
+          </div>
+        )}
       </SidebarContent>
 
       <SidebarSeparator />
