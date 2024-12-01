@@ -29,10 +29,18 @@ function addRippleOverlay(map: Map, coordinate: Coordinate) {
   ripple.addEventListener("animationend", () => map.removeOverlay(overlay));
 }
 
+export type QueryData = {
+  layer: string;
+  features: {
+    geometry: object;
+    properties: object;
+  }[];
+};
+
 export function useQueryInteraction() {
   const { map, activeLayerId, activeOperation, setInteraction } = useMap();
   const { toast } = useToast();
-  const [queryData, setQueryData] = useState<unknown & { layer: string }>();
+  const [queryData, setQueryData] = useState<QueryData>();
 
   useEffect(() => {
     /**

@@ -6,7 +6,7 @@ import AppSidebar from "@/components/AppSidebar.tsx";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar.tsx";
 import AppControls from "@/components/AppControls.tsx";
 import { Toaster } from "./components/ui/toaster";
-import QuerySidebar from "./components/QuerySidebar";
+import QueryDataMenu from "./components/QueryDataMenu";
 
 export default function App() {
   const { mapContainerRef } = useMap();
@@ -24,11 +24,10 @@ export default function App() {
             style={{ width: "100%", height: "100vh" }}
           ></div>
           <AppControls />
+          <QueryDataMenu />
         </SidebarInset>
 
         <Toaster />
-
-        <QuerySidebar />
       </SidebarProvider>
     </>
   );
