@@ -30,14 +30,30 @@ app.get("/query", async (req: Request, res: Response) => {
     res.status(400).send({ msg: `unknown layer '${layer}' is not valid` });
     return;
   }
+
   // Objeto que intersecta con las features, representado en formato WKT (Well Known Text)
-  const wkt = `${req.query.wkt}`;
+  let wkt = `${req.query.wkt}`;
   if (!wkt) {
     res.status(400).send({ msg: "'wkt' query parameter is required" });
     return;
   }
 
-  // Consulta adaptada del ejemplo que usó el profe en el laboratorio
+  // Función SQL de PostGIS que interpreta la geometría en formato WKT
+  let sqlGeometry = sql`ST_geomfromtext(${wkt}, 4326)`;
+
+  if (wkt.includes("POINT(")) {
+    // La consulta por punto indica cierto `radius` para crear un buffer
+    const radius = Number(req.query.radius);
+    if (!radius) {
+      res.status(400).send({ msg: "'radius' is needed for POINT geometries" });
+      return;
+    }
+
+    // La consulta por punto requiere añadirle un buffer al punto
+    sqlGeometry = sql`ST_Buffer(ST_geomfromtext(${wkt}, 4326), ${radius})`;
+  }
+
+  // Consulta adaptada del ejemplo que usó el profe en un laboratorio
   const data = await sql`
     SELECT row_to_json(fc) AS geojson
     FROM (
@@ -47,10 +63,7 @@ app.get("/query", async (req: Request, res: Response) => {
         FROM (
           SELECT * 
           FROM ${sql(layer)}
-          WHERE st_intersects(
-            ST_geomfromtext(${wkt}, 4326),
-            geom
-            )
+          WHERE st_intersects(${sqlGeometry}, geom)
           ) as q
         ) AS f
       ) AS fc;

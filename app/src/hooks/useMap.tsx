@@ -28,8 +28,8 @@ const defaultMap = new Map({
   target: "map",
   layers: [osm],
   view: new View({
-    projection: "EPSG:4326",
-    center: fromLonLat([-64.0, -34.0], "EPSG:4326"), // Coordenadas iniciales para Argentina
+    projection: CRS,
+    center: fromLonLat([-64.0, -34.0], CRS), // Coordenadas iniciales para Argentina
     zoom: 5,
   }),
 });
@@ -74,7 +74,7 @@ export function MapProvider({ children }: MapProviderProps) {
             REQUEST: "GetMap",
             LAYERS: layer_id,
             FORMAT: "image/png",
-            CRS: "EPSG:4326",
+            CRS: CRS,
           },
         }),
         properties: {
@@ -91,7 +91,7 @@ export function MapProvider({ children }: MapProviderProps) {
 
     const view = new View({
       projection: CRS,
-      center: fromLonLat([-64.0, -34.0], "EPSG:4326"), // Coordenadas iniciales para Argentina
+      center: fromLonLat([-64.0, -34.0], CRS), // Coordenadas iniciales para Argentina
       zoom: 5,
     });
 

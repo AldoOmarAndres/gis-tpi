@@ -1,41 +1,56 @@
-import { MapBrowserEvent } from "ol";
+import { Map, MapBrowserEvent, Overlay } from "ol";
 import { always } from "ol/events/condition";
 import { DragBox } from "ol/interaction";
 import { useMap } from "./useMap";
 import { useEffect } from "react";
 import { useToast } from "./use-toast";
+import { Coordinate } from "ol/coordinate";
 
 // URL de la API REST (servidor web conectado a la base de datos)
 const URL = import.meta.env.VITE_API_SERVER_URL;
 
-function fetchFeatures(
-  layer: string,
-  wkt: string,
-  callback: (data: unknown) => void
-) {
-  fetch(`${URL}/query?layer=${layer}&wkt=${wkt}`)
-    .then((res) => res.json())
-    .then((data) => callback(data))
-    .catch((err) => console.error(err));
-}
-
 const dragBox = new DragBox({ condition: always });
 
+/** Crear un elemento que presente un efecto de onda. */
+function addRippleOverlay(map: Map, coordinate: Coordinate) {
+  const ripple = document.createElement("div");
+  // En `size-[{side}px]` el valor de side debe ser el doble del `radiusPixel`
+  ripple.className = `animate-[pulse_0.8s_ease-in-out_1.5] size-[40px] rounded-full bg-gray-100 border-1 border-white opacity-90`;
+
+  // Crear un overlay que sostenga al ripple
+  const overlay = new Overlay({
+    element: ripple,
+    position: coordinate,
+    positioning: "center-center",
+    stopEvent: false,
+  });
+
+  map.addOverlay(overlay);
+  ripple.addEventListener("animationend", () => map.removeOverlay(overlay));
+}
 export function useQueryInteraction() {
-  const { activeLayerId } = useMap();
+  const { map, activeLayerId } = useMap();
   const { toast } = useToast();
 
   /** Consulta gráfica de todo lo intersectado por el punto clickeado. */
-  function queryFeaturesByPoint(
-    evt: MapBrowserEvent<MouseEvent>,
-    layerId: string
-  ) {
-    const coordinate = evt.coordinate;
+  function queryFeaturesByPoint(e: MapBrowserEvent<MouseEvent>, layer: string) {
+    // Create a ripple effect element
 
     // La coordenada del punto clickeado tiene la forma `[lon, lat]`
-    const wkt = `POINT(${coordinate[0]} ${coordinate[1]})`;
+    const wkt = `POINT(${e.coordinate[0]} ${e.coordinate[1]})`;
+    // Incluir los elementos a un radio de `bufferRadiusPixels` píxeles de la coordenada clickeada
+    const radiusPixels = 20;
+    // Ref: https://openlayers.org/en/latest/apidoc/module-ol_View-View.html
+    // resolución = unidades de la proyección por píxel
+    const degreesPerPixel = map.getView().getResolution() ?? 1;
+    const radiusDegrees = radiusPixels * degreesPerPixel;
 
-    fetchFeatures(layerId, wkt, (data) => console.log(data));
+    addRippleOverlay(map, e.coordinate);
+
+    fetch(`${URL}/query?layer=${layer}&wkt=${wkt}&radius=${radiusDegrees}`)
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.error(err));
   }
 
   useEffect(() => {
@@ -60,7 +75,10 @@ export function useQueryInteraction() {
       }
       wkt += `${coordinates[0][0][0]} ${coordinates[0][0][1]}))`;
 
-      fetchFeatures(activeLayerId, wkt, (data) => console.log(data));
+      fetch(`${URL}/query?layer=${activeLayerId}&wkt=${wkt}`)
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+        .catch((err) => console.error(err));
     }
 
     dragBox.on("boxend", queryFeaturesByRectangle);
