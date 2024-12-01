@@ -8,7 +8,7 @@ import Overlay, { Positioning } from "ol/Overlay.js";
 import VectorSource from "ol/source/Vector";
 import { getArea, getLength } from "ol/sphere";
 import { useMap } from "./useMap";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 
 /** Crear un overlay (popup con texto) y agregarlo al mapa. */
 function addOverlay(map: Map, isPrimary: boolean) {
@@ -199,21 +199,37 @@ function createMeasureInteraction(
 }
 
 export function useMeasureLineInteraction() {
-  const { map } = useMap();
+  const { map, activeOperation, setInteraction } = useMap();
   const { draw, layer } = useMemo(
     () => createMeasureInteraction(map, "LineString"),
     [map]
   );
 
+  useEffect(() => {
+    if (activeOperation === "measure-line") {
+      // No está activada la medición de distancias
+      map.addInteraction(draw);
+      setInteraction(draw);
+    }
+  }, [draw, setInteraction, activeOperation, map]);
+
   return { measureLine: draw, measureLineLayer: layer };
 }
 
 export function useMeasureAreaInteraction() {
-  const { map } = useMap();
+  const { map, activeOperation, setInteraction } = useMap();
   const { draw, layer } = useMemo(
     () => createMeasureInteraction(map, "Polygon"),
     [map]
   );
+
+  useEffect(() => {
+    if (activeOperation === "measure-area") {
+      // No está activada la medición de áreas
+      map.addInteraction(draw);
+      setInteraction(draw);
+    }
+  }, [draw, setInteraction, activeOperation, map]);
 
   return { measureArea: draw, measureAreaLayer: layer };
 }

@@ -1,4 +1,4 @@
-import { LAYER_IDS, CRS } from "@/lib/capas";
+import { LAYER_IDS, CRS, layerNameFromLayerId } from "@/lib/capas";
 import { Map, View } from "ol";
 import TileLayer from "ol/layer/Tile";
 import { fromLonLat } from "ol/proj";
@@ -14,6 +14,7 @@ import {
   SetStateAction,
   Dispatch,
 } from "react";
+import { Interaction } from "ol/interaction";
 
 // URL del QGIS Server
 const URL = import.meta.env.VITE_QGIS_SERVER_URL;
@@ -34,6 +35,9 @@ const defaultMap = new Map({
   }),
 });
 
+/** Operaciones que se pueden realizar sobre el mapa. La operación por defecto es 'navigate'. */
+export type Operation = "navigate" | "measure-line" | "measure-area" | "query";
+
 interface IMapContext {
   /** Referencia al tag HTML que contiene el mapa renderizado con Open Layers. */
   mapContainerRef: MutableRefObject<HTMLDivElement | null>;
@@ -45,6 +49,11 @@ interface IMapContext {
   activeLayerId: string | undefined;
   /** Setter de `activeLayerId`. */
   setActiveLayerId: Dispatch<SetStateAction<string | undefined>>;
+  /** Operación actualmente activa que se puede realizar sobre el mapa de la app. */
+  activeOperation: Operation;
+  /** Activar la operación `operation`. Esto desactiva las demás operaciones. */
+  changeOperation: (operation: Operation) => void;
+  setInteraction: Dispatch<SetStateAction<Interaction | undefined>>;
 }
 
 const MapContext = createContext<IMapContext | undefined>(undefined);
@@ -58,11 +67,13 @@ export function MapProvider({ children }: MapProviderProps) {
   const [map, setMap] = useState<Map>(defaultMap);
   const [layers, setLayers] = useState<TileLayer[]>([]);
   const [activeLayerId, setActiveLayerId] = useState<string>();
+  const [activeOperation, setActiveOperation] = useState<Operation>("navigate");
+  const [interaction, setInteraction] = useState<Interaction>();
 
   useEffect(() => {
     if (!mapContainerRef.current) return;
 
-    const layers = LAYER_IDS.map((layer_id) => {
+    const layers = LAYER_IDS.map((layerId) => {
       return new TileLayer({
         visible: false,
         source: new TileWMS({
@@ -72,19 +83,14 @@ export function MapProvider({ children }: MapProviderProps) {
             SERVICE: "WMS",
             VERSION: "1.3.0",
             REQUEST: "GetMap",
-            LAYERS: layer_id,
+            LAYERS: layerId,
             FORMAT: "image/png",
             CRS: CRS,
           },
         }),
         properties: {
-          id: layer_id,
-          // TODO: sería mejor especificar un nombre legible para cada capa, no derivarlo del identificador
-          name: layer_id
-            .toLocaleLowerCase()
-            .split("_")
-            .map((name) => name.charAt(0).toUpperCase() + name.slice(1))
-            .join(" "),
+          id: layerId,
+          name: layerNameFromLayerId(layerId),
         },
       });
     });
@@ -120,6 +126,15 @@ export function MapProvider({ children }: MapProviderProps) {
     return () => map?.setTarget(undefined);
   }, []);
 
+  function changeOperation(operation: Operation) {
+    if (activeOperation !== operation && interaction) {
+      // Eliminar del mapa la interacción previamente activada
+      map.removeInteraction(interaction);
+    }
+
+    setActiveOperation(operation);
+  }
+
   return (
     <MapContext.Provider
       value={{
@@ -128,6 +143,9 @@ export function MapProvider({ children }: MapProviderProps) {
         map,
         activeLayerId,
         setActiveLayerId,
+        activeOperation,
+        changeOperation,
+        setInteraction,
       }}
     >
       {children}

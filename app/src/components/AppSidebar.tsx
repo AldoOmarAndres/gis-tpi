@@ -6,6 +6,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarSeparator,
 } from "@/components/ui/sidebar";
 import { ComponentProps } from "react";
 import { useMap } from "@/hooks/useMap";
@@ -33,14 +34,12 @@ export default function AppSidebar({
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild>
-              <p className="font-semibold">
-                🌎 SIG - Grupo 4 - UTN FRRe - 2024
-              </p>
-            </SidebarMenuButton>
+            <p className="font-semibold">🌎 SIG - Grupo 4 - UTN FRRe - 2024</p>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
+
+      <SidebarSeparator />
 
       <SidebarContent>
         <SidebarMenu className="gap-0">
@@ -73,6 +72,8 @@ export default function AppSidebar({
           ))}
         </SidebarMenu>
       </SidebarContent>
+
+      <SidebarSeparator />
 
       <SidebarFooter>
         <SidebarMenu>

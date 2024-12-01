@@ -2,7 +2,7 @@ import { Map, MapBrowserEvent, Overlay } from "ol";
 import { always } from "ol/events/condition";
 import { DragBox } from "ol/interaction";
 import { useMap } from "./useMap";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useToast } from "./use-toast";
 import { Coordinate } from "ol/coordinate";
 
@@ -28,30 +28,58 @@ function addRippleOverlay(map: Map, coordinate: Coordinate) {
   map.addOverlay(overlay);
   ripple.addEventListener("animationend", () => map.removeOverlay(overlay));
 }
+
 export function useQueryInteraction() {
-  const { map, activeLayerId } = useMap();
+  const { map, activeLayerId, activeOperation, setInteraction } = useMap();
   const { toast } = useToast();
+  const [queryData, setQueryData] = useState<unknown & { layer: string }>();
 
-  /** Consulta gráfica de todo lo intersectado por el punto clickeado. */
-  function queryFeaturesByPoint(e: MapBrowserEvent<MouseEvent>, layer: string) {
-    // Create a ripple effect element
+  useEffect(() => {
+    /**
+     * Handler para el evento de un click durante la operación `query`.
+     * Realiza la consulta gráfica de todo lo intersectado por el punto clickeado.
+     */
+    function handleQueryClick(e: MapBrowserEvent<MouseEvent>) {
+      if (activeOperation !== "query") {
+        // No está activada la consulta de elementos
+        return;
+      }
 
-    // La coordenada del punto clickeado tiene la forma `[lon, lat]`
-    const wkt = `POINT(${e.coordinate[0]} ${e.coordinate[1]})`;
-    // Incluir los elementos a un radio de `bufferRadiusPixels` píxeles de la coordenada clickeada
-    const radiusPixels = 20;
-    // Ref: https://openlayers.org/en/latest/apidoc/module-ol_View-View.html
-    // resolución = unidades de la proyección por píxel
-    const degreesPerPixel = map.getView().getResolution() ?? 1;
-    const radiusDegrees = radiusPixels * degreesPerPixel;
+      if (!activeLayerId) {
+        toast({
+          variant: "destructive",
+          title: "¡Uy! No hay una capa activada.",
+          description:
+            "Se necesita una capa activa para poder consultar sus elementos.",
+        });
+        return;
+      }
 
-    addRippleOverlay(map, e.coordinate);
+      // La coordenada del punto clickeado tiene la forma `[lon, lat]`
+      const wkt = `POINT(${e.coordinate[0]} ${e.coordinate[1]})`;
+      // Incluir los elementos a un radio de `bufferRadiusPixels` píxeles de la coordenada clickeada
+      const radiusPixels = 20;
+      // Ref: https://openlayers.org/en/latest/apidoc/module-ol_View-View.html
+      // resolución = unidades de la proyección por píxel
+      const degreesPerPixel = map.getView().getResolution() ?? 1;
+      const radiusDegrees = radiusPixels * degreesPerPixel;
 
-    fetch(`${URL}/query?layer=${layer}&wkt=${wkt}&radius=${radiusDegrees}`)
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.error(err));
-  }
+      addRippleOverlay(map, e.coordinate);
+
+      fetch(
+        `${URL}/query?layer=${activeLayerId}&wkt=${wkt}&radius=${radiusDegrees}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          data.layer = activeLayerId;
+          setQueryData(data);
+        })
+        .catch((err) => console.error(err));
+    }
+
+    map.on("click", handleQueryClick);
+    return () => map.un("click", handleQueryClick);
+  }, [activeLayerId, toast, activeOperation, map]);
 
   useEffect(() => {
     /** Consulta gráfica de todo lo intersectado por el rectángulo dibujado. */
@@ -77,7 +105,10 @@ export function useQueryInteraction() {
 
       fetch(`${URL}/query?layer=${activeLayerId}&wkt=${wkt}`)
         .then((res) => res.json())
-        .then((data) => console.log(data))
+        .then((data) => {
+          data.layer = activeLayerId;
+          setQueryData(data);
+        })
         .catch((err) => console.error(err));
     }
 
@@ -85,5 +116,13 @@ export function useQueryInteraction() {
     return () => dragBox.un("boxend", queryFeaturesByRectangle);
   }, [activeLayerId, toast]);
 
-  return { dragBox, queryFeaturesByPoint };
+  useEffect(() => {
+    if (activeOperation === "query") {
+      // No está activada la consulta de elementos por rectángulos
+      map.addInteraction(dragBox);
+      setInteraction(dragBox);
+    }
+  }, [setInteraction, activeOperation, map]);
+
+  return { dragBox, queryData };
 }

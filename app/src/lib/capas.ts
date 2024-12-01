@@ -49,3 +49,12 @@ export const LAYER_IDS = [
 ];
 
 export const CRS = "EPSG:4326";
+
+/** Retorna el nombre legible de la capa, dado su identificador. */
+export function layerNameFromLayerId(layerId: string) {
+  return layerId
+    .toLocaleLowerCase()
+    .split("_")
+    .map((name) => name.charAt(0).toUpperCase() + name.slice(1))
+    .join(" ");
+}

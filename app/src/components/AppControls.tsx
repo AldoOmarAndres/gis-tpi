@@ -3,8 +3,11 @@ import useMapZoom from "@/hooks/useMapZoom";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { MousePointerClick, Trash2Icon } from "lucide-react";
-import useMapOperations, { Operation } from "@/hooks/useMapOperations";
-import { useMap } from "@/hooks/useMap";
+import { Operation, useMap } from "@/hooks/useMap";
+import {
+  useMeasureAreaInteraction,
+  useMeasureLineInteraction,
+} from "@/hooks/useMeasureInteraction";
 
 function ZoomControls() {
   const { zoomTo } = useMapZoom();
@@ -113,14 +116,9 @@ function AreaRulerIcon() {
 }
 
 function OperationsMenu() {
-  // TODO: agregar un botón "tacho de basura" para eliminar los dibujos de measure-line y measure-area
-  const {
-    activeOperation,
-    changeOperation,
-    measureLineLayer,
-    measureAreaLayer,
-  } = useMapOperations();
-  const { map } = useMap();
+  const { map, activeOperation, changeOperation } = useMap();
+  const { measureLineLayer } = useMeasureLineInteraction();
+  const { measureAreaLayer } = useMeasureAreaInteraction();
 
   const measureLineSource = measureLineLayer.getSource();
   const measureAreaSource = measureAreaLayer.getSource();

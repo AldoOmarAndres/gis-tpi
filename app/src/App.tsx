@@ -6,6 +6,7 @@ import AppSidebar from "@/components/AppSidebar.tsx";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar.tsx";
 import AppControls from "@/components/AppControls.tsx";
 import { Toaster } from "./components/ui/toaster";
+import QuerySidebar from "./components/QuerySidebar";
 
 export default function App() {
   const { mapContainerRef } = useMap();
@@ -26,6 +27,8 @@ export default function App() {
         </SidebarInset>
 
         <Toaster />
+
+        <QuerySidebar />
       </SidebarProvider>
     </>
   );
