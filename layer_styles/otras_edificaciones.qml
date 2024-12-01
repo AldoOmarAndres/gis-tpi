@@ -158,10 +158,10 @@
           <Option type="Map">
             <Option value="0" name="angle" type="QString"/>
             <Option value="square" name="cap_style" type="QString"/>
-            <Option value="125,139,143,255,rgb:0.49019607843137253,0.54509803921568623,0.5607843137254902,1" name="color" type="QString"/>
+            <Option value="0,0,0,255,hsv:0.53702777777777777,0.12587167162584878,0,1" name="color" type="QString"/>
             <Option value="1" name="horizontal_anchor_point" type="QString"/>
             <Option value="bevel" name="joinstyle" type="QString"/>
-            <Option value="circle" name="name" type="QString"/>
+            <Option value="square" name="name" type="QString"/>
             <Option value="0,0" name="offset" type="QString"/>
             <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
             <Option value="MM" name="offset_unit" type="QString"/>
@@ -171,7 +171,7 @@
             <Option value="3x:0,0,0,0,0,0" name="outline_width_map_unit_scale" type="QString"/>
             <Option value="MM" name="outline_width_unit" type="QString"/>
             <Option value="diameter" name="scale_method" type="QString"/>
-            <Option value="2" name="size" type="QString"/>
+            <Option value="0.8" name="size" type="QString"/>
             <Option value="3x:0,0,0,0,0,0" name="size_map_unit_scale" type="QString"/>
             <Option value="MM" name="size_unit" type="QString"/>
             <Option value="1" name="vertical_anchor_point" type="QString"/>
@@ -200,7 +200,11 @@
     <selectionColor invalid="1"/>
   </selection>
   <customproperties>
-    <Option/>
+    <Option type="Map">
+      <Option name="dualview/previewExpressions" type="List">
+        <Option value="&quot;cell_name&quot;" type="QString"/>
+      </Option>
+    </Option>
   </customproperties>
   <blendMode>0</blendMode>
   <featureBlendMode>0</featureBlendMode>
@@ -569,8 +573,36 @@
   <attributeactions>
     <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
   </attributeactions>
-  <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
-    <columns/>
+  <attributetableconfig actionWidgetStyle="dropDown" sortExpression="&quot;tipo&quot;" sortOrder="1">
+    <columns>
+      <column name="gid" hidden="0" type="field" width="-1"/>
+      <column name="nombre" hidden="0" type="field" width="-1"/>
+      <column name="tipo" hidden="0" type="field" width="-1"/>
+      <column name="situación" hidden="0" type="field" width="-1"/>
+      <column name="precisión" hidden="0" type="field" width="-1"/>
+      <column name="escala" hidden="0" type="field" width="-1"/>
+      <column name="signo" hidden="0" type="field" width="-1"/>
+      <column name="fuente" hidden="0" type="field" width="-1"/>
+      <column name="operador" hidden="0" type="field" width="-1"/>
+      <column name="dataset" hidden="0" type="field" width="-1"/>
+      <column name="fclass" hidden="0" type="field" width="-1"/>
+      <column name="responsabl" hidden="0" type="field" width="-1"/>
+      <column name="cargo" hidden="0" type="field" width="-1"/>
+      <column name="progreso" hidden="0" type="field" width="-1"/>
+      <column name="t_act" hidden="0" type="field" width="-1"/>
+      <column name="coord" hidden="0" type="field" width="-1"/>
+      <column name="sp" hidden="0" type="field" width="-1"/>
+      <column name="datum" hidden="0" type="field" width="-1"/>
+      <column name="ac" hidden="0" type="field" width="-1"/>
+      <column name="cell_name" hidden="0" type="field" width="-1"/>
+      <column name="igds_type" hidden="0" type="field" width="-1"/>
+      <column name="igds_weigh" hidden="0" type="field" width="-1"/>
+      <column name="rotation" hidden="0" type="field" width="-1"/>
+      <column name="igds_color" hidden="0" type="field" width="-1"/>
+      <column name="group" hidden="0" type="field" width="-1"/>
+      <column name="igds_level" hidden="0" type="field" width="-1"/>
+      <column hidden="1" type="actions" width="-1"/>
+    </columns>
   </attributetableconfig>
   <conditionalstyles>
     <rowstyles/>
@@ -589,7 +621,7 @@
   <reuseLastValue/>
   <dataDefinedFieldProperties/>
   <widgets/>
-  <previewExpression></previewExpression>
+  <previewExpression>"cell_name"</previewExpression>
   <mapTip enabled="1"></mapTip>
   <layerGeometryType>0</layerGeometryType>
 </qgis>

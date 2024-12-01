@@ -1,12 +1,12 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis autoRefreshMode="Disabled" simplifyLocal="1" maxScale="0" minScale="100000000" simplifyDrawingTol="1" version="3.40.1-Bratislava" simplifyDrawingHints="1" labelsEnabled="0" symbologyReferenceScale="-1" styleCategories="AllStyleCategories" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" simplifyAlgorithm="0" simplifyMaxScale="1" readOnly="0">
+<qgis autoRefreshMode="Disabled" simplifyLocal="1" maxScale="0" minScale="100000000" simplifyDrawingTol="1" version="3.40.1-Bratislava" simplifyDrawingHints="0" labelsEnabled="0" symbologyReferenceScale="-1" styleCategories="AllStyleCategories" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" simplifyAlgorithm="0" simplifyMaxScale="1" readOnly="0">
   <flags>
     <Identifiable>1</Identifiable>
     <Removable>1</Removable>
     <Searchable>1</Searchable>
     <Private>0</Private>
   </flags>
-  <temporal endExpression="" accumulate="0" durationField="" durationUnit="min" limitMode="0" enabled="0" startExpression="" fixedDuration="0" mode="0" startField="" endField="">
+  <temporal endExpression="" accumulate="0" durationField="gid" durationUnit="min" limitMode="0" enabled="0" startExpression="" fixedDuration="0" mode="0" startField="" endField="">
     <fixedRange>
       <start></start>
       <end></end>
@@ -158,20 +158,20 @@
           <Option type="Map">
             <Option value="0" name="angle" type="QString"/>
             <Option value="square" name="cap_style" type="QString"/>
-            <Option value="255,158,23,255,rgb:1,0.61960784313725492,0.09019607843137255,1" name="color" type="QString"/>
+            <Option value="232,186,121,255,hsv:0.09697222222222222,0.4806591897459373,0.91129930571450368,1" name="color" type="QString"/>
             <Option value="1" name="horizontal_anchor_point" type="QString"/>
             <Option value="bevel" name="joinstyle" type="QString"/>
             <Option value="circle" name="name" type="QString"/>
             <Option value="0,0" name="offset" type="QString"/>
             <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
             <Option value="MM" name="offset_unit" type="QString"/>
-            <Option value="35,35,35,255,rgb:0.13725490196078433,0.13725490196078433,0.13725490196078433,1" name="outline_color" type="QString"/>
+            <Option value="35,35,35,0,rgb:0.13725490196078433,0.13725490196078433,0.13725490196078433,0" name="outline_color" type="QString"/>
             <Option value="solid" name="outline_style" type="QString"/>
             <Option value="0" name="outline_width" type="QString"/>
             <Option value="3x:0,0,0,0,0,0" name="outline_width_map_unit_scale" type="QString"/>
             <Option value="MM" name="outline_width_unit" type="QString"/>
             <Option value="diameter" name="scale_method" type="QString"/>
-            <Option value="2" name="size" type="QString"/>
+            <Option value="0.5" name="size" type="QString"/>
             <Option value="3x:0,0,0,0,0,0" name="size_map_unit_scale" type="QString"/>
             <Option value="MM" name="size_unit" type="QString"/>
             <Option value="1" name="vertical_anchor_point" type="QString"/>
@@ -198,206 +198,252 @@
   </renderer-v2>
   <selection mode="Default">
     <selectionColor invalid="1"/>
+    <selectionSymbol>
+      <symbol clip_to_extent="1" name="" force_rhr="0" is_animated="0" type="marker" alpha="1" frame_rate="10">
+        <data_defined_properties>
+          <Option type="Map">
+            <Option value="" name="name" type="QString"/>
+            <Option name="properties"/>
+            <Option value="collection" name="type" type="QString"/>
+          </Option>
+        </data_defined_properties>
+        <layer pass="0" enabled="1" id="{30bf6299-6980-4218-a7b4-7455fe273819}" class="SimpleMarker" locked="0">
+          <Option type="Map">
+            <Option value="0" name="angle" type="QString"/>
+            <Option value="square" name="cap_style" type="QString"/>
+            <Option value="255,0,0,255,rgb:1,0,0,1" name="color" type="QString"/>
+            <Option value="1" name="horizontal_anchor_point" type="QString"/>
+            <Option value="bevel" name="joinstyle" type="QString"/>
+            <Option value="circle" name="name" type="QString"/>
+            <Option value="0,0" name="offset" type="QString"/>
+            <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+            <Option value="MM" name="offset_unit" type="QString"/>
+            <Option value="35,35,35,255,rgb:0.13725490196078433,0.13725490196078433,0.13725490196078433,1" name="outline_color" type="QString"/>
+            <Option value="solid" name="outline_style" type="QString"/>
+            <Option value="0" name="outline_width" type="QString"/>
+            <Option value="3x:0,0,0,0,0,0" name="outline_width_map_unit_scale" type="QString"/>
+            <Option value="MM" name="outline_width_unit" type="QString"/>
+            <Option value="diameter" name="scale_method" type="QString"/>
+            <Option value="2" name="size" type="QString"/>
+            <Option value="3x:0,0,0,0,0,0" name="size_map_unit_scale" type="QString"/>
+            <Option value="MM" name="size_unit" type="QString"/>
+            <Option value="1" name="vertical_anchor_point" type="QString"/>
+          </Option>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option value="" name="name" type="QString"/>
+              <Option name="properties"/>
+              <Option value="collection" name="type" type="QString"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+      </symbol>
+    </selectionSymbol>
   </selection>
   <customproperties>
-    <Option/>
+    <Option type="Map">
+      <Option name="dualview/previewExpressions" type="List">
+        <Option value="&quot;cell_name&quot;" type="QString"/>
+      </Option>
+      <Option value="0" name="embeddedWidgets/count" type="int"/>
+      <Option name="variableNames" type="invalid"/>
+      <Option name="variableValues" type="invalid"/>
+    </Option>
   </customproperties>
   <blendMode>0</blendMode>
   <featureBlendMode>0</featureBlendMode>
   <layerOpacity>1</layerOpacity>
   <geometryOptions removeDuplicateNodes="0" geometryPrecision="0">
-    <activeChecks type="StringList">
-      <Option value="" type="QString"/>
-    </activeChecks>
+    <activeChecks/>
     <checkConfiguration/>
   </geometryOptions>
   <legend type="default-vector" showLabelLegend="0"/>
   <referencedLayers/>
   <fieldConfiguration>
     <field configurationFlags="NoFlag" name="gid">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="nombre">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="tipo">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="precisión">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="escala">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="signo">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="fuente">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="operador">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="dataset">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="fclass">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="responsabl">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="cargo">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="progreso">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="t_act">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="coord">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="sp">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="datum">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="ac">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="cota">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="cotbase">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="cell_name">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="igds_type">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="igds_weigh">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="igds_color">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="igds_level">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="rotation">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="group">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
@@ -583,7 +629,36 @@
     <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
   </attributeactions>
   <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
-    <columns/>
+    <columns>
+      <column name="gid" hidden="0" type="field" width="-1"/>
+      <column name="nombre" hidden="0" type="field" width="-1"/>
+      <column name="tipo" hidden="0" type="field" width="-1"/>
+      <column name="precisión" hidden="0" type="field" width="-1"/>
+      <column name="escala" hidden="0" type="field" width="-1"/>
+      <column name="signo" hidden="0" type="field" width="-1"/>
+      <column name="fuente" hidden="0" type="field" width="-1"/>
+      <column name="operador" hidden="0" type="field" width="-1"/>
+      <column name="dataset" hidden="0" type="field" width="-1"/>
+      <column name="fclass" hidden="0" type="field" width="-1"/>
+      <column name="responsabl" hidden="0" type="field" width="-1"/>
+      <column name="cargo" hidden="0" type="field" width="-1"/>
+      <column name="progreso" hidden="0" type="field" width="-1"/>
+      <column name="t_act" hidden="0" type="field" width="-1"/>
+      <column name="coord" hidden="0" type="field" width="-1"/>
+      <column name="sp" hidden="0" type="field" width="-1"/>
+      <column name="datum" hidden="0" type="field" width="-1"/>
+      <column name="ac" hidden="0" type="field" width="-1"/>
+      <column name="cota" hidden="0" type="field" width="-1"/>
+      <column name="cotbase" hidden="0" type="field" width="-1"/>
+      <column name="cell_name" hidden="0" type="field" width="-1"/>
+      <column name="igds_type" hidden="0" type="field" width="-1"/>
+      <column name="igds_weigh" hidden="0" type="field" width="-1"/>
+      <column name="igds_color" hidden="0" type="field" width="-1"/>
+      <column name="igds_level" hidden="0" type="field" width="-1"/>
+      <column name="rotation" hidden="0" type="field" width="-1"/>
+      <column name="group" hidden="0" type="field" width="-1"/>
+      <column hidden="1" type="actions" width="-1"/>
+    </columns>
   </attributetableconfig>
   <conditionalstyles>
     <rowstyles/>
@@ -594,15 +669,113 @@
   <editforminit/>
   <editforminitcodesource>0</editforminitcodesource>
   <editforminitfilepath></editforminitfilepath>
-  <editforminitcode><![CDATA[]]></editforminitcode>
+  <editforminitcode><![CDATA[QGISQGIS# -*- coding: utf-8 -*-
+"""
+Los formularios QGIS pueden tener una función de Python a la que se llama cuando el formulario es abierto.
+
+Utilice esta función para agregar lógica adicional a sus formularios.
+
+Ingrese el nombre de la función en el campo"Función de inicio de Python" .
+A continuación se muestra un ejemplo:
+"""
+from qgis.PyQt.QtWidgets import QWidget
+
+def my_form_open(dialog, layer, feature):
+    geom = feature.geometry()
+    control = dialog.findChild(QWidget, "MyLineEdit")
+]]></editforminitcode>
   <featformsuppress>0</featformsuppress>
   <editorlayout>generatedlayout</editorlayout>
-  <editable/>
-  <labelOnTop/>
-  <reuseLastValue/>
+  <editable>
+    <field name="ac" editable="1"/>
+    <field name="cargo" editable="1"/>
+    <field name="cell_name" editable="1"/>
+    <field name="coord" editable="1"/>
+    <field name="cota" editable="1"/>
+    <field name="cotbase" editable="1"/>
+    <field name="dataset" editable="1"/>
+    <field name="datum" editable="1"/>
+    <field name="escala" editable="1"/>
+    <field name="fclass" editable="1"/>
+    <field name="fuente" editable="1"/>
+    <field name="gid" editable="1"/>
+    <field name="group" editable="1"/>
+    <field name="igds_color" editable="1"/>
+    <field name="igds_level" editable="1"/>
+    <field name="igds_type" editable="1"/>
+    <field name="igds_weigh" editable="1"/>
+    <field name="nombre" editable="1"/>
+    <field name="operador" editable="1"/>
+    <field name="precisión" editable="1"/>
+    <field name="progreso" editable="1"/>
+    <field name="responsabl" editable="1"/>
+    <field name="rotation" editable="1"/>
+    <field name="signo" editable="1"/>
+    <field name="sp" editable="1"/>
+    <field name="t_act" editable="1"/>
+    <field name="tipo" editable="1"/>
+  </editable>
+  <labelOnTop>
+    <field name="ac" labelOnTop="0"/>
+    <field name="cargo" labelOnTop="0"/>
+    <field name="cell_name" labelOnTop="0"/>
+    <field name="coord" labelOnTop="0"/>
+    <field name="cota" labelOnTop="0"/>
+    <field name="cotbase" labelOnTop="0"/>
+    <field name="dataset" labelOnTop="0"/>
+    <field name="datum" labelOnTop="0"/>
+    <field name="escala" labelOnTop="0"/>
+    <field name="fclass" labelOnTop="0"/>
+    <field name="fuente" labelOnTop="0"/>
+    <field name="gid" labelOnTop="0"/>
+    <field name="group" labelOnTop="0"/>
+    <field name="igds_color" labelOnTop="0"/>
+    <field name="igds_level" labelOnTop="0"/>
+    <field name="igds_type" labelOnTop="0"/>
+    <field name="igds_weigh" labelOnTop="0"/>
+    <field name="nombre" labelOnTop="0"/>
+    <field name="operador" labelOnTop="0"/>
+    <field name="precisión" labelOnTop="0"/>
+    <field name="progreso" labelOnTop="0"/>
+    <field name="responsabl" labelOnTop="0"/>
+    <field name="rotation" labelOnTop="0"/>
+    <field name="signo" labelOnTop="0"/>
+    <field name="sp" labelOnTop="0"/>
+    <field name="t_act" labelOnTop="0"/>
+    <field name="tipo" labelOnTop="0"/>
+  </labelOnTop>
+  <reuseLastValue>
+    <field name="ac" reuseLastValue="0"/>
+    <field name="cargo" reuseLastValue="0"/>
+    <field name="cell_name" reuseLastValue="0"/>
+    <field name="coord" reuseLastValue="0"/>
+    <field name="cota" reuseLastValue="0"/>
+    <field name="cotbase" reuseLastValue="0"/>
+    <field name="dataset" reuseLastValue="0"/>
+    <field name="datum" reuseLastValue="0"/>
+    <field name="escala" reuseLastValue="0"/>
+    <field name="fclass" reuseLastValue="0"/>
+    <field name="fuente" reuseLastValue="0"/>
+    <field name="gid" reuseLastValue="0"/>
+    <field name="group" reuseLastValue="0"/>
+    <field name="igds_color" reuseLastValue="0"/>
+    <field name="igds_level" reuseLastValue="0"/>
+    <field name="igds_type" reuseLastValue="0"/>
+    <field name="igds_weigh" reuseLastValue="0"/>
+    <field name="nombre" reuseLastValue="0"/>
+    <field name="operador" reuseLastValue="0"/>
+    <field name="precisión" reuseLastValue="0"/>
+    <field name="progreso" reuseLastValue="0"/>
+    <field name="responsabl" reuseLastValue="0"/>
+    <field name="rotation" reuseLastValue="0"/>
+    <field name="signo" reuseLastValue="0"/>
+    <field name="sp" reuseLastValue="0"/>
+    <field name="t_act" reuseLastValue="0"/>
+    <field name="tipo" reuseLastValue="0"/>
+  </reuseLastValue>
   <dataDefinedFieldProperties/>
   <widgets/>
-  <previewExpression></previewExpression>
+  <previewExpression>"cell_name"</previewExpression>
   <mapTip enabled="1"></mapTip>
   <layerGeometryType>0</layerGeometryType>
 </qgis>

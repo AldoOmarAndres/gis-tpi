@@ -6,7 +6,7 @@
     <Searchable>1</Searchable>
     <Private>0</Private>
   </flags>
-  <temporal endExpression="" accumulate="0" durationField="" durationUnit="min" limitMode="0" enabled="0" startExpression="" fixedDuration="0" mode="0" startField="" endField="">
+  <temporal endExpression="" accumulate="0" durationField="gid" durationUnit="min" limitMode="0" enabled="0" startExpression="" fixedDuration="0" mode="0" startField="" endField="">
     <fixedRange>
       <start></start>
       <end></end>
@@ -154,7 +154,73 @@
             <Option value="collection" name="type" type="QString"/>
           </Option>
         </data_defined_properties>
-        <layer pass="0" enabled="1" id="{f6d19ebb-4ebe-475e-8261-340e7e6e13e6}" class="SimpleLine" locked="0">
+        <layer pass="0" enabled="1" id="{c09e96ed-37a1-4c80-9b30-cc9b90f98410}" class="MarkerLine" locked="0">
+          <Option type="Map">
+            <Option value="4" name="average_angle_length" type="QString"/>
+            <Option value="3x:0,0,0,0,0,0" name="average_angle_map_unit_scale" type="QString"/>
+            <Option value="MM" name="average_angle_unit" type="QString"/>
+            <Option value="3" name="interval" type="QString"/>
+            <Option value="3x:0,0,0,0,0,0" name="interval_map_unit_scale" type="QString"/>
+            <Option value="MM" name="interval_unit" type="QString"/>
+            <Option value="0" name="offset" type="QString"/>
+            <Option value="0" name="offset_along_line" type="QString"/>
+            <Option value="3x:0,0,0,0,0,0" name="offset_along_line_map_unit_scale" type="QString"/>
+            <Option value="MM" name="offset_along_line_unit" type="QString"/>
+            <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+            <Option value="MM" name="offset_unit" type="QString"/>
+            <Option value="true" name="place_on_every_part" type="bool"/>
+            <Option value="Interval" name="placements" type="QString"/>
+            <Option value="0" name="ring_filter" type="QString"/>
+            <Option value="1" name="rotate" type="QString"/>
+          </Option>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option value="" name="name" type="QString"/>
+              <Option name="properties"/>
+              <Option value="collection" name="type" type="QString"/>
+            </Option>
+          </data_defined_properties>
+          <symbol clip_to_extent="1" name="@0@0" force_rhr="0" is_animated="0" type="marker" alpha="1" frame_rate="10">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+            <layer pass="0" enabled="1" id="{7b702209-51ba-4430-80f0-6381b9be4a3b}" class="SimpleMarker" locked="0">
+              <Option type="Map">
+                <Option value="0" name="angle" type="QString"/>
+                <Option value="square" name="cap_style" type="QString"/>
+                <Option value="255,0,0,255,rgb:1,0,0,1" name="color" type="QString"/>
+                <Option value="1" name="horizontal_anchor_point" type="QString"/>
+                <Option value="bevel" name="joinstyle" type="QString"/>
+                <Option value="line" name="name" type="QString"/>
+                <Option value="0,0" name="offset" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+                <Option value="MM" name="offset_unit" type="QString"/>
+                <Option value="35,35,35,255,rgb:0.13725490196078433,0.13725490196078433,0.13725490196078433,1" name="outline_color" type="QString"/>
+                <Option value="solid" name="outline_style" type="QString"/>
+                <Option value="0" name="outline_width" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="outline_width_map_unit_scale" type="QString"/>
+                <Option value="MM" name="outline_width_unit" type="QString"/>
+                <Option value="diameter" name="scale_method" type="QString"/>
+                <Option value="1" name="size" type="QString"/>
+                <Option value="3x:0,0,0,0,0,0" name="size_map_unit_scale" type="QString"/>
+                <Option value="MM" name="size_unit" type="QString"/>
+                <Option value="1" name="vertical_anchor_point" type="QString"/>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </layer>
+        <layer pass="0" enabled="1" id="{40296445-a469-49b5-841a-80bd29b37c48}" class="SimpleLine" locked="0">
           <Option type="Map">
             <Option value="0" name="align_dash_pattern" type="QString"/>
             <Option value="square" name="capstyle" type="QString"/>
@@ -166,7 +232,7 @@
             <Option value="MM" name="dash_pattern_offset_unit" type="QString"/>
             <Option value="0" name="draw_inside_polygon" type="QString"/>
             <Option value="bevel" name="joinstyle" type="QString"/>
-            <Option value="190,207,80,255,rgb:0.74509803921568629,0.81176470588235294,0.31372549019607843,1" name="line_color" type="QString"/>
+            <Option value="35,35,35,255,rgb:0.13725490196078433,0.13725490196078433,0.13725490196078433,1" name="line_color" type="QString"/>
             <Option value="solid" name="line_style" type="QString"/>
             <Option value="0.26" name="line_width" type="QString"/>
             <Option value="MM" name="line_width_unit" type="QString"/>
@@ -206,255 +272,306 @@
   </renderer-v2>
   <selection mode="Default">
     <selectionColor invalid="1"/>
+    <selectionSymbol>
+      <symbol clip_to_extent="1" name="" force_rhr="0" is_animated="0" type="line" alpha="1" frame_rate="10">
+        <data_defined_properties>
+          <Option type="Map">
+            <Option value="" name="name" type="QString"/>
+            <Option name="properties"/>
+            <Option value="collection" name="type" type="QString"/>
+          </Option>
+        </data_defined_properties>
+        <layer pass="0" enabled="1" id="{123309ba-5ac4-4b69-a866-10bcdc55c054}" class="SimpleLine" locked="0">
+          <Option type="Map">
+            <Option value="0" name="align_dash_pattern" type="QString"/>
+            <Option value="square" name="capstyle" type="QString"/>
+            <Option value="5;2" name="customdash" type="QString"/>
+            <Option value="3x:0,0,0,0,0,0" name="customdash_map_unit_scale" type="QString"/>
+            <Option value="MM" name="customdash_unit" type="QString"/>
+            <Option value="0" name="dash_pattern_offset" type="QString"/>
+            <Option value="3x:0,0,0,0,0,0" name="dash_pattern_offset_map_unit_scale" type="QString"/>
+            <Option value="MM" name="dash_pattern_offset_unit" type="QString"/>
+            <Option value="0" name="draw_inside_polygon" type="QString"/>
+            <Option value="bevel" name="joinstyle" type="QString"/>
+            <Option value="35,35,35,255,rgb:0.13725490196078433,0.13725490196078433,0.13725490196078433,1" name="line_color" type="QString"/>
+            <Option value="solid" name="line_style" type="QString"/>
+            <Option value="0.26" name="line_width" type="QString"/>
+            <Option value="MM" name="line_width_unit" type="QString"/>
+            <Option value="0" name="offset" type="QString"/>
+            <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+            <Option value="MM" name="offset_unit" type="QString"/>
+            <Option value="0" name="ring_filter" type="QString"/>
+            <Option value="0" name="trim_distance_end" type="QString"/>
+            <Option value="3x:0,0,0,0,0,0" name="trim_distance_end_map_unit_scale" type="QString"/>
+            <Option value="MM" name="trim_distance_end_unit" type="QString"/>
+            <Option value="0" name="trim_distance_start" type="QString"/>
+            <Option value="3x:0,0,0,0,0,0" name="trim_distance_start_map_unit_scale" type="QString"/>
+            <Option value="MM" name="trim_distance_start_unit" type="QString"/>
+            <Option value="0" name="tweak_dash_pattern_on_corners" type="QString"/>
+            <Option value="0" name="use_custom_dash" type="QString"/>
+            <Option value="3x:0,0,0,0,0,0" name="width_map_unit_scale" type="QString"/>
+          </Option>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option value="" name="name" type="QString"/>
+              <Option name="properties"/>
+              <Option value="collection" name="type" type="QString"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+      </symbol>
+    </selectionSymbol>
   </selection>
   <customproperties>
-    <Option/>
+    <Option type="Map">
+      <Option value="0" name="embeddedWidgets/count" type="int"/>
+      <Option name="variableNames" type="invalid"/>
+      <Option name="variableValues" type="invalid"/>
+    </Option>
   </customproperties>
   <blendMode>0</blendMode>
   <featureBlendMode>0</featureBlendMode>
   <layerOpacity>1</layerOpacity>
   <geometryOptions removeDuplicateNodes="0" geometryPrecision="0">
-    <activeChecks type="StringList">
-      <Option value="" type="QString"/>
-    </activeChecks>
+    <activeChecks/>
     <checkConfiguration/>
   </geometryOptions>
   <legend type="default-vector" showLabelLegend="0"/>
   <referencedLayers/>
   <fieldConfiguration>
     <field configurationFlags="NoFlag" name="gid">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="nombre">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="situación">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="precisíon">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="escala">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="signo">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="fuente">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="operador">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="dataset">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="fclass">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="responsabl">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="cargo">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="progreso">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="t_act">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="coord">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="sp">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="datum">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="ac">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="clase">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="lin_ferr">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="trocha">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="electrific">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="administra">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="max_carg">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="actualizac">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="concesión">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="igds_style">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="igds_type">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="igds_weigh">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="rotation">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="igds_color">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="group">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="igds_level">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
       </editWidget>
     </field>
     <field configurationFlags="NoFlag" name="length">
-      <editWidget type="">
+      <editWidget type="TextEdit">
         <config>
           <Option/>
         </config>
@@ -682,7 +799,43 @@
     <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
   </attributeactions>
   <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
-    <columns/>
+    <columns>
+      <column name="gid" hidden="0" type="field" width="-1"/>
+      <column name="nombre" hidden="0" type="field" width="-1"/>
+      <column name="situación" hidden="0" type="field" width="-1"/>
+      <column name="precisíon" hidden="0" type="field" width="-1"/>
+      <column name="escala" hidden="0" type="field" width="-1"/>
+      <column name="signo" hidden="0" type="field" width="-1"/>
+      <column name="fuente" hidden="0" type="field" width="-1"/>
+      <column name="operador" hidden="0" type="field" width="-1"/>
+      <column name="dataset" hidden="0" type="field" width="-1"/>
+      <column name="fclass" hidden="0" type="field" width="-1"/>
+      <column name="responsabl" hidden="0" type="field" width="-1"/>
+      <column name="cargo" hidden="0" type="field" width="-1"/>
+      <column name="progreso" hidden="0" type="field" width="-1"/>
+      <column name="t_act" hidden="0" type="field" width="-1"/>
+      <column name="coord" hidden="0" type="field" width="-1"/>
+      <column name="sp" hidden="0" type="field" width="-1"/>
+      <column name="datum" hidden="0" type="field" width="-1"/>
+      <column name="ac" hidden="0" type="field" width="-1"/>
+      <column name="clase" hidden="0" type="field" width="-1"/>
+      <column name="lin_ferr" hidden="0" type="field" width="-1"/>
+      <column name="trocha" hidden="0" type="field" width="-1"/>
+      <column name="electrific" hidden="0" type="field" width="-1"/>
+      <column name="administra" hidden="0" type="field" width="-1"/>
+      <column name="max_carg" hidden="0" type="field" width="-1"/>
+      <column name="actualizac" hidden="0" type="field" width="-1"/>
+      <column name="concesión" hidden="0" type="field" width="-1"/>
+      <column name="igds_style" hidden="0" type="field" width="-1"/>
+      <column name="igds_type" hidden="0" type="field" width="-1"/>
+      <column name="igds_weigh" hidden="0" type="field" width="-1"/>
+      <column name="rotation" hidden="0" type="field" width="-1"/>
+      <column name="igds_color" hidden="0" type="field" width="-1"/>
+      <column name="group" hidden="0" type="field" width="-1"/>
+      <column name="igds_level" hidden="0" type="field" width="-1"/>
+      <column name="length" hidden="0" type="field" width="-1"/>
+      <column hidden="1" type="actions" width="-1"/>
+    </columns>
   </attributetableconfig>
   <conditionalstyles>
     <rowstyles/>
@@ -693,15 +846,134 @@
   <editforminit/>
   <editforminitcodesource>0</editforminitcodesource>
   <editforminitfilepath></editforminitfilepath>
-  <editforminitcode><![CDATA[]]></editforminitcode>
+  <editforminitcode><![CDATA[QGISQGIS# -*- coding: utf-8 -*-
+"""
+Los formularios QGIS pueden tener una función de Python a la que se llama cuando el formulario es abierto.
+
+Utilice esta función para agregar lógica adicional a sus formularios.
+
+Ingrese el nombre de la función en el campo"Función de inicio de Python" .
+A continuación se muestra un ejemplo:
+"""
+from qgis.PyQt.QtWidgets import QWidget
+
+def my_form_open(dialog, layer, feature):
+    geom = feature.geometry()
+    control = dialog.findChild(QWidget, "MyLineEdit")
+]]></editforminitcode>
   <featformsuppress>0</featformsuppress>
   <editorlayout>generatedlayout</editorlayout>
-  <editable/>
-  <labelOnTop/>
-  <reuseLastValue/>
+  <editable>
+    <field name="ac" editable="1"/>
+    <field name="actualizac" editable="1"/>
+    <field name="administra" editable="1"/>
+    <field name="cargo" editable="1"/>
+    <field name="clase" editable="1"/>
+    <field name="concesión" editable="1"/>
+    <field name="coord" editable="1"/>
+    <field name="dataset" editable="1"/>
+    <field name="datum" editable="1"/>
+    <field name="electrific" editable="1"/>
+    <field name="escala" editable="1"/>
+    <field name="fclass" editable="1"/>
+    <field name="fuente" editable="1"/>
+    <field name="gid" editable="1"/>
+    <field name="group" editable="1"/>
+    <field name="igds_color" editable="1"/>
+    <field name="igds_level" editable="1"/>
+    <field name="igds_style" editable="1"/>
+    <field name="igds_type" editable="1"/>
+    <field name="igds_weigh" editable="1"/>
+    <field name="length" editable="1"/>
+    <field name="lin_ferr" editable="1"/>
+    <field name="max_carg" editable="1"/>
+    <field name="nombre" editable="1"/>
+    <field name="operador" editable="1"/>
+    <field name="precisíon" editable="1"/>
+    <field name="progreso" editable="1"/>
+    <field name="responsabl" editable="1"/>
+    <field name="rotation" editable="1"/>
+    <field name="signo" editable="1"/>
+    <field name="situación" editable="1"/>
+    <field name="sp" editable="1"/>
+    <field name="t_act" editable="1"/>
+    <field name="trocha" editable="1"/>
+  </editable>
+  <labelOnTop>
+    <field name="ac" labelOnTop="0"/>
+    <field name="actualizac" labelOnTop="0"/>
+    <field name="administra" labelOnTop="0"/>
+    <field name="cargo" labelOnTop="0"/>
+    <field name="clase" labelOnTop="0"/>
+    <field name="concesión" labelOnTop="0"/>
+    <field name="coord" labelOnTop="0"/>
+    <field name="dataset" labelOnTop="0"/>
+    <field name="datum" labelOnTop="0"/>
+    <field name="electrific" labelOnTop="0"/>
+    <field name="escala" labelOnTop="0"/>
+    <field name="fclass" labelOnTop="0"/>
+    <field name="fuente" labelOnTop="0"/>
+    <field name="gid" labelOnTop="0"/>
+    <field name="group" labelOnTop="0"/>
+    <field name="igds_color" labelOnTop="0"/>
+    <field name="igds_level" labelOnTop="0"/>
+    <field name="igds_style" labelOnTop="0"/>
+    <field name="igds_type" labelOnTop="0"/>
+    <field name="igds_weigh" labelOnTop="0"/>
+    <field name="length" labelOnTop="0"/>
+    <field name="lin_ferr" labelOnTop="0"/>
+    <field name="max_carg" labelOnTop="0"/>
+    <field name="nombre" labelOnTop="0"/>
+    <field name="operador" labelOnTop="0"/>
+    <field name="precisíon" labelOnTop="0"/>
+    <field name="progreso" labelOnTop="0"/>
+    <field name="responsabl" labelOnTop="0"/>
+    <field name="rotation" labelOnTop="0"/>
+    <field name="signo" labelOnTop="0"/>
+    <field name="situación" labelOnTop="0"/>
+    <field name="sp" labelOnTop="0"/>
+    <field name="t_act" labelOnTop="0"/>
+    <field name="trocha" labelOnTop="0"/>
+  </labelOnTop>
+  <reuseLastValue>
+    <field name="ac" reuseLastValue="0"/>
+    <field name="actualizac" reuseLastValue="0"/>
+    <field name="administra" reuseLastValue="0"/>
+    <field name="cargo" reuseLastValue="0"/>
+    <field name="clase" reuseLastValue="0"/>
+    <field name="concesión" reuseLastValue="0"/>
+    <field name="coord" reuseLastValue="0"/>
+    <field name="dataset" reuseLastValue="0"/>
+    <field name="datum" reuseLastValue="0"/>
+    <field name="electrific" reuseLastValue="0"/>
+    <field name="escala" reuseLastValue="0"/>
+    <field name="fclass" reuseLastValue="0"/>
+    <field name="fuente" reuseLastValue="0"/>
+    <field name="gid" reuseLastValue="0"/>
+    <field name="group" reuseLastValue="0"/>
+    <field name="igds_color" reuseLastValue="0"/>
+    <field name="igds_level" reuseLastValue="0"/>
+    <field name="igds_style" reuseLastValue="0"/>
+    <field name="igds_type" reuseLastValue="0"/>
+    <field name="igds_weigh" reuseLastValue="0"/>
+    <field name="length" reuseLastValue="0"/>
+    <field name="lin_ferr" reuseLastValue="0"/>
+    <field name="max_carg" reuseLastValue="0"/>
+    <field name="nombre" reuseLastValue="0"/>
+    <field name="operador" reuseLastValue="0"/>
+    <field name="precisíon" reuseLastValue="0"/>
+    <field name="progreso" reuseLastValue="0"/>
+    <field name="responsabl" reuseLastValue="0"/>
+    <field name="rotation" reuseLastValue="0"/>
+    <field name="signo" reuseLastValue="0"/>
+    <field name="situación" reuseLastValue="0"/>
+    <field name="sp" reuseLastValue="0"/>
+    <field name="t_act" reuseLastValue="0"/>
+    <field name="trocha" reuseLastValue="0"/>
+  </reuseLastValue>
   <dataDefinedFieldProperties/>
   <widgets/>
-  <previewExpression></previewExpression>
+  <previewExpression>"nombre"</previewExpression>
   <mapTip enabled="1"></mapTip>
   <layerGeometryType>1</layerGeometryType>
 </qgis>

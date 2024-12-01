@@ -158,10 +158,10 @@
           <Option type="Map">
             <Option value="0" name="angle" type="QString"/>
             <Option value="square" name="cap_style" type="QString"/>
-            <Option value="231,113,72,255,rgb:0.90588235294117647,0.44313725490196076,0.28235294117647058,1" name="color" type="QString"/>
+            <Option value="231,113,72,0,rgb:0.90588235294117647,0.44313725490196076,0.28235294117647058,0" name="color" type="QString"/>
             <Option value="1" name="horizontal_anchor_point" type="QString"/>
             <Option value="bevel" name="joinstyle" type="QString"/>
-            <Option value="circle" name="name" type="QString"/>
+            <Option value="equilateral_triangle" name="name" type="QString"/>
             <Option value="0,0" name="offset" type="QString"/>
             <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
             <Option value="MM" name="offset_unit" type="QString"/>
@@ -172,6 +172,36 @@
             <Option value="MM" name="outline_width_unit" type="QString"/>
             <Option value="diameter" name="scale_method" type="QString"/>
             <Option value="2" name="size" type="QString"/>
+            <Option value="3x:0,0,0,0,0,0" name="size_map_unit_scale" type="QString"/>
+            <Option value="MM" name="size_unit" type="QString"/>
+            <Option value="1" name="vertical_anchor_point" type="QString"/>
+          </Option>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option value="" name="name" type="QString"/>
+              <Option name="properties"/>
+              <Option value="collection" name="type" type="QString"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+        <layer pass="0" enabled="1" id="{a7282878-5483-4dd5-90e2-23122c50ef24}" class="SimpleMarker" locked="0">
+          <Option type="Map">
+            <Option value="0" name="angle" type="QString"/>
+            <Option value="square" name="cap_style" type="QString"/>
+            <Option value="0,0,0,255,hsv:0,0,0,1" name="color" type="QString"/>
+            <Option value="1" name="horizontal_anchor_point" type="QString"/>
+            <Option value="bevel" name="joinstyle" type="QString"/>
+            <Option value="circle" name="name" type="QString"/>
+            <Option value="0,0" name="offset" type="QString"/>
+            <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
+            <Option value="MM" name="offset_unit" type="QString"/>
+            <Option value="35,35,35,0,rgb:0.13725490196078433,0.13725490196078433,0.13725490196078433,0" name="outline_color" type="QString"/>
+            <Option value="solid" name="outline_style" type="QString"/>
+            <Option value="0" name="outline_width" type="QString"/>
+            <Option value="3x:0,0,0,0,0,0" name="outline_width_map_unit_scale" type="QString"/>
+            <Option value="MM" name="outline_width_unit" type="QString"/>
+            <Option value="diameter" name="scale_method" type="QString"/>
+            <Option value="0.3" name="size" type="QString"/>
             <Option value="3x:0,0,0,0,0,0" name="size_map_unit_scale" type="QString"/>
             <Option value="MM" name="size_unit" type="QString"/>
             <Option value="1" name="vertical_anchor_point" type="QString"/>
@@ -200,7 +230,11 @@
     <selectionColor invalid="1"/>
   </selection>
   <customproperties>
-    <Option/>
+    <Option type="Map">
+      <Option name="dualview/previewExpressions" type="List">
+        <Option value="&quot;cell_name&quot;" type="QString"/>
+      </Option>
+    </Option>
   </customproperties>
   <blendMode>0</blendMode>
   <featureBlendMode>0</featureBlendMode>
@@ -777,8 +811,52 @@
   <attributeactions>
     <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
   </attributeactions>
-  <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
-    <columns/>
+  <attributetableconfig actionWidgetStyle="dropDown" sortExpression="&quot;tipo&quot;" sortOrder="0">
+    <columns>
+      <column name="gid" hidden="0" type="field" width="-1"/>
+      <column name="nombre" hidden="0" type="field" width="-1"/>
+      <column name="tipo" hidden="0" type="field" width="-1"/>
+      <column name="precisión" hidden="0" type="field" width="-1"/>
+      <column name="escala" hidden="0" type="field" width="-1"/>
+      <column name="signo" hidden="0" type="field" width="-1"/>
+      <column name="fuente" hidden="0" type="field" width="-1"/>
+      <column name="operador" hidden="0" type="field" width="-1"/>
+      <column name="dataset" hidden="0" type="field" width="-1"/>
+      <column name="fclass" hidden="0" type="field" width="-1"/>
+      <column name="responsabl" hidden="0" type="field" width="-1"/>
+      <column name="cargo" hidden="0" type="field" width="-1"/>
+      <column name="progreso" hidden="0" type="field" width="-1"/>
+      <column name="t_act" hidden="0" type="field" width="-1"/>
+      <column name="coord" hidden="0" type="field" width="-1"/>
+      <column name="sp" hidden="0" type="field" width="-1"/>
+      <column name="datum" hidden="0" type="field" width="-1"/>
+      <column name="ac" hidden="0" type="field" width="-1"/>
+      <column name="cota" hidden="0" type="field" width="-1"/>
+      <column name="red" hidden="0" type="field" width="-1"/>
+      <column name="monografía" hidden="0" type="field" width="-1"/>
+      <column name="x_inch" hidden="0" type="field" width="-1"/>
+      <column name="y_inch" hidden="0" type="field" width="-1"/>
+      <column name="lat_inch" hidden="0" type="field" width="-1"/>
+      <column name="long_inch" hidden="0" type="field" width="-1"/>
+      <column name="x_posgar" hidden="0" type="field" width="-1"/>
+      <column name="y_posgar" hidden="0" type="field" width="-1"/>
+      <column name="lat_posgar" hidden="0" type="field" width="-1"/>
+      <column name="posgar" hidden="0" type="field" width="-1"/>
+      <column name="fotomonogr" hidden="0" type="field" width="-1"/>
+      <column name="malla" hidden="0" type="field" width="-1"/>
+      <column name="número" hidden="0" type="field" width="-1"/>
+      <column name="en_uso" hidden="0" type="field" width="-1"/>
+      <column name="orden" hidden="0" type="field" width="-1"/>
+      <column name="cell_name" hidden="0" type="field" width="-1"/>
+      <column name="igds_type" hidden="0" type="field" width="-1"/>
+      <column name="igds_weigh" hidden="0" type="field" width="-1"/>
+      <column name="rotation" hidden="0" type="field" width="-1"/>
+      <column name="igds_color" hidden="0" type="field" width="-1"/>
+      <column name="group" hidden="0" type="field" width="-1"/>
+      <column name="igds_level" hidden="0" type="field" width="-1"/>
+      <column name="cotbase" hidden="0" type="field" width="-1"/>
+      <column hidden="1" type="actions" width="-1"/>
+    </columns>
   </attributetableconfig>
   <conditionalstyles>
     <rowstyles/>
@@ -797,7 +875,7 @@
   <reuseLastValue/>
   <dataDefinedFieldProperties/>
   <widgets/>
-  <previewExpression></previewExpression>
+  <previewExpression>"cell_name"</previewExpression>
   <mapTip enabled="1"></mapTip>
   <layerGeometryType>0</layerGeometryType>
 </qgis>
