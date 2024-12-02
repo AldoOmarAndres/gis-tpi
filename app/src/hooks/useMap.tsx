@@ -50,6 +50,8 @@ interface IMapContext {
   map: Map;
   /** Capas temáticas del mapa correspondientes al IGN (no incluye la capa base). */
   layers: TileLayer[];
+  /** IDs de las capas visibles actuales. */
+  visibleLayersIds: string[];
   /** ID de la capa activa actualmente, sobre la que se realizan las operaciones. */
   activeLayerId: string | undefined;
   /** Setter de `activeLayerId`. */
@@ -58,6 +60,7 @@ interface IMapContext {
   activeOperation: Operation;
   /** Activar la operación `operation`. Esto desactiva las demás operaciones. */
   changeOperation: (operation: Operation) => void;
+  /** Setter de la `Interaction` asociada a la `activeOperation` actual. */
   setInteraction: Dispatch<SetStateAction<Interaction | undefined>>;
 }
 
@@ -140,6 +143,10 @@ export function MapProvider({ children }: MapProviderProps) {
     setActiveOperation(operation);
   }
 
+  const visibleLayersIds = layers
+    .filter((l) => l.isVisible())
+    .map((l) => l.get("id"));
+
   return (
     <MapContext.Provider
       value={{
@@ -148,6 +155,7 @@ export function MapProvider({ children }: MapProviderProps) {
         map,
         activeLayerId,
         setActiveLayerId,
+        visibleLayersIds,
         activeOperation,
         changeOperation,
         setInteraction,
