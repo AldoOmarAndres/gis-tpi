@@ -21,6 +21,7 @@ export const LAYER_IDS = [
   "limite_politico_administrativo_lim",
   "lineas_de_conduccion_ene",
   "localidades",
+  "lugares_gastronomicos",
   "marcas_y_seniales",
   "muro_embalse",
   "obra_de_comunicacion",

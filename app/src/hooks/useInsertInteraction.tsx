@@ -2,6 +2,8 @@ import { Map, MapBrowserEvent, Overlay } from "ol";
 import { useMap } from "./useMap";
 import { useEffect, useState } from "react";
 import { Coordinate } from "ol/coordinate";
+import { useToast } from "./use-toast";
+import { TileWMS } from "ol/source";
 
 // URL de la API REST (servidor web conectado a la base de datos)
 const URL = import.meta.env.VITE_API_SERVER_URL;
@@ -30,7 +32,8 @@ export type GastronomyPlaceInputs = {
 };
 
 export function useInsertInteraction() {
-  const { map, activeOperation } = useMap();
+  const { layers, map, activeOperation } = useMap();
+  const { toast } = useToast();
   const [coordinate, setCoordinate] = useState<Coordinate>();
   // Cuando es `true`, se muestra un modal con un form para insertar un punto nuevo
   const isOpen = coordinate !== undefined;
@@ -67,11 +70,32 @@ export function useInsertInteraction() {
     const wkt = `POINT(${coordinate[0]} ${coordinate[1]})`;
     const fechaCreado = new Date().toISOString();
 
-    return fetch(`${URL}/insert`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ wkt, fechaCreado, ...featureData }),
-    }).then((res) => res.json());
+    try {
+      await fetch(`${URL}/insert`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ wkt, fechaCreado, ...featureData }),
+      });
+
+      // Recargar la capa vectorial para que aparezca el punto recién guardado
+      const layer = layers.find((l) => l.get("id") === "lugares_gastronomicos");
+      const wmsSource = layer?.getSource() as TileWMS;
+      const params = wmsSource.getParams();
+      params.t = new Date().getTime(); // Agregar un timestamp para romper el cache
+      wmsSource.updateParams(params);
+
+      toast({
+        title: "Lugar gastronómico guardado correctamente.",
+        className: "bg-green-300 border-green-400",
+      });
+    } catch {
+      toast({
+        variant: "destructive",
+        title: "¡Uy! Algo salió mal al intentar insertar el elemento.",
+        description:
+          "Si no se guardó el lugar gastronómico, intente nuevamente.",
+      });
+    }
   }
 
   return { isOpen, closeInsert, insertNewPoint };

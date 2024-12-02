@@ -20,11 +20,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useToast } from "@/hooks/use-toast";
 
 export default function InsertDialog() {
   const { isOpen, closeInsert, insertNewPoint } = useInsertInteraction();
-  const { toast } = useToast();
 
   return (
     <Dialog open={isOpen} defaultOpen>
@@ -45,21 +43,7 @@ export default function InsertDialog() {
             const formData = new FormData(e.target as HTMLFormElement);
             const data = Object.fromEntries(formData.entries());
 
-            try {
-              await insertNewPoint(data as GastronomyPlaceInputs);
-              toast({
-                title: "Lugar gastronómico guardado correctamente.",
-                className: "bg-green-300 border-green-400",
-              });
-            } catch {
-              toast({
-                variant: "destructive",
-                title: "¡Uy! Algo salió mal al intentar insertar el elemento.",
-                description:
-                  "Si no se guardó el lugar gastronómico, intente nuevamente.",
-              });
-            }
-
+            await insertNewPoint(data as GastronomyPlaceInputs);
             closeInsert();
           }}
         >
@@ -106,7 +90,7 @@ export default function InsertDialog() {
             </div>
           </div>
           <DialogFooter>
-            <Button variant="secondary" onSubmit={closeInsert}>
+            <Button variant="secondary" type="reset" onClick={closeInsert}>
               Cancelar
             </Button>
             <Button type="submit" className="bg-slate-600 hover:bg-slate-700">

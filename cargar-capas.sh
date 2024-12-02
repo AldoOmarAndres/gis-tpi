@@ -47,3 +47,6 @@ shp2pgsql -c -I -s 4326 Veg_Cultivos.shp veg_cultivos | psql -d tpi_db -U postgr
 shp2pgsql -c -I -s 4326 veg_Hidrofila.shp veg_hidrofila | psql -d tpi_db -U postgres;
 shp2pgsql -c -I -s 4326 Veg_Suelo_Desnudo.shp veg_suelo_desnudo | psql -d tpi_db -U postgres;
 shp2pgsql -c -I -s 4326 Vias_Secundarias.shp vias_secundarias | psql -d tpi_db -U postgres;
+
+# Ejecutar el script que crea una tabla vacía, en la que el usuario podrá insertar elementos
+psql -d tpi_db -U postgres -f crear-tabla-lugares-gastronomicos.sql
