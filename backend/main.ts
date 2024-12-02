@@ -22,17 +22,19 @@ const sql = postgres(dbConnectionUrl);
 
 // Desactivar CORS
 app.use(cors());
+// Parsear el JSON del body de las peticiones
+app.use(express.json());
 
 app.get("/query", async (req: Request, res: Response) => {
   // Capa vectorial en la que consultar features
-  const layer = `${req.query.layer}`;
+  const layer = String(req.query.layer);
   if (!LAYER_IDS.includes(layer)) {
     res.status(400).send({ msg: `unknown layer '${layer}' is not valid` });
     return;
   }
 
   // Objeto que intersecta con las features, representado en formato WKT (Well Known Text)
-  let wkt = `${req.query.wkt}`;
+  const wkt = String(req.query.wkt);
   if (!wkt) {
     res.status(400).send({ msg: "'wkt' query parameter is required" });
     return;
@@ -70,6 +72,32 @@ app.get("/query", async (req: Request, res: Response) => {
     `;
 
   res.send(data[0].geojson);
+});
+
+app.post("/insert", async (req: Request, res: Response) => {
+  // Punto representado en formato WKT (Well Known Text)
+  const wkt = String(req.body.wkt);
+  const nombre = String(req.body.nombre);
+  const tipo = String(req.body.tipo);
+  const autor = req.body.autor ? String(req.body.autor) : "";
+  const fechaCreado = String(req.body.fechaCreado);
+  if (!wkt || !nombre || !tipo) {
+    res.status(400).send({ msg: "missing required attribute(s) in body" });
+    return;
+  }
+
+  await sql`
+    INSERT INTO lugares_gastronomicos (nombre, tipo, autor, geom, fecha_creado)
+    VALUES (
+      ${nombre},
+      ${tipo},
+      ${autor},
+      ST_geomfromtext(${wkt}, 4326),
+      ${fechaCreado}
+      );
+    `;
+
+  res.send({});
 });
 
 app.listen(port, () => {

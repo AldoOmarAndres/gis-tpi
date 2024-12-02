@@ -7,6 +7,7 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar.tsx";
 import AppControls from "@/components/AppControls.tsx";
 import { Toaster } from "./components/ui/toaster";
 import QueryDataMenu from "./components/QueryDataMenu";
+import InsertDialog from "./components/InsertDialog";
 
 export default function App() {
   const { mapContainerRef } = useMap();
@@ -26,6 +27,8 @@ export default function App() {
           <AppControls />
           <QueryDataMenu />
         </SidebarInset>
+
+        <InsertDialog />
 
         <Toaster />
       </SidebarProvider>

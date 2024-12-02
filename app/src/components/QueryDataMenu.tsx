@@ -1,7 +1,7 @@
 import { QueryData, useQueryInteraction } from "@/hooks/useQueryInteraction";
-import { Separator } from "./ui/separator";
+import { Separator } from "@/components/ui/separator";
 import { layerNameFromLayerId } from "@/lib/capas";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import { XIcon } from "lucide-react";
 import {
   Table,
@@ -10,7 +10,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "./ui/table";
+} from "@/components/ui/table";
 import { useEffect, useState } from "react";
 
 /** Toma un valor del JSON y devuelve el JSX adecuado a renderizar. */

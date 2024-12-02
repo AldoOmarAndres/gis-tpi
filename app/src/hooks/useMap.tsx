@@ -36,7 +36,12 @@ const defaultMap = new Map({
 });
 
 /** Operaciones que se pueden realizar sobre el mapa. La operación por defecto es 'navigate'. */
-export type Operation = "navigate" | "measure-line" | "measure-area" | "query";
+export type Operation =
+  | "navigate"
+  | "measure-line"
+  | "measure-area"
+  | "query"
+  | "insert";
 
 interface IMapContext {
   /** Referencia al tag HTML que contiene el mapa renderizado con Open Layers. */
