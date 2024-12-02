@@ -50,8 +50,6 @@ interface IMapContext {
   map: Map;
   /** Capas temáticas del mapa correspondientes al IGN (no incluye la capa base). */
   layers: TileLayer[];
-  /** IDs de las capas visibles actuales. */
-  visibleLayersIds: string[];
   /** ID de la capa activa actualmente, sobre la que se realizan las operaciones. */
   activeLayerId: string | undefined;
   /** Setter de `activeLayerId`. */
@@ -143,10 +141,6 @@ export function MapProvider({ children }: MapProviderProps) {
     setActiveOperation(operation);
   }
 
-  const visibleLayersIds = layers
-    .filter((l) => l.isVisible())
-    .map((l) => l.get("id"));
-
   return (
     <MapContext.Provider
       value={{
@@ -155,7 +149,6 @@ export function MapProvider({ children }: MapProviderProps) {
         map,
         activeLayerId,
         setActiveLayerId,
-        visibleLayersIds,
         activeOperation,
         changeOperation,
         setInteraction,
