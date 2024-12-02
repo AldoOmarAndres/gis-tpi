@@ -165,8 +165,8 @@ function OperationsMenu() {
         </ToggleGroupItem>
         <ToggleGroupItem
           value="insert"
-          aria-label="Insertar punto nuevo"
-          title="Inserción de puntos"
+          aria-label="Insertar nuevo lugar gastronómico"
+          title="Insertar nuevo lugar gastronómico"
           className="h-8 w-8 hover:bg-slate-200 data-[state=on]:bg-slate-300 data-[state=on]:border-slate-500 data-[state=on]:border-2"
         >
           <MapPinPlusIcon />

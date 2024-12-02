@@ -58,6 +58,7 @@ interface IMapContext {
   activeOperation: Operation;
   /** Activar la operación `operation`. Esto desactiva las demás operaciones. */
   changeOperation: (operation: Operation) => void;
+  /** Setter de la `Interaction` asociada a la `activeOperation` actual. */
   setInteraction: Dispatch<SetStateAction<Interaction | undefined>>;
 }
 

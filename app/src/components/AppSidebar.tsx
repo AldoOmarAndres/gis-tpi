@@ -12,29 +12,88 @@ import { ComponentProps } from "react";
 import { useMap } from "@/hooks/useMap";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { EyeOff } from "lucide-react";
+import { TileWMS } from "ol/source";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 
+function LegendsList() {
+  const { layers, map } = useMap();
+  const visibleLayers = layers.filter((l) => l.getVisible());
+  const sources = visibleLayers.map((l) => l.getSource() as TileWMS);
+  const resolution = map.getView().getResolution();
+  const urls = sources.map((s) => s.getLegendUrl(resolution));
+
+  if (visibleLayers.length === 0) {
+    return (
+      <SidebarMenuItem>
+        <Alert className="m-2 w-auto">
+          <EyeOff className="h-5 w-5" />
+          <AlertTitle>¡No hay capas visibles!</AlertTitle>
+          <AlertDescription>
+            Aquí podrás ver la leyenda de cada capa que esté visible.
+          </AlertDescription>
+        </Alert>
+      </SidebarMenuItem>
+    );
+  }
+
+  return (
+    <SidebarMenuItem>
+      <div className="m-3 pb-2 bg-white shadow-lg rounded-md">
+        {urls.map((url) => (
+          <img key={url} src={url} alt="Leyenda de la capa" />
+        ))}
+      </div>
+    </SidebarMenuItem>
+  );
+}
+
+function LayersList() {
+  const { layers, activeLayerId, setActiveLayerId } = useMap();
+
+  return (
+    <>
+      {layers.map((layer) => (
+        <SidebarMenuItem key={layer.get("id")}>
+          <SidebarMenuButton
+            asChild
+            className={
+              layer.get("id") === activeLayerId
+                ? "underline font-bold bg-slate-300 hover:bg-slate-300 active:bg-slate-300"
+                : "font-medium"
+            }
+          >
+            <div className="flex gap-0 pl-4">
+              <Checkbox
+                id={layer.get("id")}
+                defaultChecked={layer.isVisible()}
+                // Toggle the layer visibility
+                onCheckedChange={() => layer.setVisible(!layer.isVisible())}
+                className="h-5 w-5 data-[state=checked]:bg-slate-700"
+              />
+              <p
+                onClick={() => setActiveLayerId(layer.get("id"))}
+                className="w-full m-0 p-2"
+              >
+                {layer.get("name")}
+              </p>
+            </div>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+      ))}
+    </>
+  );
+}
 export default function AppSidebar({
   ...props
 }: ComponentProps<typeof Sidebar>) {
-  const { layers, activeLayerId, setActiveLayerId } = useMap();
-
-  /** Alternar la visibilidad de la capa con ID `layerId`. */
-  function toggleVisibility(layerId: string) {
-    const layer = layers.find((l) => l.get("id") === layerId);
-
-    if (!layer) {
-      return;
-    }
-
-    layer.setVisible(!layer.isVisible());
-  }
-
   return (
     <Sidebar {...props}>
       <SidebarHeader>
         <SidebarMenu>
-          <SidebarMenuItem>
-            <p className="font-semibold">🌎 SIG - Grupo 4 - UTN FRRe - 2024</p>
+          <SidebarMenuItem className="font-semibold">
+            🌎 SIG - Grupo 4 - UTN FRRe - 2024
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
@@ -43,33 +102,23 @@ export default function AppSidebar({
 
       <SidebarContent>
         <SidebarMenu className="gap-0">
-          {layers.map((layer) => (
-            <SidebarMenuItem key={layer.get("id")}>
-              <SidebarMenuButton
-                asChild
-                className={
-                  layer.get("id") === activeLayerId
-                    ? "underline font-bold bg-slate-300 hover:bg-slate-300 active:bg-slate-300"
-                    : "font-medium"
-                }
-              >
-                <div className="flex gap-0 pl-4">
-                  <Checkbox
-                    // FIXME: en mobile, abrir y cerrar el sidebar deschequea el checkbox
-                    id={layer.get("id")}
-                    onCheckedChange={() => toggleVisibility(layer.get("id"))}
-                    className="h-5 w-5"
-                  />
-                  <p
-                    onClick={() => setActiveLayerId(layer.get("id"))}
-                    className="w-full m-0 p-2"
-                  >
-                    {layer.get("name")}
-                  </p>
-                </div>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          ))}
+          <Tabs defaultValue="layers">
+            <TabsList className="w-full">
+              <TabsTrigger value="layers" className="min-w-[40%]">
+                Capas
+              </TabsTrigger>
+              <TabsTrigger value="legends" className="min-w-[40%]">
+                Leyendas
+              </TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="layers">
+              <LayersList />
+            </TabsContent>
+            <TabsContent value="legends">
+              <LegendsList />
+            </TabsContent>
+          </Tabs>
         </SidebarMenu>
       </SidebarContent>
 
