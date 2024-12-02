@@ -76,8 +76,8 @@ export default function QueryDataMenu() {
 
   return (
     <div
-      className={`absolute bottom-0 w-full bg-sidebar transition-[transform, height] duration-300 ease-in-out ${
-        isExpanded ? "translate-y-0" : "translate-y-full"
+      className={`absolute bottom-0 w-full bg-sidebar duration-300 ease-in-out ${
+        isExpanded ? "" : "hidden"
       }`}
     >
       <div className="flex justify-between my-1 mx-2">
