@@ -146,83 +146,14 @@
   </elevation>
   <renderer-v2 attr="tipo" type="categorizedSymbol" forceraster="0" referencescale="-1" enableorderby="0" symbollevels="0">
     <categories>
-      <category label="" render="true" symbol="0" type="NULL" value="NULL" uuid="{126096fe-cf22-4ec8-838a-d76cec0c185f}"/>
-      <category label="Bar" render="true" symbol="1" type="string" value="Bar" uuid="{a4b11ae0-3286-4c33-a358-5b03ba19253b}"/>
-      <category label="Cafetería" render="true" symbol="2" type="string" value="Cafetería" uuid="{fa48ddfd-b33f-42bb-ab34-f18dfea267e7}"/>
-      <category label="Otro" render="true" symbol="3" type="string" value="Otro" uuid="{e9a7cac2-de00-4dff-afb9-4474d348c672}"/>
-      <category label="Take Away" render="true" symbol="4" type="string" value="Take Away" uuid="{cdf7b12c-299b-4dca-8260-116e2099e434}"/>
-      <category label="Restaurante" render="true" symbol="5" type="string" value="Restaurante" uuid="{02e84d1a-e1a2-4c92-a3ec-6008586fea67}"/>
+      <category label="Bar" render="true" symbol="0" type="string" value="Bar" uuid="{a4b11ae0-3286-4c33-a358-5b03ba19253b}"/>
+      <category label="Cafetería" render="true" symbol="1" type="string" value="Cafetería" uuid="{fa48ddfd-b33f-42bb-ab34-f18dfea267e7}"/>
+      <category label="Otro" render="true" symbol="2" type="string" value="Otro" uuid="{e9a7cac2-de00-4dff-afb9-4474d348c672}"/>
+      <category label="Take Away" render="true" symbol="3" type="string" value="Take Away" uuid="{cdf7b12c-299b-4dca-8260-116e2099e434}"/>
+      <category label="Restaurante" render="true" symbol="4" type="string" value="Restaurante" uuid="{02e84d1a-e1a2-4c92-a3ec-6008586fea67}"/>
     </categories>
     <symbols>
       <symbol is_animated="0" type="marker" force_rhr="0" clip_to_extent="1" name="0" alpha="1" frame_rate="10">
-        <data_defined_properties>
-          <Option type="Map">
-            <Option type="QString" value="" name="name"/>
-            <Option name="properties"/>
-            <Option type="QString" value="collection" name="type"/>
-          </Option>
-        </data_defined_properties>
-        <layer class="SimpleMarker" enabled="1" id="{d1507817-8077-47f4-8379-18f76f4bbf25}" pass="0" locked="0">
-          <Option type="Map">
-            <Option type="QString" value="0" name="angle"/>
-            <Option type="QString" value="square" name="cap_style"/>
-            <Option type="QString" value="209,209,209,0,rgb:0.81960784313725488,0.81960784313725488,0.81960784313725488,0" name="color"/>
-            <Option type="QString" value="1" name="horizontal_anchor_point"/>
-            <Option type="QString" value="bevel" name="joinstyle"/>
-            <Option type="QString" value="circle" name="name"/>
-            <Option type="QString" value="0,0" name="offset"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="offset_map_unit_scale"/>
-            <Option type="QString" value="MM" name="offset_unit"/>
-            <Option type="QString" value="209,209,209,255,rgb:0.81960784313725488,0.81960784313725488,0.81960784313725488,1" name="outline_color"/>
-            <Option type="QString" value="solid" name="outline_style"/>
-            <Option type="QString" value="0.4" name="outline_width"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="outline_width_map_unit_scale"/>
-            <Option type="QString" value="MM" name="outline_width_unit"/>
-            <Option type="QString" value="diameter" name="scale_method"/>
-            <Option type="QString" value="5" name="size"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="size_map_unit_scale"/>
-            <Option type="QString" value="MM" name="size_unit"/>
-            <Option type="QString" value="1" name="vertical_anchor_point"/>
-          </Option>
-          <data_defined_properties>
-            <Option type="Map">
-              <Option type="QString" value="" name="name"/>
-              <Option name="properties"/>
-              <Option type="QString" value="collection" name="type"/>
-            </Option>
-          </data_defined_properties>
-        </layer>
-        <layer class="SvgMarker" enabled="1" id="{7b51686a-20cc-4fce-ad50-7d2a81dfdc27}" pass="0" locked="0">
-          <Option type="Map">
-            <Option type="QString" value="0" name="angle"/>
-            <Option type="QString" value="209,209,209,255,rgb:0.81960784313725488,0.81960784313725488,0.81960784313725488,1" name="color"/>
-            <Option type="QString" value="0" name="fixedAspectRatio"/>
-            <Option type="QString" value="1" name="horizontal_anchor_point"/>
-            <Option type="QString" value="food/food_restaurant.svg" name="name"/>
-            <Option type="QString" value="0,0" name="offset"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="offset_map_unit_scale"/>
-            <Option type="QString" value="MM" name="offset_unit"/>
-            <Option type="QString" value="35,35,35,255,rgb:0.13725490196078433,0.13725490196078433,0.13725490196078433,1" name="outline_color"/>
-            <Option type="QString" value="0" name="outline_width"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="outline_width_map_unit_scale"/>
-            <Option type="QString" value="MM" name="outline_width_unit"/>
-            <Option name="parameters"/>
-            <Option type="QString" value="diameter" name="scale_method"/>
-            <Option type="QString" value="4.16667" name="size"/>
-            <Option type="QString" value="3x:0,0,0,0,0,0" name="size_map_unit_scale"/>
-            <Option type="QString" value="MM" name="size_unit"/>
-            <Option type="QString" value="1" name="vertical_anchor_point"/>
-          </Option>
-          <data_defined_properties>
-            <Option type="Map">
-              <Option type="QString" value="" name="name"/>
-              <Option name="properties"/>
-              <Option type="QString" value="collection" name="type"/>
-            </Option>
-          </data_defined_properties>
-        </layer>
-      </symbol>
-      <symbol is_animated="0" type="marker" force_rhr="0" clip_to_extent="1" name="1" alpha="1" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option type="QString" value="" name="name"/>
@@ -290,7 +221,7 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol is_animated="0" type="marker" force_rhr="0" clip_to_extent="1" name="2" alpha="1" frame_rate="10">
+      <symbol is_animated="0" type="marker" force_rhr="0" clip_to_extent="1" name="1" alpha="1" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option type="QString" value="" name="name"/>
@@ -358,7 +289,7 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol is_animated="0" type="marker" force_rhr="0" clip_to_extent="1" name="3" alpha="1" frame_rate="10">
+      <symbol is_animated="0" type="marker" force_rhr="0" clip_to_extent="1" name="2" alpha="1" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option type="QString" value="" name="name"/>
@@ -426,7 +357,7 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol is_animated="0" type="marker" force_rhr="0" clip_to_extent="1" name="4" alpha="1" frame_rate="10">
+      <symbol is_animated="0" type="marker" force_rhr="0" clip_to_extent="1" name="3" alpha="1" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option type="QString" value="" name="name"/>
@@ -494,7 +425,7 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol is_animated="0" type="marker" force_rhr="0" clip_to_extent="1" name="5" alpha="1" frame_rate="10">
+      <symbol is_animated="0" type="marker" force_rhr="0" clip_to_extent="1" name="4" alpha="1" frame_rate="10">
         <data_defined_properties>
           <Option type="Map">
             <Option type="QString" value="" name="name"/>
@@ -661,8 +592,8 @@
   <customproperties>
     <Option type="Map">
       <Option type="int" value="0" name="embeddedWidgets/count"/>
-      <Option type="invalid" name="variableNames"/>
-      <Option type="invalid" name="variableValues"/>
+      <Option name="variableNames"/>
+      <Option name="variableValues"/>
     </Option>
   </customproperties>
   <blendMode>0</blendMode>
