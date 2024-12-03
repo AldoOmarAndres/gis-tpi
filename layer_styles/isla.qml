@@ -227,8 +227,8 @@
   <customproperties>
     <Option type="Map">
       <Option value="0" name="embeddedWidgets/count" type="int"/>
-      <Option name="variableNames"/>
-      <Option name="variableValues"/>
+      <Option name="variableNames" type="invalid"/>
+      <Option name="variableValues" type="invalid"/>
     </Option>
   </customproperties>
   <blendMode>0</blendMode>
@@ -240,7 +240,7 @@
       <Option name="QgsGeometryGapCheck" type="Map">
         <Option value="0" name="allowedGapsBuffer" type="double"/>
         <Option value="false" name="allowedGapsEnabled" type="bool"/>
-        <Option value="" name="allowedGapsLayer" type="QString"/>
+        <Option name="allowedGapsLayer" type="invalid"/>
       </Option>
     </checkConfiguration>
   </geometryOptions>

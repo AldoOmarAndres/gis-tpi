@@ -146,55 +146,15 @@
   </elevation>
   <renderer-v2 enableorderby="0" attr="tipo" forceraster="0" referencescale="-1" type="categorizedSymbol" symbollevels="0">
     <categories>
-      <category render="false" value="NULL" label="" symbol="0" uuid="{90816673-5a55-4977-b4d3-597b0d51c341}" type="NULL"/>
-      <category render="true" value="Cabaña" label="Cabaña" symbol="1" uuid="{1abb1cb6-77bd-491f-bdf9-068556557ee5}" type="string"/>
-      <category render="false" value="Cementerio" label="Cementerio" symbol="2" uuid="{a0286717-1285-427c-af93-6e632de371e0}" type="string"/>
-      <category render="false" value="Edificio" label="Edificio" symbol="3" uuid="{1b9f0cf1-6fdf-4f3f-aa03-a6b11ec18776}" type="string"/>
-      <category render="false" value="Edificio de Adobe (Tapera)" label="Edificio de Adobe (Tapera)" symbol="4" uuid="{db8c1b72-1f1c-4a1a-8d15-8535c02b2b5b}" type="string"/>
-      <category render="true" value="Ex Fortín" label="Ex Fortín" symbol="5" uuid="{d299e43e-a09f-4659-8e4a-0f2c6fa8dd34}" type="string"/>
-      <category render="true" value="Refugio" label="Refugio" symbol="6" uuid="{d3c42620-f940-4a16-8d90-5e0a7083a58c}" type="string"/>
+      <category render="true" value="Cabaña" label="Cabaña" symbol="0" uuid="{1abb1cb6-77bd-491f-bdf9-068556557ee5}" type="string"/>
+      <category render="false" value="Cementerio" label="Cementerio" symbol="1" uuid="{a0286717-1285-427c-af93-6e632de371e0}" type="string"/>
+      <category render="false" value="Edificio" label="Edificio" symbol="2" uuid="{1b9f0cf1-6fdf-4f3f-aa03-a6b11ec18776}" type="string"/>
+      <category render="false" value="Edificio de Adobe (Tapera)" label="Edificio de Adobe (Tapera)" symbol="3" uuid="{db8c1b72-1f1c-4a1a-8d15-8535c02b2b5b}" type="string"/>
+      <category render="true" value="Ex Fortín" label="Ex Fortín" symbol="4" uuid="{d299e43e-a09f-4659-8e4a-0f2c6fa8dd34}" type="string"/>
+      <category render="true" value="Refugio" label="Refugio" symbol="5" uuid="{d3c42620-f940-4a16-8d90-5e0a7083a58c}" type="string"/>
     </categories>
     <symbols>
       <symbol clip_to_extent="1" is_animated="0" alpha="1" frame_rate="10" name="0" type="marker" force_rhr="0">
-        <data_defined_properties>
-          <Option type="Map">
-            <Option value="" name="name" type="QString"/>
-            <Option name="properties"/>
-            <Option value="collection" name="type" type="QString"/>
-          </Option>
-        </data_defined_properties>
-        <layer class="SimpleMarker" enabled="1" locked="0" pass="0" id="{d7b2282c-396e-46e8-b8eb-28af16f95485}">
-          <Option type="Map">
-            <Option value="0" name="angle" type="QString"/>
-            <Option value="square" name="cap_style" type="QString"/>
-            <Option value="0,0,0,255,hsv:0.66388888888888886,0,0,1" name="color" type="QString"/>
-            <Option value="1" name="horizontal_anchor_point" type="QString"/>
-            <Option value="bevel" name="joinstyle" type="QString"/>
-            <Option value="square" name="name" type="QString"/>
-            <Option value="0,0" name="offset" type="QString"/>
-            <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
-            <Option value="MM" name="offset_unit" type="QString"/>
-            <Option value="35,35,35,255,rgb:0.13725490196078433,0.13725490196078433,0.13725490196078433,1" name="outline_color" type="QString"/>
-            <Option value="solid" name="outline_style" type="QString"/>
-            <Option value="0" name="outline_width" type="QString"/>
-            <Option value="3x:0,0,0,0,0,0" name="outline_width_map_unit_scale" type="QString"/>
-            <Option value="MM" name="outline_width_unit" type="QString"/>
-            <Option value="diameter" name="scale_method" type="QString"/>
-            <Option value="0.8" name="size" type="QString"/>
-            <Option value="3x:0,0,0,0,0,0" name="size_map_unit_scale" type="QString"/>
-            <Option value="MM" name="size_unit" type="QString"/>
-            <Option value="1" name="vertical_anchor_point" type="QString"/>
-          </Option>
-          <data_defined_properties>
-            <Option type="Map">
-              <Option value="" name="name" type="QString"/>
-              <Option name="properties"/>
-              <Option value="collection" name="type" type="QString"/>
-            </Option>
-          </data_defined_properties>
-        </layer>
-      </symbol>
-      <symbol clip_to_extent="1" is_animated="0" alpha="1" frame_rate="10" name="1" type="marker" force_rhr="0">
         <data_defined_properties>
           <Option type="Map">
             <Option value="" name="name" type="QString"/>
@@ -232,7 +192,7 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol clip_to_extent="1" is_animated="0" alpha="1" frame_rate="10" name="2" type="marker" force_rhr="0">
+      <symbol clip_to_extent="1" is_animated="0" alpha="1" frame_rate="10" name="1" type="marker" force_rhr="0">
         <data_defined_properties>
           <Option type="Map">
             <Option value="" name="name" type="QString"/>
@@ -331,7 +291,7 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol clip_to_extent="1" is_animated="0" alpha="1" frame_rate="10" name="3" type="marker" force_rhr="0">
+      <symbol clip_to_extent="1" is_animated="0" alpha="1" frame_rate="10" name="2" type="marker" force_rhr="0">
         <data_defined_properties>
           <Option type="Map">
             <Option value="" name="name" type="QString"/>
@@ -370,7 +330,7 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol clip_to_extent="1" is_animated="0" alpha="1" frame_rate="10" name="4" type="marker" force_rhr="0">
+      <symbol clip_to_extent="1" is_animated="0" alpha="1" frame_rate="10" name="3" type="marker" force_rhr="0">
         <data_defined_properties>
           <Option type="Map">
             <Option value="" name="name" type="QString"/>
@@ -409,7 +369,7 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol clip_to_extent="1" is_animated="0" alpha="1" frame_rate="10" name="5" type="marker" force_rhr="0">
+      <symbol clip_to_extent="1" is_animated="0" alpha="1" frame_rate="10" name="4" type="marker" force_rhr="0">
         <data_defined_properties>
           <Option type="Map">
             <Option value="" name="name" type="QString"/>
@@ -448,7 +408,7 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol clip_to_extent="1" is_animated="0" alpha="1" frame_rate="10" name="6" type="marker" force_rhr="0">
+      <symbol clip_to_extent="1" is_animated="0" alpha="1" frame_rate="10" name="5" type="marker" force_rhr="0">
         <data_defined_properties>
           <Option type="Map">
             <Option value="" name="name" type="QString"/>
@@ -528,9 +488,6 @@
         </layer>
       </symbol>
     </source-symbol>
-    <colorramp name="[source]" type="randomcolors">
-      <Option/>
-    </colorramp>
     <rotation/>
     <sizescale/>
     <data-defined-properties>

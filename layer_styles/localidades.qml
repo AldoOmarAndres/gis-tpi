@@ -146,18 +146,17 @@
   </elevation>
   <renderer-v2 enableorderby="0" attr="tipo" forceraster="0" referencescale="-1" type="categorizedSymbol" symbollevels="0">
     <categories>
-      <category render="true" value="Capital de Nación" label="Capital de Nación" symbol="0" uuid="{05c3ae24-8d4c-471e-99c4-0ba673a9b805}" type="string"/>
-      <category render="true" value="Capital de Provincia" label="Capital de Provincia" symbol="1" uuid="{7d41de24-6179-49c9-ad74-92d9be69d61b}" type="string"/>
-      <category render="true" value="Cabecera de Partido o Departamento" label="Cabecera de Partido o Departamento" symbol="2" uuid="{909445c0-141a-40ad-819c-1e1104468e82}" type="string"/>
+      <category render="false" value="Capital de Nación" label="Capital de Nación" symbol="0" uuid="{05c3ae24-8d4c-471e-99c4-0ba673a9b805}" type="string"/>
+      <category render="false" value="Capital de Provincia" label="Capital de Provincia" symbol="1" uuid="{7d41de24-6179-49c9-ad74-92d9be69d61b}" type="string"/>
+      <category render="false" value="Cabecera de Partido o Departamento" label="Cabecera de Partido o Departamento" symbol="2" uuid="{909445c0-141a-40ad-819c-1e1104468e82}" type="string"/>
       <category render="true" value="Barrio" label="Barrio" symbol="3" uuid="{c3eb7906-56a1-4ecf-802d-268e7c0a6dc2}" type="string"/>
-      <category render="true" value="Caserío" label="Caserío" symbol="4" uuid="{ed557d6a-dbaf-4b54-840b-d20279fd69cb}" type="string"/>
-      <category render="true" value="Ciudad" label="Ciudad" symbol="5" uuid="{ec895467-d93b-42d9-af4b-5f78b734028f}" type="string"/>
-      <category render="true" value="Colonia" label="Colonia" symbol="6" uuid="{cef48712-5d8c-4e1f-be33-195bf4d91c67}" type="string"/>
-      <category render="true" value="Localidad" label="Localidad" symbol="7" uuid="{2cf52953-037e-44d3-b827-65bef81a9c35}" type="string"/>
-      <category render="true" value="Lugar o Paraje" label="Lugar o Paraje" symbol="8" uuid="{647c2825-f707-4ad4-a76c-5f56839edba5}" type="string"/>
-      <category render="true" value="Pueblo" label="Pueblo" symbol="9" uuid="{9854f174-b514-4d38-8929-ec0bab17272d}" type="string"/>
+      <category render="false" value="Caserío" label="Caserío" symbol="4" uuid="{ed557d6a-dbaf-4b54-840b-d20279fd69cb}" type="string"/>
+      <category render="false" value="Ciudad" label="Ciudad" symbol="5" uuid="{ec895467-d93b-42d9-af4b-5f78b734028f}" type="string"/>
+      <category render="false" value="Colonia" label="Colonia" symbol="6" uuid="{cef48712-5d8c-4e1f-be33-195bf4d91c67}" type="string"/>
+      <category render="false" value="Localidad" label="Localidad" symbol="7" uuid="{2cf52953-037e-44d3-b827-65bef81a9c35}" type="string"/>
+      <category render="false" value="Lugar o Paraje" label="Lugar o Paraje" symbol="8" uuid="{647c2825-f707-4ad4-a76c-5f56839edba5}" type="string"/>
+      <category render="false" value="Pueblo" label="Pueblo" symbol="9" uuid="{9854f174-b514-4d38-8929-ec0bab17272d}" type="string"/>
       <category render="true" value="Villa" label="Villa" symbol="10" uuid="{e56d9407-abfe-48f1-9a54-d49927ee8c17}" type="string"/>
-      <category render="true" value="NULL" label="" symbol="11" uuid="{4b31709b-c1af-4fa7-8b78-9ee9a393cd47}" type="NULL"/>
     </categories>
     <symbols>
       <symbol clip_to_extent="1" is_animated="0" alpha="1" frame_rate="10" name="0" type="marker" force_rhr="0">
@@ -340,46 +339,7 @@
           <Option type="Map">
             <Option value="0" name="angle" type="QString"/>
             <Option value="square" name="cap_style" type="QString"/>
-            <Option value="215,221,104,255,hsv:0.17499999999999999,0.52941176470588236,0.8666666666666667,1" name="color" type="QString"/>
-            <Option value="1" name="horizontal_anchor_point" type="QString"/>
-            <Option value="bevel" name="joinstyle" type="QString"/>
-            <Option value="circle" name="name" type="QString"/>
-            <Option value="0,0" name="offset" type="QString"/>
-            <Option value="3x:0,0,0,0,0,0" name="offset_map_unit_scale" type="QString"/>
-            <Option value="MM" name="offset_unit" type="QString"/>
-            <Option value="35,35,35,255,rgb:0.13725490196078433,0.13725490196078433,0.13725490196078433,1" name="outline_color" type="QString"/>
-            <Option value="solid" name="outline_style" type="QString"/>
-            <Option value="0" name="outline_width" type="QString"/>
-            <Option value="3x:0,0,0,0,0,0" name="outline_width_map_unit_scale" type="QString"/>
-            <Option value="MM" name="outline_width_unit" type="QString"/>
-            <Option value="diameter" name="scale_method" type="QString"/>
-            <Option value="2" name="size" type="QString"/>
-            <Option value="3x:0,0,0,0,0,0" name="size_map_unit_scale" type="QString"/>
-            <Option value="MM" name="size_unit" type="QString"/>
-            <Option value="1" name="vertical_anchor_point" type="QString"/>
-          </Option>
-          <data_defined_properties>
-            <Option type="Map">
-              <Option value="" name="name" type="QString"/>
-              <Option name="properties"/>
-              <Option value="collection" name="type" type="QString"/>
-            </Option>
-          </data_defined_properties>
-        </layer>
-      </symbol>
-      <symbol clip_to_extent="1" is_animated="0" alpha="1" frame_rate="10" name="11" type="marker" force_rhr="0">
-        <data_defined_properties>
-          <Option type="Map">
-            <Option value="" name="name" type="QString"/>
-            <Option name="properties"/>
-            <Option value="collection" name="type" type="QString"/>
-          </Option>
-        </data_defined_properties>
-        <layer class="SimpleMarker" enabled="1" locked="0" pass="0" id="{1e15f98f-2235-4986-ab3c-cb8aea537ad3}">
-          <Option type="Map">
-            <Option value="0" name="angle" type="QString"/>
-            <Option value="square" name="cap_style" type="QString"/>
-            <Option value="232,67,139,255,hsv:0.92777777777777781,0.70980392156862748,0.90980392156862744,1" name="color" type="QString"/>
+            <Option value="106,67,0,255,hsv:0.10575,1,0.41412985427634091,1" name="color" type="QString"/>
             <Option value="1" name="horizontal_anchor_point" type="QString"/>
             <Option value="bevel" name="joinstyle" type="QString"/>
             <Option value="circle" name="name" type="QString"/>
@@ -487,7 +447,7 @@
           <Option type="Map">
             <Option value="0" name="angle" type="QString"/>
             <Option value="square" name="cap_style" type="QString"/>
-            <Option value="140,19,232,255,hsv:0.76111111111111107,0.91764705882352937,0.90980392156862744,1" name="color" type="QString"/>
+            <Option value="69,106,0,255,hsv:0.22508333333333333,1,0.41412985427634091,1" name="color" type="QString"/>
             <Option value="1" name="horizontal_anchor_point" type="QString"/>
             <Option value="bevel" name="joinstyle" type="QString"/>
             <Option value="circle" name="name" type="QString"/>
@@ -526,7 +486,7 @@
           <Option type="Map">
             <Option value="0" name="angle" type="QString"/>
             <Option value="square" name="cap_style" type="QString"/>
-            <Option value="106,217,21,255,hsv:0.26111111111111113,0.90196078431372551,0.85098039215686272,1" name="color" type="QString"/>
+            <Option value="226,217,21,255,rgb:0.88442816815442127,0.85098039215686272,0.08343633173113603,1" name="color" type="QString"/>
             <Option value="1" name="horizontal_anchor_point" type="QString"/>
             <Option value="bevel" name="joinstyle" type="QString"/>
             <Option value="circle" name="name" type="QString"/>
@@ -790,9 +750,6 @@
         </layer>
       </symbol>
     </source-symbol>
-    <colorramp name="[source]" type="randomcolors">
-      <Option/>
-    </colorramp>
     <rotation/>
     <sizescale/>
     <data-defined-properties>
