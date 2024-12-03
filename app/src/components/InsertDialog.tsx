@@ -29,6 +29,7 @@ export default function InsertDialog() {
       <DialogContent
         className="sm:max-w-[425px] [&>button]:hidden"
         onInteractOutside={closeInsert}
+        aria-describedby="Formulario para cargar un lugar gastronómico"
       >
         <DialogHeader>
           <DialogTitle>Insertar nuevo lugar gastronómico</DialogTitle>

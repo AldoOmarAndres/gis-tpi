@@ -2,7 +2,7 @@ import { QueryData, useQueryInteraction } from "@/hooks/useQueryInteraction";
 import { Separator } from "@/components/ui/separator";
 import { layerNameFromLayerId } from "@/lib/capas";
 import { Button } from "@/components/ui/button";
-import { XIcon } from "lucide-react";
+import { SearchX, XIcon } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -12,6 +12,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useEffect, useState } from "react";
+import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 
 /** Toma un valor del JSON y devuelve el JSX adecuado a renderizar. */
 function DataValue({ value }: { value: unknown }) {
@@ -28,7 +29,15 @@ function DataValue({ value }: { value: unknown }) {
 
 function QueryDataTable({ queryData }: { queryData: QueryData }) {
   if (!queryData.features || queryData.features.length === 0) {
-    return;
+    return (
+      <Alert className="m-auto my-2 w-fit">
+        <SearchX className="h-5 w-5" />
+        <AlertTitle>¡No se encontraron datos!</AlertTitle>
+        <AlertDescription>
+          Consultaste un área de la capa que no tiene ningún elemento.
+        </AlertDescription>
+      </Alert>
+    );
   }
 
   const propertiesArray = queryData.features.map((f) => f.properties);

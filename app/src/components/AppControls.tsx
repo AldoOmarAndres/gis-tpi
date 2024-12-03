@@ -121,6 +121,7 @@ function OperationsMenu() {
     activeOperation === "measure-area" ||
     measureLineSource?.getFeatures().length !== 0 ||
     measureAreaSource?.getFeatures().length !== 0;
+
   return (
     <div className="flex gap-1">
       <ToggleGroup
